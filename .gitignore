@@ -218,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Poker Memory
+/data/
+node_modules/
+.next/
+*.tsbuildinfo
+

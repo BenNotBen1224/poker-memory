@@ -1,0 +1,85 @@
+:root {
+  --bg: #0f1412;
+  --panel: #18211d;
+  --line: #2b3832;
+  --text: #e8efe9;
+  --muted: #93a39a;
+  --accent: #4cc38a;
+  --warn: #f2b84b;
+  --bad: #f06a6a;
+  --info: #6aa7f0;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+main { max-width: 760px; margin: 0 auto; padding: 12px; }
+a { color: var(--accent); }
+h1 { font-size: 1.3rem; margin: 8px 0; }
+h2 { font-size: 1.05rem; margin: 18px 0 8px; }
+
+.top {
+  display: flex; gap: 10px; align-items: baseline;
+  padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--panel);
+}
+.top a { color: var(--text); font-weight: 700; text-decoration: none; }
+.muted { color: var(--muted); font-size: 0.85rem; }
+.error { color: var(--bad); }
+
+.card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px; margin: 10px 0;
+}
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.grow { flex: 1; min-width: 0; }
+
+.badge {
+  display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 0.75rem;
+  border: 1px solid var(--line); color: var(--muted); white-space: nowrap;
+}
+.badge.good, .badge.observed { color: var(--accent); border-color: var(--accent); }
+.badge.warn, .badge.estimated { color: var(--warn); border-color: var(--warn); }
+.badge.bad, .badge.unknown { color: var(--bad); border-color: var(--bad); }
+.badge.derived { color: var(--info); border-color: var(--info); }
+
+button, .button {
+  background: #24322b; color: var(--text); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 12px; font: inherit; cursor: pointer; min-height: 40px; text-decoration: none;
+}
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: #062014; border-color: var(--accent); font-weight: 600; }
+button:disabled { opacity: 0.5; cursor: default; }
+button.chip { min-height: 32px; padding: 4px 10px; font-size: 0.85rem; border-radius: 999px; }
+
+input, textarea {
+  width: 100%; background: #0b100e; color: var(--text); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px; font: inherit;
+}
+textarea { font-family: ui-monospace, Consolas, monospace; font-size: 0.85rem; }
+
+.video { position: sticky; top: 0; z-index: 2; background: var(--bg); padding-bottom: 6px; }
+.video video { width: 100%; max-height: 38vh; border-radius: 8px; background: #000; display: block; }
+
+.facts { list-style: none; padding: 0; margin: 8px 0; }
+.facts li { display: flex; gap: 8px; align-items: flex-start; padding: 4px 0; border-top: 1px dashed var(--line); }
+.facts li:first-child { border-top: 0; }
+.facts .badge { width: 74px; text-align: center; flex: none; margin-top: 2px; }
+
+.question { text-align: right; margin: 12px 0 4px; }
+.question span { background: #24322b; padding: 6px 10px; border-radius: 10px; display: inline-block; }
+
+.steps { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.steps td { padding: 6px 4px; border-top: 1px solid var(--line); vertical-align: top; }
+.steps tr.hero td { background: #1d2a23; }
+.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cards { font-family: ui-monospace, Consolas, monospace; }
+
+details summary { cursor: pointer; color: var(--muted); }
+pre { white-space: pre-wrap; word-break: break-word; font-size: 0.75rem; color: var(--muted); }

@@ -1,0 +1,89 @@
+# Synthetic session. Every player is a fictional alias; no real person or recording is involved.
+# Event lines: "s<seat> fold|check|call|bet N|raise N|allin", "flop|turn|river <cards>",
+# "s<seat> show <cards>" or "s<seat> muck". Bet/raise amounts are "to" totals for the street.
+# "@mm:ss(.d)" is the position in the session video; its precision sets the time uncertainty.
+session:
+  key: 2026-10-31-home-game
+  title: Friday home game (synthetic, fictional players)
+  consent: all_participants
+  synthetic: true
+  stakes: {sb: 1, bb: 2, currency: USD}
+  video: sample_session.mp4
+
+hands:
+  - index: 7
+    button: 4
+    seats:
+      - {seat: 1, alias: Alice, stack: 200}
+      - {seat: 2, alias: Hero, stack: 250}
+      - {seat: 3, alias: Black shirt, stack: 310, note: "black shirt; tanks a lot"}
+      - {seat: 4, alias: Bob, stack: 180}
+    hero: {seat: 2, cards: AhQd}
+    dealt_at: "00:41"
+    events:
+      - s3 raise 6 @00:47.2
+      - s4 fold @00:49
+      - s1 fold @00:50
+      - s2 call @00:55
+      - flop Qs7c2d @01:02
+      - s2 check @01:05
+      - s3 bet 8 @01:11
+      - s2 call @01:14
+      - turn 9h @01:20
+      - s2 check @01:23
+      - s3 check @01:25
+      - river 3c @01:31
+      - s2 bet 20 @01:38
+      - s3 raise 75 @01:55.4
+      - s2 fold @02:21
+    result: {3: 35}
+
+  - index: 8
+    button: 1
+    seats:
+      - {seat: 1, alias: Alice, stack: 199}
+      - {seat: 2, alias: Hero, stack: 216}
+      - {seat: 3, alias: Black shirt, stack: 345, note: "black shirt; tanks a lot"}
+      - {seat: 4, alias: Bob, stack: 60}
+    hero: {seat: 2, cards: KhKs}
+    dealt_at: "02:30"
+    events:
+      - s4 allin @02:36
+      - s1 fold @02:39
+      - s2 raise 150 @02:44
+      - s3 call @02:52
+      - flop Ah8c4d @02:58
+      - s2 allin @03:03
+      - s3 call @03:10
+      - turn 2s @03:14
+      - river Tc @03:17
+      - s4 show AcJd @03:20
+      - s3 show 9s9d @03:22
+    result: {4: 120, 2: 96, 3: -216, 1: 0}
+
+  - index: 9
+    button: 3
+    seats:
+      - {seat: 1, alias: Alice, stack: 199}
+      - {seat: 2, alias: Hero, stack: 312}
+      - {seat: 3, alias: Black shirt, stack: 129, note: "black shirt; tanks a lot"}
+      - {seat: 4, alias: Bob, stack: 180}
+    hero: {seat: 2, cards: AsQh}
+    dealt_at: "03:36"
+    events:
+      - s2 raise 6 @03:41
+      - s3 call @03:44
+      - s4 fold @03:46
+      - s1 fold @03:47
+      - flop Qc8d5s @03:52
+      - s2 bet 8 @03:56
+      - s3 call @04:01
+      - turn 2h @04:06
+      - s2 check @04:09
+      - s3 check @04:11
+      - river Kd @04:16
+      - s2 check @04:19
+      - s3 bet 30 @04:31
+      - s2 call @04:40
+      - s3 show QdJs @04:44
+    result: {2: 47, 3: -44}

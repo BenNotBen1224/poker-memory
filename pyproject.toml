@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "poker-memory"
+version = "0.1.0"
+description = "Local-first poker hand memory and post-session review"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pokerkit==0.6.3",
+    "fastapi==0.115.12",
+    "uvicorn==0.34.2",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.5", "httpx==0.28.1"]
+video = ["imageio-ffmpeg>=0.5", "pillow>=10"]
+
+[project.scripts]
+poker-memory = "poker_memory.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
