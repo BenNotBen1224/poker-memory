@@ -4,6 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { api, type Session } from "@/lib/api";
 
+const CONSENT_LABEL: Record<Session["consent"], string> = {
+  all_participants: "everyone consented",
+  open_license: "open license",
+  none: "no consent",
+};
+
 export default function Home() {
   const [sessions, setSessions] = useState<Session[] | null>(null);
   const [error, setError] = useState("");
@@ -48,7 +54,8 @@ export default function Home() {
           <div className="row muted" style={{ marginTop: 6 }}>
             <span>{s.key}</span>
             <span>
-              {s.stakes.sb}/{s.stakes.bb} {s.stakes.currency}
+              {s.stakes.sb}/{s.stakes.bb}
+              {s.stakes.ante > 0 && ` ante ${s.stakes.ante}`} {s.stakes.currency}
             </span>
             <span>
               {s.verified}/{s.hand_count} hands checked
@@ -56,9 +63,7 @@ export default function Home() {
           </div>
           <div className="row" style={{ marginTop: 6 }}>
             {s.synthetic && <span className="badge">synthetic</span>}
-            <span className={`badge ${s.consent === "all_participants" ? "good" : "bad"}`}>
-              {s.consent === "all_participants" ? "everyone consented" : "no consent"}
-            </span>
+            <span className={`badge ${s.consent === "none" ? "bad" : "good"}`}>{CONSENT_LABEL[s.consent]}</span>
             {s.video_url && <span className="badge">video</span>}
             {s.status !== "ended" && (
               <button type="button" onClick={() => end(s.key)}>

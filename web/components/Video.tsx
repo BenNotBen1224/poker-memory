@@ -1,10 +1,11 @@
 "use client";
 
 import { useImperativeHandle, useRef } from "react";
+import type { Source } from "@/lib/api";
 
 export type VideoHandle = { seek: (ms: number) => void };
 
-export function Video({ src, ref }: { src: string; ref: React.Ref<VideoHandle> }) {
+export function Video({ src, source, ref }: { src: string; source?: Source | null; ref: React.Ref<VideoHandle> }) {
   const video = useRef<HTMLVideoElement>(null);
   useImperativeHandle(ref, () => ({
     seek(ms: number) {
@@ -18,6 +19,12 @@ export function Video({ src, ref }: { src: string; ref: React.Ref<VideoHandle> }
   return (
     <div className="video">
       <video ref={video} src={src} controls playsInline preload="metadata" />
+      {source && (
+        <p className="muted credit">
+          “<a href={source.url}>{source.title}</a>” by {source.author}, <a href={source.license_url}>{source.license}</a>.
+          Shown unchanged.
+        </p>
+      )}
     </div>
   );
 }

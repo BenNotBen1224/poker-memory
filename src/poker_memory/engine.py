@@ -82,9 +82,9 @@ def replay(record: HandRecord, stakes: Stakes) -> Replay:
     start = {s.seat: s.stack for s in record.seats}
     hero = record.hero.seat
     hero_cards = parse_cards(record.hero.cards)
-
+    camera_cards = {c for s in record.seats if s.hole_cam for c in parse_cards(s.hole_cam)}  # only for the reuse check
     state = NoLimitTexasHoldem.create_state(
-        _AUTOMATIONS, True, 0, (stakes.sb, stakes.bb), stakes.bb,
+        _AUTOMATIONS, True, stakes.ante, (stakes.sb, stakes.bb), stakes.bb,
         tuple(start[seat] for seat in order), len(order), mode=Mode.CASH_GAME,
     )
     while state.hole_dealee_index is not None:
@@ -178,7 +178,7 @@ def replay(record: HandRecord, stakes: Stakes) -> Replay:
         expected = STREETS[state.street_index]
         if ev.street != expected:
             raise _Stop(ev.seq, "wrong_street", f"expected the {expected}, got the {ev.street}")
-        in_play = set(before.board) | set(hero_cards) | {c for cs in revealed.values() for c in cs}
+        in_play = set(before.board) | set(hero_cards) | camera_cards | {c for cs in revealed.values() for c in cs}
         if dup := in_play & set(ev.cards):
             raise _Stop(ev.seq, "card_reused", f"card already in play: {', '.join(sorted(dup))}")
         while state.can_burn_card("??"):

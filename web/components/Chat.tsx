@@ -8,13 +8,17 @@ const EXAMPLES = [
   "Was my river fold to the raise reasonable?",
   "What if he bluffs 10%?",
   "What if he has 77, AK?",
-  "Show me the AQ hand",
-  "Was my river call good in hand 9?",
 ];
+
+const SYNTHETIC_EXAMPLES = ["Show me the AQ hand", "Was my river call good in hand 9?"];
 
 type Turn = { question: string; answer?: Answer; error?: string };
 
-export function Chat({ sessionKey, onSeek }: { sessionKey: string; onSeek?: (ms: number) => void }) {
+export function Chat({ sessionKey, synthetic, onSeek }: {
+  sessionKey: string;
+  synthetic: boolean;
+  onSeek?: (ms: number) => void;
+}) {
   const [turns, setTurns] = useState<Turn[]>([]);
   const [conversation, setConversation] = useState<number | null>(null);
   const [text, setText] = useState("");
@@ -68,7 +72,7 @@ export function Chat({ sessionKey, onSeek }: { sessionKey: string; onSeek?: (ms:
         <button className="primary" disabled={busy || !text.trim()}>Ask</button>
       </form>
       <div className="row" style={{ marginTop: 8 }}>
-        {EXAMPLES.map((q) => (
+        {(synthetic ? [...EXAMPLES, ...SYNTHETIC_EXAMPLES] : EXAMPLES).map((q) => (
           <button key={q} type="button" className="chip" disabled={busy} onClick={() => ask(q)}>
             {q}
           </button>

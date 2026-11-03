@@ -28,12 +28,16 @@ export default function SessionPage() {
 
   return (
     <>
-      {session.video_url && <Video ref={video} src={session.video_url} />}
+      {session.video_url && <Video ref={video} src={session.video_url} source={session.source} />}
       <h1>{session.title}</h1>
       {session.status !== "ended" && (
         <p className="card">This session is still open. Analysis starts after it ends.</p>
       )}
-      <Chat sessionKey={key} onSeek={session.video_url ? (ms) => video.current?.seek(ms) : undefined} />
+      <Chat
+        sessionKey={key}
+        synthetic={session.synthetic}
+        onSeek={session.video_url ? (ms) => video.current?.seek(ms) : undefined}
+      />
       <h2>Hands</h2>
       {hands.map((h) => (
         <Link key={h.index} href={`/s/${encodeURIComponent(key)}/h/${h.index}`} style={{ textDecoration: "none", color: "inherit" }}>

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import mimetypes
 import os
 from pathlib import Path
 
@@ -64,7 +65,7 @@ def create_app(data_dir: str | Path) -> FastAPI:
     @app.post("/api/sessions", status_code=201)
     def import_session(doc: SessionDoc):
         if doc.session.video:
-            raise HTTPException(422, "upload sessions without video here; attach consented video with the CLI")
+            raise HTTPException(422, "upload sessions without video here; attach a consented or openly licensed video with the CLI")
         return memory.import_session(doc)
 
     @app.post("/api/sessions/{key}/end")
@@ -102,7 +103,7 @@ def create_app(data_dir: str | Path) -> FastAPI:
         path = memory.video_path(key)
         if not path or not path.is_file():
             raise NotFound(f"session {key!r} has no video")
-        return FileResponse(path, media_type="video/mp4")
+        return FileResponse(path, media_type=mimetypes.guess_type(path.name)[0] or "video/mp4")
 
     return app
 

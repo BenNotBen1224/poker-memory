@@ -14,8 +14,8 @@ from pydantic import BaseModel
 
 from .engine import Step
 from .interpret import Query, parse_question
-from .model import HandRecord, SessionDoc, VideoTime
-from .odds import bluff_share_what_if, equity, pot_odds, river_partition, winnable_if_call
+from .model import HandRecord, SessionDoc, VideoTime, parse_cards
+from .odds import bluff_share_what_if, equity, pot_odds, river_partition, showdown, winnable_if_call
 from .search import find_decision, hero_cards, search, summary, you_label
 from .store import Conflict, NotFound, StoredHand, StoredSession, Store, ToolRun
 
@@ -77,7 +77,15 @@ def _gap(a: VideoTime, b: VideoTime) -> tuple[int, int]:
 
 
 def _secs(lo: int, hi: int) -> str:
-    return f"{lo / 1000:.1f}-{hi / 1000:.1f} s"
+    text = f"{lo / 1000:.1f}-{hi / 1000:.1f} s"
+    if lo >= 60_000:
+        minutes, seconds = divmod(round((lo + hi) / 2000), 60)
+        text += f" (about {minutes} min {seconds} s)"
+    return text
+
+
+def _hand_words(label: str) -> str:
+    return f"a {label.lower()}" if label in {"High card", "Straight", "Flush", "Full house", "Straight flush"} else label.lower()
 
 
 class PokerMemory:
@@ -344,6 +352,24 @@ class PokerMemory:
                 facts.append(Fact(name="hindsight", kind="observed", value=shown,
                                   text=f"Later {alias(seat)} showed {' '.join(shown)}. That is hindsight and "
                                        "is not used in any number above."))
+        for s in h.record.seats:
+            if not s.hole_cam or s.seat == hero or s.seat in folded or s.seat in h.replay.revealed:
+                continue
+            theirs = parse_cards(s.hole_cam)
+            facts.append(Fact(name="hole_cam", kind="observed", value=theirs,
+                              text=f"A hole-card camera in the broadcast showed {alias(s.seat)} holding "
+                                   f"{' '.join(theirs)}. You could not see that at the table; it is hindsight and "
+                                   "is not used in any number above."))
+            if len(h.replay.board) == 5:
+                sd = showdown(tuple(cards), tuple(theirs), h.replay.board)
+                run("showdown", {"hero": cards, "villain": theirs, "board": h.replay.board}, sd.model_dump())
+                wins = {"villain": f"{alias(s.seat)}'s hand wins", "hero": "your hand wins", "tie": "it is a tie"}
+                text = (f"On the final board {alias(s.seat)} has {_hand_words(sd.villain_hand)} and you have "
+                        f"{_hand_words(sd.hero_hand)}: {wins[sd.winner]}.")
+                if before.street == "river" and step.verb == "fold" and still_in == 1:
+                    outcome = {"villain": "lost", "hero": "won", "tie": "split"}[sd.winner]
+                    text += f" Calling here would have {outcome} the pot."
+                facts.append(Fact(name="hindsight_showdown", kind="derived", value=sd.model_dump(), text=text))
         net = (h.replay.payoffs or {}).get(hero)
         if net is not None:
             facts.append(Fact(name="result", kind="derived", value=net,

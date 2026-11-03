@@ -221,6 +221,7 @@ __marimo__/
 
 # Poker Memory
 /data/
+/examples/real/*.webm
 node_modules/
 .next/
 *.tsbuildinfo

@@ -12,5 +12,10 @@ def doc() -> SessionDoc:
     return SessionDoc.load(EXAMPLES / "home_game.yaml")
 
 
+@pytest.fixture()
+def real_doc() -> SessionDoc:
+    return SessionDoc.load(EXAMPLES / "real" / "wpt_rolling_thunder.yaml")
+
+
 def hand(doc: SessionDoc, index: int):
     return next(h for h in doc.hands if h.index == index)

@@ -66,6 +66,8 @@ textarea { font-family: ui-monospace, Consolas, monospace; font-size: 0.85rem; }
 
 .video { position: sticky; top: 0; z-index: 2; background: var(--bg); padding-bottom: 6px; }
 .video video { width: 100%; max-height: 38vh; border-radius: 8px; background: #000; display: block; }
+.video .credit { margin: 4px 0 0; font-size: 0.75rem; }
+.video .credit a { color: inherit; text-decoration: underline; }
 
 .facts { list-style: none; padding: 0; margin: 8px 0; }
 .facts li { display: flex; gap: 8px; align-items: flex-start; padding: 4px 0; border-top: 1px dashed var(--line); }

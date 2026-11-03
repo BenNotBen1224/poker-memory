@@ -87,6 +87,22 @@ def river_partition(hero: Combo, board: list[str]) -> Partition:
     return Partition(beats_hero=beats, ties=ties, loses=loses)
 
 
+class Showdown(BaseModel):
+    """Hindsight only: two known hands compared on a complete board."""
+
+    hero_hand: str
+    villain_hand: str
+    winner: Literal["hero", "villain", "tie"]
+
+
+def showdown(hero: Combo, villain: Combo, board: list[str]) -> Showdown:
+    if len(board) != 5:
+        raise ValueError("a showdown needs all five board cards")
+    mine, theirs = _rank(hero, board), _rank(villain, board)
+    return Showdown(hero_hand=mine.entry.label.value, villain_hand=theirs.entry.label.value,
+                    winner="villain" if theirs > mine else "tie" if theirs == mine else "hero")
+
+
 class EquityResult(BaseModel):
     equity: float  # win + tie / 2
     win: float

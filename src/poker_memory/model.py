@@ -6,7 +6,7 @@ import re
 from typing import Literal
 
 from pokerkit import Card
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 Street = Literal["preflop", "flop", "turn", "river"]
 STREETS: tuple[Street, ...] = ("preflop", "flop", "turn", "river")
@@ -113,6 +113,17 @@ class Seat(BaseModel):
     alias: str = Field(min_length=1, max_length=40)
     stack: int = Field(gt=0)
     note: str = ""
+    hole_cam: str | None = None  # cards a broadcast hole-card camera showed; hindsight only, never used in the math
+
+    @field_validator("hole_cam")
+    @classmethod
+    def _two_real_cards(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        cards = parse_cards(value)
+        if len(cards) != 2:
+            raise ValueError("hole_cam needs exactly two cards")
+        return "".join(cards)
 
 
 class Hero(BaseModel):
@@ -143,6 +154,11 @@ class HandRecord(BaseModel):
             raise ValueError("hero seat must be an occupied seat")
         if len(parse_cards(self.hero.cards)) != 2:
             raise ValueError("hero needs exactly two hole cards")
+        if any(s.hole_cam for s in self.seats if s.seat == self.hero.seat):
+            raise ValueError("hero's cards go in 'hero', not 'hole_cam'")
+        seen = parse_cards(self.hero.cards) + [c for s in self.seats if s.hole_cam for c in parse_cards(s.hole_cam)]
+        if len(set(seen)) != len(seen):
+            raise ValueError("a card appears twice among hero and hole_cam cards")
         if self.dealt_at:
             VideoTime.parse(self.dealt_at)
         return self
@@ -154,21 +170,35 @@ class HandRecord(BaseModel):
 class Stakes(BaseModel):
     sb: int = Field(gt=0)
     bb: int = Field(gt=0)
+    ante: int = Field(default=0, ge=0)  # paid by every player, as in tournaments
     currency: str = "chips"
+
+
+class Source(BaseModel):
+    """Where an openly licensed video came from, so it can be credited next to the player."""
+
+    title: str
+    author: str
+    url: str
+    license: str
+    license_url: str
 
 
 class SessionInfo(BaseModel):
     key: str = Field(pattern=r"^[A-Za-z0-9._-]{1,64}$")
     title: str
-    consent: Literal["all_participants", "none"]
+    consent: Literal["all_participants", "open_license", "none"]
     synthetic: bool = False
     stakes: Stakes
     video: str | None = None
+    source: Source | None = None
 
     @model_validator(mode="after")
-    def _video_needs_consent(self) -> "SessionInfo":
-        if self.video and self.consent != "all_participants":
-            raise ValueError("a video can only be attached when every participant consented")
+    def _video_needs_permission(self) -> "SessionInfo":
+        if self.consent == "open_license" and not self.source:
+            raise ValueError("an open-license video needs its source: title, author, url, license, license_url")
+        if self.video and self.consent == "none":
+            raise ValueError("a video can only be attached when every participant consented or it has an open license")
         return self
 
 

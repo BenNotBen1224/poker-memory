@@ -52,7 +52,7 @@ export default function HandPage() {
 
   return (
     <>
-      {session?.video_url && <Video ref={video} src={session.video_url} />}
+      {session?.video_url && <Video ref={video} src={session.video_url} source={session.source} />}
       <p className="muted">
         <Link href={`/s/${encodeURIComponent(key)}`}>← {session?.title ?? key}</Link>
       </p>
