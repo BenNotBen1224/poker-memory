@@ -88,9 +88,10 @@ How it works (`src/poker_memory/gto.py`, `solver.py`, `handrank.py`, written her
   over all hands, not a promise about your hand. Values are in chips;
   tournament payout effects (ICM) are ignored. The mix for each hand can still move a little between runs, so the
   answer ranks moves by value.
-- On the real hand the solve takes about 0.45 s on a shared 8-core VM. A whole first question takes 0.55 to 0.8 s
-  inside the server (one run took 1.4 s) and about 1.0 to 1.1 s over HTTP. Use `127.0.0.1`, not `localhost`, in
-  scripts on Windows: `localhost` added about 2 s per request here.
+- On the real hand the solve takes about 0.45 s on a shared 8-core VM. The server builds its lookup tables and the
+  first preflop range step (the same in every hand) when it starts, so the first question on a fresh server takes
+  about 0.85 s median over HTTP on a busy machine (0.5 to 1.15 s over 10 runs; about 1.0 s without that warm-up).
+  Use `127.0.0.1`, not `localhost`, in scripts on Windows: `localhost` added about 2 s per request here.
   A fresh `poker-memory ask` process adds about 1.5 s to start Python. A repeat question is about 0.06 s.
   Deeper stacks or more bet sizes make the tree bigger: the home-game river fold takes about 2 s.
 

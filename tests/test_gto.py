@@ -3,6 +3,7 @@
 import pytest
 
 from poker_memory.engine import replay
+from poker_memory import gto
 from poker_memory.gto import NotSolved, _move, river_gto
 from poker_memory.model import parse_cards
 
@@ -65,3 +66,15 @@ def test_a_river_that_began_with_three_players_is_not_solved(spot):
     three = steps[:13] + [gone] + steps[13:]
     with pytest.raises(NotSolved, match="heads-up"):
         river_gto(three, 14, IAN, cards, seats + [9])
+
+
+def test_a_warmed_up_server_gives_the_same_answer_as_a_cold_one(spot):
+    steps, cards, seats = spot
+    gto._EQUITY.clear()
+    cold = river_gto(steps, 15, IAN, cards, seats)
+    gto._EQUITY.clear()
+    gto.warm()
+    warm = river_gto(steps, 15, IAN, cards, seats)
+    again = river_gto(steps, 13, IAN, cards, seats)  # same hand, so the same ranges come from the cache
+    assert warm.range_hands == cold.range_hands == again.range_hands == {1: 826, 2: 1015}
+    assert (warm.mix, warm.ev, warm.iterations) == (cold.mix, cold.ev, cold.iterations)

@@ -19,6 +19,7 @@ from .solver import IP, OOP, River, Sizes
 TOOL_VERSION = "gto-river-1"
 SAMPLES = 50  # random runouts per call before the turn; a turn call uses every river card
 SEED = 7
+_EQUITY: dict[tuple[bytes, bytes], np.ndarray] = {}  # (runouts, their weights) -> equity; same inputs, same answer
 
 
 class NotSolved(Exception):
@@ -53,13 +54,26 @@ def range_equity(theirs: np.ndarray, board: list[int], rng: np.random.Generator)
         runouts = [board + [c] for c in rest]
     else:
         runouts = [board + rng.choice(rest, 5 - len(board), replace=False).tolist() for _ in range(SAMPLES)]
+    key = (np.array(runouts, np.int8).tobytes(), np.asarray(theirs, np.float64).tobytes())
+    if key in _EQUITY:
+        return _EQUITY[key]
     won, faced = np.zeros(len(COMBOS)), np.zeros(len(COMBOS))
     for full in runouts:
         live = ~touching(full)
         win, tie, total = showdown_counts(board_strength(full), theirs * live)
         won += (win + tie / 2) * live
         faced += total * live
-    return won / np.maximum(faced, 1e-12)
+    out = won / np.maximum(faced, 1e-12)
+    out.flags.writeable = False
+    if len(_EQUITY) < 1000:
+        _EQUITY[key] = out
+    return out
+
+
+def warm() -> None:
+    """Pay one-time costs before the first question: the hand-strength tables, and the first
+    preflop call against every hand, which is the same in every hand."""
+    range_equity(np.ones(len(COMBOS)), [], np.random.default_rng(SEED))
 
 
 def default_ranges(steps: list[Step], seats: list[int]) -> dict[int, np.ndarray]:

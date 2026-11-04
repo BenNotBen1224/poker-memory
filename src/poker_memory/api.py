@@ -10,6 +10,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 
+from .gto import warm
 from .memory import Answer, PokerMemory
 from .model import HandRecord, SessionDoc
 from .search import combo_name, hero_cards, summary
@@ -37,6 +38,7 @@ def _hand_row(h: StoredHand) -> dict:
 
 def create_app(data_dir: str | Path) -> FastAPI:
     memory = PokerMemory.open(data_dir)
+    warm()
     app = FastAPI(title="Poker Memory", version="0.1.0")
     app.state.memory = memory
 
