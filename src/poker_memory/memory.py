@@ -78,13 +78,15 @@ def _gto_text(g: RiverGTO, currency: str) -> str:
     def chips(x: float, sign: str = "+") -> str:
         return f"{round(x / unit) * unit:{sign},} {currency}"
 
-    text = f"Solver (river only, chips counted from the start of the river): with {g.hand} "
-    if g.ev_lost <= g.exploitability * g.pot:
-        text += (f"your {g.moves[g.taken]} ({chips(g.ev[g.taken])}) was as good as the best move, "
-                 f"{g.moves[g.best]} ({chips(g.ev[g.best])}), at the solver's accuracy.")
+    text = (f"River solver estimate (chips counted from the start of the river): with {g.hand}, "
+            "under the default ranges inferred from the betting, ")
+    if g.taken == g.best:
+        text += (f"your {g.moves[g.taken]} has the highest estimated value "
+                 f"({chips(g.ev[g.taken])}).")
     else:
-        text += (f"the best move was {g.moves[g.best]}, worth {chips(g.ev[g.best])}; your {g.moves[g.taken]} "
-                 f"got {chips(g.ev[g.taken])}, about {chips(g.ev_lost, '')} less.")
+        text += (f"the highest estimated-value move was {g.moves[g.best]} "
+                 f"({chips(g.ev[g.best])}); your {g.moves[g.taken]} was estimated at {chips(g.ev[g.taken])}, "
+                 f"about {chips(g.ev_lost, '')} less.")
     if g.beats_you is not None:
         text += f" About {g.beats_you:.0%} of the hands he plays this way beat yours."
     return text
@@ -99,9 +101,9 @@ def _gto_assumptions(g: RiverGTO, names: dict[int, str]) -> list[str]:
            "with up to two raises after that.",
            "Chips only: tournament payout effects (ICM) are ignored.",
            "The answer depends on those guessed ranges; tighter ranges (for example, fewer bluffs) can change it.",
-           f"Solved in {g.seconds:.2f} s ({g.iterations} rounds); a perfect opponent could win at most "
-           f"{g.exploitability:.2%} of the pot more against this solution. That is an average over all hands, "
-           "so a gap of a few percent of the pot between two moves for your hand is not certain."]
+           f"Solved in {g.seconds:.2f} s ({g.iterations} rounds). Measured range-averaged exploitability is "
+           f"{g.exploitability:.2%} of the pot against a perfect opponent; it is not a per-hand error bound "
+           "or a guarantee about this hand's EV estimates."]
     if not g.hero_in_range:
         out.append("Your hand falls outside the range the betting rule gives you, so it was added with a tiny "
                    "weight to get a plan for it.")

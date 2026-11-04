@@ -4,7 +4,8 @@ import pytest
 
 from poker_memory.engine import replay
 from poker_memory import gto
-from poker_memory.gto import NotSolved, _move, river_gto
+from poker_memory.gto import NotSolved, RiverGTO, _move, river_gto
+from poker_memory.memory import _gto_assumptions, _gto_text
 from poker_memory.model import parse_cards
 
 IAN = 1
@@ -78,3 +79,47 @@ def test_a_warmed_up_server_gives_the_same_answer_as_a_cold_one(spot):
     again = river_gto(steps, 13, IAN, cards, seats)  # same hand, so the same ranges come from the cache
     assert warm.range_hands == cold.range_hands == again.range_hands == {1: 826, 2: 1015}
     assert (warm.mix, warm.ev, warm.iterations) == (cold.mix, cold.ev, cold.iterations)
+
+
+def _estimate(taken: int, best: int, ev: list[float], ev_lost: float) -> RiverGTO:
+    return RiverGTO(
+        hand="As Qd",
+        moves=["bet 800,000", "bet 465,300"],
+        mix=[0.5, 0.5],
+        ev=ev,
+        taken=taken,
+        best=best,
+        ev_lost=ev_lost,
+        beats_you=None,
+        exploitability=0.005,
+        iterations=1000,
+        seconds=0.5,
+        range_hands={1: 826, 2: 1015},
+        hero_in_range=True,
+        bet_sizes=[465300, 800000],
+        pot=1_000_000,
+    )
+
+
+def test_small_positive_ev_gap_is_not_collapsed_using_range_averaged_exploitability():
+    # This is below the old exploitability * pot threshold, but is still a nonzero
+    # model-estimated gap for this exact hand and must not be called equivalent.
+    text = _gto_text(_estimate(taken=0, best=1, ev=[1000, 2000], ev_lost=1000), "chips")
+    assert "under the default ranges inferred from the betting" in text
+    assert "highest estimated-value move was bet 465,300" in text
+    assert "your bet 800,000 was estimated at" in text
+    assert "as good as" not in text
+    assumptions = " ".join(_gto_assumptions(
+        _estimate(taken=0, best=1, ev=[1000, 2000], ev_lost=1000), {1: "Opponent", 2: "you"}
+    ))
+    assert "range-averaged" in assumptions
+    assert "not a per-hand error bound" in assumptions
+    assert "few percent" not in assumptions
+
+
+def test_move_with_highest_estimated_value_is_described_without_claiming_optimality():
+    text = _gto_text(_estimate(taken=1, best=1, ev=[1000, 2000], ev_lost=0), "chips")
+    assert "under the default ranges inferred from the betting" in text
+    assert "your bet 465,300 has the highest estimated value" in text
+    assert "optimal" not in text
+    assert "as good as" not in text

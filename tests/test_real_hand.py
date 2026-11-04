@@ -86,10 +86,25 @@ def test_the_river_fold_answer(memory):
     assert fact(a, "result").value == -1490000
     gto = fact(a, "gto")
     assert gto.kind == "estimated"
-    assert "the best move was call (all-in)" in gto.text and "your fold got -800,000 chips" in gto.text
+    assert "under the default ranges inferred from the betting" in gto.text
+    assert "the highest estimated-value move was call (all-in)" in gto.text
+    assert "your fold was estimated at -800,000 chips" in gto.text
     assert "About 12% of the hands he plays this way beat yours." in gto.text
     assert any("Cards shown later are not used. River hands: you 826, Joe 1015." in s for s in a.assumptions)
+    assert any("not a per-hand error bound" in s for s in a.assumptions)
     assert ("gto_river", 1) in {(t.tool, t.revision) for t in a.tools}
+
+
+def test_the_river_bet_answer_reports_estimated_values_under_the_default_ranges(memory):
+    a = memory.ask("Was my river bet reasonable?", KEY)
+    assert (a.kind, a.hand, a.decision.street, a.decision.label) == ("analysis", 1, "river", "Ian bets 800000")
+    gto = fact(a, "gto")
+    assert gto.kind == "estimated"
+    assert "under the default ranges inferred from the betting" in gto.text
+    assert "the highest estimated-value move was bet 465,300" in gto.text
+    assert "your bet 800,000 was estimated at" in gto.text
+    assert "optimal" not in gto.text
+    assert any("not a per-hand error bound" in s for s in a.assumptions)
 
 
 def test_hole_camera_cards_are_hindsight_only(memory):
@@ -102,6 +117,29 @@ def test_hole_camera_cards_are_hindsight_only(memory):
     assert "Joe has a straight and you have three of a kind: Joe's hand wins." in sd.text
     assert "Calling here would have lost the pot." in sd.text
     assert {t.tool for t in a.tools} >= {"pot_odds", "showdown"}
+
+
+def test_later_hole_camera_cards_do_not_change_solver_estimates(tmp_path, real_doc, source_dir):
+    observed = real_doc
+    without_hole_cam = real_doc.model_copy(update={
+        "hands": [
+            hand.model_copy(update={
+                "seats": [seat.model_copy(update={"hole_cam": None}) for seat in hand.seats]
+            })
+            for hand in real_doc.hands
+        ]
+    })
+    outputs = []
+    for name, doc in (("observed", observed), ("without-hole-cam", without_hole_cam)):
+        memory = PokerMemory.open(tmp_path / name)
+        memory.import_session(doc, source_dir)
+        memory.end_session(KEY)
+        answer = memory.ask(FOLD_Q, KEY)
+        outputs.append(fact(answer, "gto").value)
+
+    compared = ("moves", "mix", "ev", "taken", "best", "ev_lost", "beats_you",
+                "exploitability", "range_hands", "hero_in_range", "bet_sizes", "pot")
+    assert {key: outputs[0][key] for key in compared} == {key: outputs[1][key] for key in compared}
 
 
 def test_bluff_what_if_on_the_real_river(memory):

@@ -71,29 +71,26 @@ app shows that credit under the video). Video can only be added with the CLI, ne
 Every fact is labeled **observed** (entered), **derived** (computed), **estimated** (depends on your assumption),
 or **unknown**. Cards shown later in the hand are listed as hindsight and never used in the math.
 
-## Perfect play on the river (GTO)
+## River solver estimates (GTO)
 
-When the decision you ask about is on the river with two players left, the answer adds a solver fact: the best
-move for your exact hand against perfect play, what your move was worth, and how much you gave up. The web app
-draws one bar per move and marks yours and the best. On the real hand below it says the fold should have been a
-call (about 4.3M chips given up), and that a 465,300 river bet was worth about 15,000 more than the 800,000 bet.
-That second gap is about 1% of the pot, small enough that other guessed ranges could flip it.
+When the decision you ask about is on the river with two players left, the answer adds estimated move values
+under ranges inferred from the betting actions. The web app draws one bar per move and marks yours and the
+highest estimated-value move. These are model estimates, not proof of optimal play. On the real hand below,
+the estimated call value is about 4.3M chips higher than folding; a 465,300 river bet is estimated about 15,000
+above the 800,000 bet. That small estimated gap could change under different assumed ranges.
 
 How it works (`src/poker_memory/gto.py`, `solver.py`, `handrank.py`, written here, no outside solver code):
 - Ranges come from the betting only. Both players start with every hand; each call keeps the hands with enough
   equity against the other player's range to pay the price. Cards shown later are never used.
 - The river is solved as a game tree with discounted regret matching. The bets it can choose are check, the sizes
   actually bet on that river, and all-in, with up to two legal raises (each at least the size of the last bet).
-- It stops once a perfect opponent could win at most 0.5% of the pot more against the answer. That is an average
-  over all hands, not a promise about your hand. Values are in chips;
-  tournament payout effects (ICM) are ignored. The mix for each hand can still move a little between runs, so the
-  answer ranks moves by value.
-- On the real hand the solve takes about 0.45 s on a shared 8-core VM. The server builds its lookup tables and the
-  first preflop range step (the same in every hand) when it starts, so the first question on a fresh server takes
-  about 0.85 s median over HTTP on a busy machine (0.5 to 1.15 s over 10 runs; about 1.0 s without that warm-up).
-  Use `127.0.0.1`, not `localhost`, in scripts on Windows: `localhost` added about 2 s per request here.
-  A fresh `poker-memory ask` process adds about 1.5 s to start Python. A repeat question is about 0.06 s.
-  Deeper stacks or more bet sizes make the tree bigger: the home-game river fold takes about 2 s.
+- The solver's exploitability target is range-averaged; it is not a per-hand error bound or a guarantee about
+  the EV estimates for this hand. Values are in chips; tournament payout effects (ICM) are ignored. The mix
+  and move estimates can vary with the model and assumed ranges.
+- Historical measurements on one shared, busy 8-core VM found a 0.84 s median and 1.15 s slowest first HTTP
+  question in a 10-run trial. Those observations are not a latency guarantee. Lookup tables and the common
+  first preflop range step are warmed when the server starts. `127.0.0.1` was faster than `localhost` on that
+  Windows machine. Deeper stacks or more bet sizes make the tree bigger.
 
 Other spots (turn and earlier, three or more players) say "No solver result for this spot" and why.
 

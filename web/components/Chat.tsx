@@ -93,7 +93,7 @@ function SolverBars({ s }: { s: Solver }) {
         <div key={m} className="solver-row">
           <span>
             {m}
-            {k === s.best && <b className="tag best"> best</b>}
+            {k === s.best && <b className="tag best"> highest estimate</b>}
             {k === s.taken && <b className="tag you"> you</b>}
           </span>
           <span className="solver-track">
