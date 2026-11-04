@@ -135,11 +135,11 @@ For the 7.5-minute clip on an 8-core CPU (AMD EPYC 7763, a shared VM):
 
 | Run | Time |
 | --- | --- |
-| Already running: a server, or the second video onwards in one `read` | about 0.96 s |
+| Already running: a server, or the second video onwards in one `read` | 0.97 to 1.0 s |
 | Fresh process, including starting Python and loading the libraries and the model | about 2.2 s |
 
-Most of the time goes on decoding the video. `scripts\bench_fast_read.py VIDEO` measures these times. Compare the
-result with the hand read by eye like this:
+Most of the time goes on decoding the video. The machine is shared, so single reads vary from 0.96 to 1.02 s.
+`scripts\bench_fast_read.py VIDEO` measures these times. Compare the result with the hand read by eye like this:
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\check_fast_read.py examples\real\wpt_rolling_thunder.yaml
