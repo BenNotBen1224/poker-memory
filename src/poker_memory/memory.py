@@ -98,8 +98,10 @@ def _gto_assumptions(g: RiverGTO, names: dict[int, str]) -> list[str]:
            f"The solver could check or bet {', '.join(f'{x:,}' for x in g.bet_sizes)} (the last is all-in), "
            "with up to two raises after that.",
            "Chips only: tournament payout effects (ICM) are ignored.",
+           "The answer depends on those guessed ranges; tighter ranges (for example, fewer bluffs) can change it.",
            f"Solved in {g.seconds:.2f} s ({g.iterations} rounds); a perfect opponent could win at most "
-           f"{g.exploitability:.2%} of the pot more against this solution."]
+           f"{g.exploitability:.2%} of the pot more against this solution. That is an average over all hands, "
+           "so a gap of a few percent of the pot between two moves for your hand is not certain."]
     if not g.hero_in_range:
         out.append("Your hand falls outside the range the betting rule gives you, so it was added with a tiny "
                    "weight to get a plan for it.")

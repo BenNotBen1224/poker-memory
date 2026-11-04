@@ -82,12 +82,12 @@ def river_gto(steps: list[Step], i: int, hero: int, hero_cards: list[str], seats
     step = steps[i]
     if step.before.street != "river" or step.kind != "action" or step.seat != hero:
         raise NotSolved("only your own river decisions are solved so far")
-    folded = {s.seat for s in steps[:i] if s.verb == "fold"}
-    live_seats = [s for s in sorted(seats) if s not in folded]
-    if len(live_seats) != 2:
-        raise NotSolved("only heads-up rivers are solved so far, and more than two players were still in")
     # The river card's own step still shows the turn board, so start at the first river action.
     first = next(n for n, s in enumerate(steps) if s.kind == "action" and s.before.street == "river")
+    folded = {s.seat for s in steps[:first] if s.verb == "fold"}
+    live_seats = [s for s in sorted(seats) if s not in folded]
+    if len(live_seats) != 2:
+        raise NotSolved("only heads-up rivers are solved so far, and more than two players saw the river")
     river = steps[first].before
     stack = min(river.stacks[s] for s in live_seats)
     if stack <= 0:

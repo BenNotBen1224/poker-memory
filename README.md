@@ -76,17 +76,21 @@ or **unknown**. Cards shown later in the hand are listed as hindsight and never 
 When the decision you ask about is on the river with two players left, the answer adds a solver fact: the best
 move for your exact hand against perfect play, what your move was worth, and how much you gave up. The web app
 draws one bar per move and marks yours and the best. On the real hand below it says the fold should have been a
-call (about 4.3M chips given up), and that a 465,300 river bet was worth about 26,000 more than the 800,000 bet.
+call (about 4.3M chips given up), and that a 465,300 river bet was worth about 15,000 more than the 800,000 bet.
+That second gap is about 1% of the pot, small enough that other guessed ranges could flip it.
 
 How it works (`src/poker_memory/gto.py`, `solver.py`, `handrank.py`, written here, no outside solver code):
 - Ranges come from the betting only. Both players start with every hand; each call keeps the hands with enough
   equity against the other player's range to pay the price. Cards shown later are never used.
 - The river is solved as a game tree with discounted regret matching. The bets it can choose are check, the sizes
-  actually bet on that river, and all-in, with up to two raises.
-- It stops once a perfect opponent could win at most 0.5% of the pot more against the answer. Values are in chips;
+  actually bet on that river, and all-in, with up to two legal raises (each at least the size of the last bet).
+- It stops once a perfect opponent could win at most 0.5% of the pot more against the answer. That is an average
+  over all hands, not a promise about your hand. Values are in chips;
   tournament payout effects (ICM) are ignored. The mix for each hand can still move a little between runs, so the
   answer ranks moves by value.
-- On the real hand one solve takes 0.65 to 0.85 s on a shared 8-core VM, and the whole question about 0.7 to 0.85 s.
+- On the real hand the solve takes about 0.45 s on a shared 8-core VM. A whole first question takes 0.55 to 0.8 s
+  inside the server (one run took 1.4 s) and about 1.0 to 1.1 s over HTTP. Use `127.0.0.1`, not `localhost`, in
+  scripts on Windows: `localhost` added about 2 s per request here.
   A fresh `poker-memory ask` process adds about 1.5 s to start Python. A repeat question is about 0.06 s.
   Deeper stacks or more bet sizes make the tree bigger: the home-game river fold takes about 2 s.
 

@@ -56,3 +56,12 @@ def test_a_recorded_all_in_matches_the_tree_move_with_the_same_amount():
     assert _move([("fold", 0), ("call", 2940000)], "allin", 2940000) == 1
     assert _move([("check", 0), ("bet", 465300), ("bet", 2940000)], "allin", 2940000) == 2
     assert _move([("check", 0), ("bet", 465300)], "bet", 800000) is None
+
+
+def test_a_river_that_began_with_three_players_is_not_solved(spot):
+    steps, cards, seats = spot
+    # A third player who saw the river folds before Ian acts: the river was not heads-up.
+    gone = steps[13].model_copy(update={"seat": 9, "verb": "fold", "label": "Ann folds"})
+    three = steps[:13] + [gone] + steps[13:]
+    with pytest.raises(NotSolved, match="heads-up"):
+        river_gto(three, 14, IAN, cards, seats + [9])

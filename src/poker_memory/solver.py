@@ -38,13 +38,14 @@ class Node:
     folder: int | None = None  # end of hand only: who folded; None means showdown
 
 
-def _amounts(low: int, stack: int, pot_now: int, shares: tuple[float, ...], sizes: Sizes) -> list[int]:
-    """River totals above `low` a player may bet or raise to. Real sizes win over generated ones within 10%."""
-    picks = sorted({x for x in sizes.extra if low < x <= stack})
+def _amounts(low: int, least: int, stack: int, pot_now: int, shares: tuple[float, ...], sizes: Sizes) -> list[int]:
+    """River totals a player may bet or raise to: at least `least`, or all-in for less.
+    Real sizes win over generated ones within 10%."""
+    picks = sorted({x for x in sizes.extra if least <= x <= stack})
     if sizes.allin and stack > low:
         picks.append(stack)
     for share in shares:
-        x = min(low + round(share * pot_now), stack)
+        x = min(max(low + round(share * pot_now), least), stack)
         if x > low and all(abs(x - y) > 0.1 * y for y in picks):
             picks.append(x)
     return sorted(set(picks))
@@ -71,13 +72,14 @@ def build_tree(pot: int, stack: int, sizes: Sizes) -> list[Node]:
         if put[actor] == put[other]:
             move("check", put[actor], add(Node(actor=-1, put=put)) if actor == IP else grow(IP, put, raises))
             if actor == IP or sizes.first_can_bet:
-                for to in _amounts(put[other], stack, pot + sum(put), sizes.bets, sizes):
+                for to in _amounts(put[other], put[other] + 1, stack, pot + sum(put), sizes.bets, sizes):
                     move("bet", to, grow(other, with_put(to), raises))
         else:
             move("fold", put[actor], add(Node(actor=-1, put=put, folder=actor)))
             move("call", put[other], add(Node(actor=-1, put=(put[other], put[other]))))
             if raises < sizes.max_raises and put[other] < stack:
-                for to in _amounts(put[other], stack, pot + sum(put), (), sizes):
+                # a raise must add at least as much as the bet or raise it answers
+                for to in _amounts(put[other], 2 * put[other] - put[actor], stack, pot + sum(put), (), sizes):
                     move("raise", to, grow(other, with_put(to), raises + 1))
         return i
 

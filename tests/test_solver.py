@@ -57,3 +57,15 @@ def test_tree_keeps_the_real_sizes_and_caps_at_the_stack():
     facing_allin = nodes[after_bet.kids[2]]
     assert facing_allin.moves == [("fold", 800_000), ("call", 2_940_000)]
     assert all(n.put[0] <= 2_940_000 and n.put[1] <= 2_940_000 for n in nodes)
+
+
+def test_every_raise_in_the_tree_is_legal():
+    nodes = build_tree(1_410_000, 2_940_000, Sizes(extra=(465_300, 800_000)))
+    raises = 0
+    for n in nodes:
+        for verb, to in n.moves:
+            if verb == "raise":
+                raises += 1
+                mine, theirs = n.put[n.actor], n.put[1 - n.actor]
+                assert to == 2_940_000 or to - theirs >= theirs - mine
+    assert raises > 0
