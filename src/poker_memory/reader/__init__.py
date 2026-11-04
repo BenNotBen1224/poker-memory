@@ -3,7 +3,8 @@
 1. Read the whole file, then decode each keyframe (one every few seconds) on the workers.
 2. Once every keyframe is read: where two neighbouring keyframes differ, the first one's decoder goes on through the
    stretch between them, sampling about four pictures a second, and stops as soon as the graphics match the second.
-   Workers only decode; one thread reads the graphics on every picture.
+   The last keyframe's decoder goes on to the end of the recording. Workers only decode; one thread reads the
+   graphics on every picture.
 3. Number every distinct crop of one kind (status line, name, card rank), then OCR that kind's settled ones once,
    on a worker, while this thread numbers the next kind.
 4. Hand the timeline to `hand.build`.
@@ -60,7 +61,8 @@ def _ocr() -> Ocr:
 
 
 def _scan(pool: ThreadPoolExecutor, path: Path) -> tuple[list[Look], list[Look]]:
-    """The looks of every keyframe, and of the pictures sampled between neighbouring keyframes that differ.
+    """The looks of every keyframe, and of the pictures sampled between neighbouring keyframes that differ and after
+    the last keyframe.
 
     This thread reads the whole file before any decoding starts: reading it while workers decode runs slower, as
     every packet waits for the interpreter lock. Then only this thread reads pictures. numpy lets go of the lock
@@ -112,8 +114,9 @@ def _scan(pool: ThreadPoolExecutor, path: Path) -> tuple[list[Look], list[Look]]
     running = 0  # stretches still decoding
 
     def start_gaps() -> None:
-        """Decode the stretch after each keyframe unless the next one looks the same. An empty screen never ends a
-        gap early: before the flop, each player's panel shows only briefly, with empty screens between."""
+        """Decode the stretch after each keyframe unless the next one looks the same, and the pictures after the
+        last keyframe, which have no next one to match. An empty screen never ends a gap early: before the flop,
+        each player's panel shows only briefly, with empty screens between."""
         nonlocal running
         gaps = []
         for k in range(len(keys) - 1):
@@ -122,6 +125,8 @@ def _scan(pool: ThreadPoolExecutor, path: Path) -> tuple[list[Look], list[Look]]
                 del decoders[k]
             else:
                 gaps.append(k)
+        if clip.keys[-1] + 1 < len(clip.packets):
+            gaps.append(len(keys) - 1)
         for n, k in enumerate(gaps):
             stop[k], between[k], leash[k] = False, [], threading.Semaphore(LEASH)
             running += 1
@@ -149,7 +154,7 @@ def _scan(pool: ThreadPoolExecutor, path: Path) -> tuple[list[Look], list[Look]]
                         start_gaps()
                 elif not stop[k]:
                     between[k].append(seen)
-                    stop[k] = bool(keys[k + 1].panels) and same_look(seen, keys[k + 1])
+                    stop[k] = k + 1 < len(keys) and bool(keys[k + 1].panels) and same_look(seen, keys[k + 1])
             for what, k, payload in batch:
                 if what == "gap" and payload is not None:
                     leash[k].release()

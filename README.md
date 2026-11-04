@@ -122,8 +122,8 @@ What to know:
 
 It runs on the CPU, with no GPU and no paid service:
 - It decodes the keyframes (about one every 5 s). Where two neighbouring keyframes' graphics differ, it decodes
-  about four pictures a second between them, and stops once the graphics settle. That is 524 of the clip's 10,729
-  pictures.
+  about four pictures a second between them, and stops once the graphics settle. After the last keyframe it reads
+  on to the end. That is 542 of the clip's 10,729 pictures.
 - A 1.9 MB text-reading model reads each distinct piece of text (a name, an action line, a card rank) once. It is
   PaddleOCR's English-and-digits recogniser, under Apache-2.0 (see `src/poker_memory/reader/models/NOTICE`). The
   whole hand takes 82 reads.
@@ -135,10 +135,11 @@ For the 7.5-minute clip on an 8-core CPU (AMD EPYC 7763, a shared VM):
 
 | Run | Time |
 | --- | --- |
-| Already running: a server, or the second video onwards in one `read` | 0.97 to 1.0 s |
-| Fresh process, including starting Python and loading the libraries and the model | about 2.2 s |
+| Already running: a server, or the second video onwards in one `read` | 0.99 to 1.0 s |
+| Fresh process, including starting Python and loading the libraries and the model | about 2.3 s |
 
-Most of the time goes on decoding the video. The machine is shared, so single reads vary from 0.96 to 1.02 s.
+Most of the time goes on decoding the video. The machine is shared, so single reads vary from 0.99 to 1.12 s, and
+the median sits on the 1 s line.
 `scripts\bench_fast_read.py VIDEO` measures these times. Compare the result with the hand read by eye like this:
 
 ```powershell
@@ -148,6 +149,10 @@ Most of the time goes on decoding the video. The machine is shared, so single re
 26 of 27 checks pass. The fold reads 3.1 s late, because the graphics clear Ian's panel that long after he lets
 go of his cards. The reader understands only this broadcast's graphics layout (WPT, 1280×720), and reads one hand
 per video. Stacks are never on screen, so a stack is the least it could be, unless an all-in shows it.
+
+The rules were tuned on this one hand and are checked against the same hand, so they are not yet proven on
+another. The answer key's times are good to 1 to 3 s. A read that misses something prints it as a `#` comment and
+still exits normally. The hero is the player who acted last.
 
 ## Limits of this slice
 

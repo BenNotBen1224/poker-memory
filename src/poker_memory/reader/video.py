@@ -82,9 +82,11 @@ def keyframe(clip: Clip, k: int, threads: int = 1) -> tuple[av.CodecContext, Pic
 
 
 def stretch(clip: Clip, k: int, codec: av.CodecContext, every: int) -> Iterator[Picture]:
-    """Every `every`-th picture after keyframe k, up to the next keyframe, going on with the decoder that decoded k."""
+    """Every `every`-th picture after keyframe k, up to the next keyframe, going on with the decoder that decoded k.
+    After the last keyframe it goes on to the end of the recording, and gives the last picture too."""
     start = clip.keys[k]
-    for i in range(start + 1, clip.keys[k + 1]):
+    end = clip.keys[k + 1] if k + 1 < len(clip.keys) else len(clip.packets)
+    for i in range(start + 1, end):
         for frame in codec.decode(clip.packets[i]):
-            if (i - start) % every == 0:
+            if (i - start) % every == 0 or i == len(clip.packets) - 1:
                 yield _picture(frame, clip.times[i])

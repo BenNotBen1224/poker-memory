@@ -16,6 +16,7 @@ from conftest import EXAMPLES  # noqa: E402
 from poker_memory.cli import main  # noqa: E402
 from poker_memory.engine import replay  # noqa: E402
 from poker_memory.model import HandRecord, Stakes, VideoTime  # noqa: E402
+from poker_memory.reader import read_hand  # noqa: E402
 from poker_memory.reader.hand import BLANK, Moment, Seen, build  # noqa: E402
 from poker_memory.reader.overlay import (  # noqa: E402
     SAME,
@@ -25,6 +26,7 @@ from poker_memory.reader.overlay import (  # noqa: E402
     parse_rank,
     parse_status,
 )
+from poker_memory.reader.video import Clip  # noqa: E402
 
 VIDEO = EXAMPLES / "real" / "wpt_rolling_thunder_fold.webm"
 
@@ -178,8 +180,24 @@ def test_read_command_gives_the_hand_read_by_eye(real_doc):
         (s.seat, s.alias, s.hole_cam) for s in truth.seats]
     got, want = [_event(e) for e in record.events], [_event(e) for e in truth.events]
     assert [body for body, _ in got] == [body for body, _ in want]
-    # Times by eye are good to 1-3 s. The fold reads about 3 s late, because the graphics clear Ian's panel that
-    # long after his cards hit the felt.
+    # Times by eye are good to 1-3 s. The fold misses the 3 s line: the graphics clear Ian's panel about 3 s after
+    # his cards hit the felt.
     late = [round(g - w, 1) for (_, g), (_, w) in zip(got, want)]
-    assert all(abs(x) <= 3.0 for x in late[:-1]) and abs(late[-1]) <= 3.5, late
+    assert all(abs(x) <= 3.0 for x in late[:-1]) and 3.0 < late[-1] <= 3.5, late
     assert replay(record, stakes).payoffs == truth.result
+
+
+@pytest.mark.skipif(not VIDEO.exists(), reason="the video is not in git: run scripts/fetch_real_video.py")
+def test_reads_on_past_the_last_keyframe(real_doc, monkeypatch):
+    """Cut the clip just after Joe goes all in, so the all-in shows only after the last keyframe left."""
+    pytest.importorskip("rapidocr_onnxruntime")
+    full = Clip.read(VIDEO)
+    end = next(i for i in full.keys if full.times[i] > 216)
+    cut = Clip(full.codec, full.extradata, full.packets[:end], full.times[:end], [i for i in full.keys if i < end])
+    monkeypatch.setattr(Clip, "read", classmethod(lambda cls, path: cut))
+
+    got = [_event(e) for e in read_hand(VIDEO).record.events]
+    want = [(body, t) for body, t in map(_event, real_doc.hands[0].events) if t < cut.times[-1]]
+    assert want[-1] == ("s2 allin", 215.0) and cut.times[cut.keys[-1]] < 215.0
+    assert [body for body, _ in got] == [body for body, _ in want]
+    assert all(abs(g - w) <= 3.0 for (_, g), (_, w) in zip(got, want)), got
