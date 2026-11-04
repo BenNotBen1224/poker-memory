@@ -1,0 +1,7 @@
+en_number_mobile_v2.0_rec_infer.onnx
+
+PaddleOCR's English letters-and-digits text recogniser (v2.0, mobile size), converted to ONNX by RapidOCR.
+Licence: Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0).
+Source: https://huggingface.co/SWHL/RapidOCR/resolve/main/PP-OCRv1/en_number_mobile_v2.0_rec_infer.onnx
+Original: https://github.com/PaddlePaddle/PaddleOCR
+SHA-256: e679ba625c544444be78292a50d9e1af9caa1569239a88bb8b864cb688b11c01

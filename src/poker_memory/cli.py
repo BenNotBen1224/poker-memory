@@ -1,4 +1,4 @@
-"""Command line: poker-memory demo | import FILE | end KEY | ask QUESTION | serve"""
+"""Command line: poker-memory demo | import FILE | end KEY | ask QUESTION | read VIDEO... | serve"""
 
 from __future__ import annotations
 
@@ -25,6 +25,8 @@ def main(argv: list[str] | None = None) -> None:
     ask = sub.add_parser("ask", help="ask a question about an ended session")
     ask.add_argument("question")
     ask.add_argument("--session")
+    read = sub.add_parser("read", help="read one hand from each broadcast video (needs the 'vision' extra)")
+    read.add_argument("videos", type=Path, nargs="+")
     serve = sub.add_parser("serve", help="run the API")
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8000)
@@ -35,6 +37,9 @@ def main(argv: list[str] | None = None) -> None:
 
         os.environ["POKER_MEMORY_DATA"] = args.data
         uvicorn.run("poker_memory.api:app_from_env", factory=True, host=args.host, port=args.port)
+        return
+    if args.cmd == "read":
+        _read(args.videos)
         return
 
     memory = PokerMemory.open(args.data)
@@ -61,6 +66,24 @@ def main(argv: list[str] | None = None) -> None:
             print(f"  - {c.summary}")
         for s in a.assumptions:
             print(f"  assumption: {s}")
+
+
+def _read(videos: list[Path]) -> None:
+    """Print each video's stakes and hand as YAML, in the shapes a session file uses. The second video onwards
+    reads faster, as the OCR model is already loaded."""
+    import yaml
+
+    from .reader import read_hand
+
+    for n, video in enumerate(videos):
+        reading = read_hand(video)
+        if n:
+            print("---")
+        print(f"# {video.name}: read in {reading.seconds['total']:.2f} s from {reading.pictures} pictures")
+        for issue in reading.issues:
+            print(f"# {issue}")
+        hand = {"stakes": reading.stakes.model_dump(), "hands": [reading.record.model_dump(exclude_none=True)]}
+        print(yaml.safe_dump(hand, sort_keys=False), end="")
 
 
 if __name__ == "__main__":

@@ -110,14 +110,54 @@ What to know:
 - The broadcast's hole-card cameras show the opponents' cards. The players could not see them, so they are kept out
   of every number and only mentioned afterwards as hindsight. The broadcast's own win percentages are not used.
 
+## Read a hand from the broadcast automatically
+
+`poker-memory read VIDEO...` reads one hand from a broadcast's own TV graphics and prints it as YAML, in the
+`stakes:` and `hands:` shapes a session file uses. Add a `session:` block (key, title, consent, source) to import it.
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[vision]"
+.\.venv\Scripts\poker-memory.exe read examples\real\wpt_rolling_thunder_fold.webm
+```
+
+It runs on the CPU, with no GPU and no paid service:
+- It decodes the keyframes (about one every 5 s). Where two neighbouring keyframes' graphics differ, it decodes
+  about four pictures a second between them, and stops once the graphics settle. That is 524 of the clip's 10,729
+  pictures.
+- A 1.9 MB text-reading model reads each distinct piece of text (a name, an action line, a card rank) once. It is
+  PaddleOCR's English-and-digits recogniser, under Apache-2.0 (see `src/poker_memory/reader/models/NOTICE`). The
+  whole hand takes 82 reads.
+- Who holds which cards, the seats, the button and the blinds come from the graphics' layout and the broadcast's
+  rules, not from a card or seat detector. Before the flop, panels show up in acting order, which gives the button
+  and the blinds. The reader numbers seats from the small blind, which is seat 1.
+
+For the 7.5-minute clip on an 8-core CPU (AMD EPYC 7763, a shared VM):
+
+| Run | Time |
+| --- | --- |
+| Already running: a server, or the second video onwards in one `read` | about 0.96 s |
+| Fresh process, including starting Python and loading the libraries and the model | about 2.2 s |
+
+Most of the time goes on decoding the video. `scripts\bench_fast_read.py VIDEO` measures these times. Compare the
+result with the hand read by eye like this:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\check_fast_read.py examples\real\wpt_rolling_thunder.yaml
+```
+
+26 of 27 checks pass. The fold reads 3.1 s late, because the graphics clear Ian's panel that long after he lets
+go of his cards. The reader understands only this broadcast's graphics layout (WPT, 1280×720), and reads one hand
+per video. Stacks are never on screen, so a stack is the least it could be, unless an all-in shows it.
+
 ## Limits of this slice
 
 - Review only after a session ends; live sessions are refused.
 - No solver: nothing here claims to be GTO.
 - English questions are matched by rules, not a language model; unusual wording may not be understood.
 - Equity is against one opponent's range; multiway spots say so.
-- Hands are typed in, reading the video by eye; there is no automatic video or voice capture yet.
+- Hands are typed in, or read from one broadcast's graphics layout; there is no voice capture yet.
 
 ## Later
 
-Hand entry from video/voice, player notes across sessions, range presets, solver integration, sharing.
+More broadcast layouts, hand entry by voice, player notes across sessions, range presets, solver integration,
+sharing.
