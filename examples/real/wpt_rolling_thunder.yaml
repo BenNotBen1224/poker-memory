@@ -6,10 +6,13 @@
 # What is estimated:
 #   - Times are within about 1-3 s. A bet, call or fold is the second where the chips cross the line or the
 #     action label first shows. A board card is the second it first shows face up on the card camera. The
-#     overlay's board, win percentages and pot figure update 1-3 s later (up to 8 s on a big bet, while the
-#     dealer counts), so they were not used. The turn bet was first entered at 02:05 from the pot update; the
-#     chips and the BET label are at 01:57, which is what this file now says. The flop, turn and river were
-#     likewise moved 1-2 s earlier, from the overlay's update to the card itself.
+#     overlay's board, win percentages and pot figure update later (the turn bet's pot figure changed about
+#     10 s after the chips, while the dealer counted), so they were not used. The turn bet was first entered
+#     at 02:05, which was too late: Joe pushes his chips at 01:57, the BET label shows at 01:58 and the pot
+#     figure only changes at 02:07. This file now says 01:57. The flop, turn and river were likewise moved
+#     1-2 s earlier, from the overlay's update to the card itself. The fold (07:04) is the first wide shot after
+#     a close-up of Ian's face; a card of his is already on the felt then, so the real moment may be 1-2 s
+#     earlier, and the dealer sweeps it at about 07:05.
 #   - Seat numbers and the button are inferred (Ian is the small blind, so the button is the player just
 #     before him: Andreas). The video never shows real seat numbers.
 #   - The video clock may include edits, so think times are video-clock times, not stopwatch times.

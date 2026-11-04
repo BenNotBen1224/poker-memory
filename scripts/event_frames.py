@@ -11,24 +11,13 @@ seconds on a big bet, so judge the chips and the action label, not the pot.
 from __future__ import annotations
 
 import argparse
-import subprocess
 from pathlib import Path
 
-import imageio_ffmpeg
 from PIL import Image
 
-from frames import clock, label
+from frames import clock, extract, label
 from poker_memory.engine import replay
 from poker_memory.model import SessionDoc
-
-
-def frame_at(video: Path, seconds: float, width: int, out: Path) -> Image.Image:
-    subprocess.run(
-        [imageio_ffmpeg.get_ffmpeg_exe(), "-v", "error", "-y", "-ss", f"{seconds}", "-i", str(video),
-         "-frames:v", "1", "-vf", f"scale={width}:-1", str(out)],
-        check=True,
-    )
-    return Image.open(out).convert("RGB")
 
 
 def main() -> None:
@@ -55,7 +44,9 @@ def main() -> None:
     for n, step in enumerate((s for s in result.steps if s.time), start=1):
         seconds = step.time.earliest_ms / 1000 + args.offset
         path = args.out / f"{n:02d}_{int(seconds) // 60:02d}-{int(seconds) % 60:02d}.png"
-        frame = label(frame_at(video, seconds, args.width, path), f"{clock(seconds)} {step.label}")
+        if not extract(video, seconds, args.width, path):
+            raise SystemExit(f"{clock(seconds)} is past the end of {video.name}")
+        frame = label(Image.open(path).convert("RGB"), f"{clock(seconds)} {step.label}")
         frame.save(path)
         print(f"{n:02d}  {clock(seconds)}  {step.label}  -> {path}")
 
