@@ -84,6 +84,12 @@ def test_the_river_fold_answer(memory):
     assert "about 3 min 29 s" in fact(a, "your_time").text
     assert [e.start_ms for e in a.evidence] == [189000, 215000, 424000]
     assert fact(a, "result").value == -1490000
+    gto = fact(a, "gto")
+    assert gto.kind == "estimated"
+    assert "the best move was call (all-in)" in gto.text and "your fold got -800,000 chips" in gto.text
+    assert "About 12% of the hands he plays this way beat yours." in gto.text
+    assert any("Cards shown later are not used. River hands: you 826, Joe 1015." in s for s in a.assumptions)
+    assert ("gto_river", 1) in {(t.tool, t.revision) for t in a.tools}
 
 
 def test_hole_camera_cards_are_hindsight_only(memory):

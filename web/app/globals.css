@@ -74,6 +74,17 @@ textarea { font-family: ui-monospace, Consolas, monospace; font-size: 0.85rem; }
 .facts li:first-child { border-top: 0; }
 .facts .badge { width: 74px; text-align: center; flex: none; margin-top: 2px; }
 
+.solver { display: grid; gap: 4px; margin-top: 6px; font-size: 0.85rem; }
+.solver-row { display: grid; grid-template-columns: minmax(9rem, auto) 1fr 4rem; gap: 8px; align-items: center; }
+.solver-track { position: relative; height: 12px; background: #0b100e; border-radius: 4px; }
+.solver-bar { position: absolute; top: 0; bottom: 0; background: var(--muted); border-radius: 4px; }
+.solver-bar.best { background: var(--accent); }
+.solver-bar.you:not(.best) { background: var(--warn); }
+.solver-ev { text-align: right; font-variant-numeric: tabular-nums; }
+.tag { font-size: 0.7rem; font-weight: 600; }
+.tag.best { color: var(--accent); }
+.tag.you { color: var(--warn); }
+
 .question { text-align: right; margin: 12px 0 4px; }
 .question span { background: #24322b; padding: 6px 10px; border-radius: 10px; display: inline-block; }
 

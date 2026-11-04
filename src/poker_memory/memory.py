@@ -13,6 +13,7 @@ from typing import Any, Literal
 from pydantic import BaseModel
 
 from .engine import Step
+from .gto import SAMPLES, NotSolved, RiverGTO, river_gto
 from .interpret import Query, parse_question
 from .model import HandRecord, SessionDoc, VideoTime, parse_cards
 from .odds import bluff_share_what_if, equity, pot_odds, river_partition, showdown, winnable_if_call
@@ -67,9 +68,42 @@ class Answer(BaseModel):
 
 LIVE_REFUSAL = ("This session is still marked live. Poker Memory only reviews hands after a session has ended, "
                 "so it never gives help during play. End the session first.")
-GTO_UNKNOWN = "No verified GTO solution is available for this spot; nothing here is a solver result."
 NEED_ASSUMPTION = ("Your equity is unknown: I need an assumption about his hands. Give a range "
                    "(\"if he has 77, AK\") or, on the river, a what-if (\"if he bluffs 10%\").")
+
+
+def _gto_text(g: RiverGTO, currency: str) -> str:
+    unit = 10 ** max(0, len(str(g.pot)) - 4)  # four digits of the pot's size; hides 32-bit float noise
+
+    def chips(x: float, sign: str = "+") -> str:
+        return f"{round(x / unit) * unit:{sign},} {currency}"
+
+    text = f"Solver (river only, chips counted from the start of the river): with {g.hand} "
+    if g.ev_lost <= g.exploitability * g.pot:
+        text += (f"your {g.moves[g.taken]} ({chips(g.ev[g.taken])}) was as good as the best move, "
+                 f"{g.moves[g.best]} ({chips(g.ev[g.best])}), at the solver's accuracy.")
+    else:
+        text += (f"the best move was {g.moves[g.best]}, worth {chips(g.ev[g.best])}; your {g.moves[g.taken]} "
+                 f"got {chips(g.ev[g.taken])}, about {chips(g.ev_lost, '')} less.")
+    if g.beats_you is not None:
+        text += f" About {g.beats_you:.0%} of the hands he plays this way beat yours."
+    return text
+
+
+def _gto_assumptions(g: RiverGTO, names: dict[int, str]) -> list[str]:
+    sizes = ", ".join(f"{names[s]} {n}" for s, n in g.range_hands.items())
+    out = [f"Solver ranges come from the betting only: both players start with every hand, and each call keeps "
+           f"the hands with enough equity against the other player's range to pay the price ({SAMPLES} random "
+           f"boards per call before the turn). Cards shown later are not used. River hands: {sizes}.",
+           f"The solver could check or bet {', '.join(f'{x:,}' for x in g.bet_sizes)} (the last is all-in), "
+           "with up to two raises after that.",
+           "Chips only: tournament payout effects (ICM) are ignored.",
+           f"Solved in {g.seconds:.2f} s ({g.iterations} rounds); a perfect opponent could win at most "
+           f"{g.exploitability:.2%} of the pot more against this solution."]
+    if not g.hero_in_range:
+        out.append("Your hand falls outside the range the betting rule gives you, so it was added with a tiny "
+                   "weight to get a plan for it.")
+    return out
 
 
 def _gap(a: VideoTime, b: VideoTime) -> tuple[int, int]:
@@ -92,6 +126,7 @@ class PokerMemory:
     def __init__(self, store: Store, data_dir: Path):
         self.store = store
         self.data_dir = data_dir
+        self._solved: dict[tuple, RiverGTO | NotSolved] = {}  # (session, hand, revision, seq); the solver is deterministic
 
     @classmethod
     def open(cls, data_dir: str | Path) -> "PokerMemory":
@@ -319,7 +354,21 @@ class PokerMemory:
                                    f"and had {eq.equity:.1%}."))
             if len(board) < 5:
                 assumptions.append("Pot odds ignore betting on later streets.")
-        facts.append(Fact(name="gto", kind="unknown", text=GTO_UNKNOWN))
+        spot = (key, h.index, h.revision, step.seq)
+        if spot not in self._solved:
+            try:
+                self._solved[spot] = river_gto(steps, i, hero, cards, [s.seat for s in h.record.seats])
+            except NotSolved as e:
+                self._solved[spot] = e
+        g = self._solved[spot]
+        if isinstance(g, NotSolved):
+            facts.append(Fact(name="gto", kind="unknown", text=f"No solver result for this spot: {g}."))
+        else:
+            run("gto_river", {"hero": cards, "board": h.replay.board, "decision_seq": step.seq}, g.model_dump())
+            facts.append(Fact(name="gto", kind="estimated", value=g.model_dump(),
+                              text=_gto_text(g, info.stakes.currency)))
+            names = {s: "you" if s == hero else alias(s) for s in g.range_hands}
+            assumptions += _gto_assumptions(g, names)
 
         evidence: list[Evidence] = []
         timing: dict = {}

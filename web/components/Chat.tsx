@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { api, type Answer } from "@/lib/api";
+import { api, type Answer, type Solver } from "@/lib/api";
 
 const EXAMPLES = [
   "Was my river fold to the raise reasonable?",
@@ -82,6 +82,33 @@ export function Chat({ sessionKey, synthetic, onSeek }: {
   );
 }
 
+const chips = new Intl.NumberFormat("en", { notation: "compact", maximumFractionDigits: 2, signDisplay: "exceptZero" });
+
+function SolverBars({ s }: { s: Solver }) {
+  const lo = Math.min(0, ...s.ev);
+  const span = Math.max(0, ...s.ev) - lo || 1;
+  return (
+    <div className="solver" aria-label="Solver value of each move">
+      {s.moves.map((m, k) => (
+        <div key={m} className="solver-row">
+          <span>
+            {m}
+            {k === s.best && <b className="tag best"> best</b>}
+            {k === s.taken && <b className="tag you"> you</b>}
+          </span>
+          <span className="solver-track">
+            <span
+              className={`solver-bar${k === s.best ? " best" : ""}${k === s.taken ? " you" : ""}`}
+              style={{ left: `${((Math.min(0, s.ev[k]) - lo) / span) * 100}%`, width: `${(Math.abs(s.ev[k]) / span) * 100}%` }}
+            />
+          </span>
+          <span className="solver-ev">{chips.format(s.ev[k])}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function AnswerCard({ answer, onSeek, onPick }: {
   answer: Answer;
   onSeek?: (ms: number) => void;
@@ -104,7 +131,10 @@ function AnswerCard({ answer, onSeek, onPick }: {
           {answer.facts.map((f) => (
             <li key={f.name}>
               <span className={`badge ${f.kind}`}>{f.kind}</span>
-              <span>{f.text}</span>
+              <div className="grow">
+                {f.text}
+                {f.name === "gto" && f.kind === "estimated" && <SolverBars s={f.value as Solver} />}
+              </div>
             </li>
           ))}
         </ul>

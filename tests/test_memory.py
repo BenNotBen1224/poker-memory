@@ -42,7 +42,8 @@ def test_end_to_end_river_fold(ended, doc, tmp_path):
     assert (a.kind, a.hand, a.revision, a.decision.seq, a.decision.street) == ("analysis", 7, 1, 14, "river")
     assert (fact(a, "pot_odds").kind, fact(a, "pot_odds").value) == ("derived", 0.3073)
     assert fact(a, "equity").kind == "unknown"
-    assert fact(a, "gto").kind == "unknown"
+    assert fact(a, "gto").kind == "estimated"  # heads-up river decision, so the solver answers
+    assert ("gto_river", 1) in {(t.tool, t.revision) for t in a.tools}
     assert (fact(a, "villain_time").kind, fact(a, "villain_time").value) == ("derived", [16401, 17499])
     assert "16.4-17.5 s" in fact(a, "villain_time").text
     assert [e.start_ms for e in a.evidence] == [98000, 115400, 141000]
@@ -71,7 +72,8 @@ def test_end_to_end_river_fold(ended, doc, tmp_path):
     reopened = PokerMemory.open(tmp_path / "data")
     turns = reopened.store.turns(a.conversation_id)
     assert [t["answer"]["revision"] for t in turns] == [1, 1, 2]
-    assert [r.tool for r in reopened.store.tool_runs(turns[2]["id"])] == ["replay", "pot_odds", "bluff_what_if", "timing"]
+    assert [r.tool for r in reopened.store.tool_runs(turns[2]["id"])] == [
+        "replay", "pot_odds", "bluff_what_if", "gto_river", "timing"]
 
 
 def test_ambiguous_search_returns_candidates_then_follow_up_picks(ended):
@@ -105,6 +107,7 @@ def test_bluff_what_if_needs_the_river(ended):
 def test_multiway_equity_is_flagged(ended):
     a = ended.ask("hand 8 if he has AK, 99", KEY)
     assert any("2 opponents were still in the hand" in s for s in a.assumptions)
+    assert fact(a, "gto").kind == "unknown"
 
 
 def test_no_match(ended):

@@ -9,7 +9,7 @@ English. Answers show where each number came from, and every moment links to the
 ```
 enter hands ─▶ replay check (PokerKit) ─▶ SQLite (every version kept)
                                               │
-        phone-friendly web app ◀── API ◀── ask in English ─▶ pot odds · equity · think time · video moment
+        phone-friendly web app ◀── API ◀── ask in English ─▶ pot odds · equity · river solver · think time · video moment
 ```
 
 This is the first working slice. `examples/home_game.yaml` is synthetic (fictional players, a generated video).
@@ -61,7 +61,8 @@ app shows that credit under the video). Video can only be added with the CLI, ne
 
 | Ask | What happens |
 | --- | --- |
-| "Was my river fold to the raise reasonable?" | Finds the hand and decision; shows pot odds, think times, video moments |
+| "Was my river fold to the raise reasonable?" | Finds the hand and decision; shows pot odds, think times, video moments, and the river solver's answer |
+| "Was my river bet of 800000 a good size?" | River solver: what checking and each bet size were worth with your hand |
 | "What if he bluffs 10%?" | River what-if: equity and a fold/call verdict, labeled as an assumption |
 | "What if he has 77, AK?" | Equity against that range (exact on the river, seeded simulation earlier) |
 | "Show me the AQ hand" then "#2" | Several matches become a pick list |
@@ -69,6 +70,27 @@ app shows that credit under the video). Video can only be added with the CLI, ne
 
 Every fact is labeled **observed** (entered), **derived** (computed), **estimated** (depends on your assumption),
 or **unknown**. Cards shown later in the hand are listed as hindsight and never used in the math.
+
+## Perfect play on the river (GTO)
+
+When the decision you ask about is on the river with two players left, the answer adds a solver fact: the best
+move for your exact hand against perfect play, what your move was worth, and how much you gave up. The web app
+draws one bar per move and marks yours and the best. On the real hand below it says the fold should have been a
+call (about 4.3M chips given up), and that a 465,300 river bet was worth about 26,000 more than the 800,000 bet.
+
+How it works (`src/poker_memory/gto.py`, `solver.py`, `handrank.py`, written here, no outside solver code):
+- Ranges come from the betting only. Both players start with every hand; each call keeps the hands with enough
+  equity against the other player's range to pay the price. Cards shown later are never used.
+- The river is solved as a game tree with discounted regret matching. The bets it can choose are check, the sizes
+  actually bet on that river, and all-in, with up to two raises.
+- It stops once a perfect opponent could win at most 0.5% of the pot more against the answer. Values are in chips;
+  tournament payout effects (ICM) are ignored. The mix for each hand can still move a little between runs, so the
+  answer ranks moves by value.
+- On the real hand one solve takes 0.65 to 0.85 s on a shared 8-core VM, and the whole question about 0.7 to 0.85 s.
+  A fresh `poker-memory ask` process adds about 1.5 s to start Python. A repeat question is about 0.06 s.
+  Deeper stacks or more bet sizes make the tree bigger: the home-game river fold takes about 2 s.
+
+Other spots (turn and earlier, three or more players) say "No solver result for this spot" and why.
 
 ## Fixing a hand
 
@@ -157,12 +179,12 @@ still exits normally. The hero is the player who acted last.
 ## Limits of this slice
 
 - Review only after a session ends; live sessions are refused.
-- No solver: nothing here claims to be GTO.
+- The solver covers only two-player river decisions, and its ranges come from a simple betting rule.
 - English questions are matched by rules, not a language model; unusual wording may not be understood.
 - Equity is against one opponent's range; multiway spots say so.
 - Hands are typed in, or read from one broadcast's graphics layout; there is no voice capture yet.
 
 ## Later
 
-More broadcast layouts, hand entry by voice, player notes across sessions, range presets, solver integration,
-sharing.
+More broadcast layouts, hand entry by voice, player notes across sessions, range presets, solving the turn and
+earlier, sharing.
