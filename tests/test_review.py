@@ -22,6 +22,8 @@ def wpt():
 
 @pytest.fixture
 def demo(tmp_path, wpt):
+    if not (REAL / wpt.session.video).is_file():
+        pytest.skip("the video is not in git: run scripts/fetch_real_video.py")
     app = create_app(tmp_path / "demo")
     memory = app.state.memory
     memory.import_session(wpt, REAL)
