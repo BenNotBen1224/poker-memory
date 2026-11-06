@@ -38,9 +38,17 @@ From the World Poker Tour Rolling Thunder final table ([CC BY 3.0](#data-models-
 
 | Decision view (what Ian knew) | Hindsight view (what really happened) |
 | --- | --- |
-| <img src="docs/images/demo-decision.png" alt="Decision view: Joe's cards are hidden, the break-even share is 29.36%, and a slider tries out how often Ian is ahead" width="100%"> | <img src="docs/images/demo-hindsight.png" alt="Hindsight view: Joe's Q of clubs and 10 of diamonds are shown with the video and the action timeline" width="100%"> |
+| <img src="docs/images/demo-decision-table.png" alt="Decision view: Joe's cards are hidden as question marks; extra to call 2.14M, final pot if called 7.29M, break-even share 29.3553%" width="100%"> | <img src="docs/images/demo-hindsight-table.png" alt="Hindsight view: Joe's Q of clubs and 10 of diamonds, marked broadcast camera, hindsight only" width="100%"> |
 
 A call needed Ian to be ahead **29.4%** of the time (2,140,000 ÷ 7,290,000). Under the solver's assumed ranges, calling scores about **4.3M chips** above folding. That is a model estimate, not a fact about what Joe holds. Joe actually had Q♣10♦ (a straight), so this time the fold saved Ian the 2,140,000 call.
+
+The decision study lets you try out an assumption instead of guessing one: slide how often Joe's all-in is a hand Ian beats, and watch what calling would be worth.
+
+<p align="center">
+  <img src="docs/images/demo-decision.png" alt="Decision study page: the river table on the left, and on the right a slider set to 30% with the call worth +47,000 chips over folding and a break-even line at 29.36%" width="90%">
+</p>
+
+Every action in a hand links to its moment in the video:
 
 <p align="center">
   <img src="docs/images/hand-read.png" alt="Hand page: the clip at 5:00 with Joe all in and Ian facing 2,140,000, beside the step-by-step action list with pots and stacks" width="90%">
