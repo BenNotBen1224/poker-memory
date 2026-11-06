@@ -7,7 +7,7 @@ export type Session = {
   title: string;
   consent: "all_participants" | "open_license" | "none";
   synthetic: boolean;
-  stakes: { sb: number; bb: number; ante: number; currency: string };
+  stakes: { sb: number; bb: number; ante: number; ante_kind: "uniform" | "big_blind"; currency: string };
   source: Source | null;
   status: string;
   ended_at: string | null;

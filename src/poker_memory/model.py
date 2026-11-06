@@ -170,8 +170,12 @@ class HandRecord(BaseModel):
 class Stakes(BaseModel):
     sb: int = Field(gt=0)
     bb: int = Field(gt=0)
-    ante: int = Field(default=0, ge=0)  # paid by every player, as in tournaments
+    ante: int = Field(default=0, ge=0)
+    ante_kind: Literal["uniform", "big_blind"] = "uniform"
     currency: str = "chips"
+
+    def antes_for(self, seats: list[int], big_blind: int) -> dict[int, int]:
+        return {seat: self.ante if self.ante_kind == "uniform" or seat == big_blind else 0 for seat in seats}
 
 
 class Source(BaseModel):

@@ -13,6 +13,7 @@ from pydantic import BaseModel
 from .gto import warm
 from .memory import Answer, PokerMemory
 from .model import HandRecord, SessionDoc
+from .review import KEY as REVIEW_KEY, Lens, Review, build_review, verify_case
 from .search import combo_name, hero_cards, summary
 from .store import Conflict, NotFound, StoredHand
 
@@ -63,6 +64,20 @@ def create_app(data_dir: str | Path) -> FastAPI:
                         "hand_count": len(hands), "verified": sum(h.status == "verified" for h in hands),
                         "video_url": f"/api/sessions/{s.info.key}/video" if s.info.video else None})
         return out
+
+    @app.get("/api/demo/wpt/review", response_model=Review, response_model_exclude_none=True)
+    def demo_review(lens: Lens = "decision"):
+        session = memory.store.session(REVIEW_KEY)
+        hand = memory.store.hand(REVIEW_KEY, 1)
+        return build_review(session, hand, memory.video_path(REVIEW_KEY), lens)
+
+    @app.get("/api/demo/wpt/video")
+    def demo_video():
+        session = memory.store.session(REVIEW_KEY)
+        hand = memory.store.hand(REVIEW_KEY, 1)
+        path = memory.video_path(REVIEW_KEY)
+        verify_case(session, hand, path)
+        return FileResponse(path, media_type="video/webm")
 
     @app.post("/api/sessions", status_code=201)
     def import_session(doc: SessionDoc):

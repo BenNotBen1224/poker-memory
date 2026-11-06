@@ -1,0 +1,114 @@
+:global(main):has(.demo) { max-width: 1280px; padding: 20px 28px; }
+.demo { --teal: #85e7c7; --ink: #e8f1ed; --dim: #9cafa7; color: var(--ink); }
+.heading { display: flex; justify-content: space-between; gap: 24px; align-items: flex-end; margin: 5px 0 18px; }
+.eyebrow { font-size: 11px; font-weight: 750; letter-spacing: .14em; color: var(--teal); }
+.heading h1 { font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -.04em; margin: 8px 0; }
+.heading h1 span { color: var(--dim); }
+.heading p { color: var(--dim); margin-bottom: 0; }
+.provenance { border-left: 1px solid #405249; padding: 10px 0 10px 20px; font-size: 13px; white-space: nowrap; }
+.provenance small { display: block; color: var(--dim); margin-top: 8px; line-height: 1.7; }
+.dot { display: inline-block; width: 7px; height: 7px; background: var(--teal); border-radius: 50%; margin-right: 7px; }
+.lenses { display: flex; gap: 8px; padding: 6px; background: #0a100e; border: 1px solid #2e4036; border-radius: 14px; margin-bottom: 22px; }
+.lenses button { flex: 1; background: transparent; padding: 13px; border-color: transparent; font-weight: 700; text-align: left; }
+.lenses button small { display: block; font-size: 12px; color: var(--dim); font-weight: 400; margin-top: 4px; }
+.lenses button[aria-pressed=true] { border-color: #537e6c; background: #213b30; }
+.grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; }
+.panel { background: linear-gradient(140deg, #1a2821, #16211c); padding: 23px; border: 1px solid #33473c; border-radius: 18px; margin-bottom: 20px; }
+.sectionTitle { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.sectionTitle h2, .panel h2 { margin: 0; font-size: 18px; letter-spacing: -.02em; }
+.tag { color: var(--teal); border: 1px solid #426454; padding: 4px 7px; border-radius: 5px; font-size: 9px; font-weight: 750; letter-spacing: .08em; }
+.amber { color: #f4c18b; border-color: #8d6a41; }
+.subtle { color: var(--dim); font-size: 12px; line-height: 1.6; }
+.pokerTable { position: relative; border: 1px solid #41604d; border-radius: 44%; background: radial-gradient(ellipse, #28523f, #152e23 80%); min-height: 350px; margin: 22px 0; box-shadow: inset 0 0 0 10px #14271e, inset 0 0 0 11px #37533e; display: flex; align-items: center; flex-direction: column; justify-content: center; gap: 16px; }
+.opponent, .hero { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.opponent b, .hero b { font-size: 13px; }
+.opponent b span, .hero b span { color: #adc0b3; font-size: 9px; font-weight: 400; }
+.opponent small, .hero small { color: #bbcfc2; font-size: 10px; }
+.cards { display: flex; justify-content: center; gap: 6px; }
+.playingCard { background: #eef4ed; color: #18251e; height: 53px; width: 37px; border-radius: 5px; font-size: 23px; font-weight: 800; line-height: 1.1; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 6px #0005; }
+.playingCard small { font-size: 17px; color: inherit; }
+.red { color: #bc393f; }
+.cardBack { background: repeating-linear-gradient(45deg, #243e33, #243e33 3px, #2c493c 3px, #2c493c 6px); color: #b6cfc0; border: 1px solid #749380; }
+.board { text-align: center; }
+.board .eyebrow { font-size: 9px; color: #b4cbbc; }
+.board strong { font-size: 30px; display: block; margin: 2px 0 8px; }
+.priceStrip { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid #35483c; padding-top: 18px; }
+.priceStrip small { display: block; font-size: 11px; color: var(--dim); }
+.priceStrip strong { font-size: 21px; font-variant-numeric: tabular-nums; }
+.scenario > p { font-size: 13px; color: var(--dim); }
+.scenario label { font-size: 13px; display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; }
+.scenario label strong { color: var(--teal); font-size: 22px; }
+.scenario input { padding: 0; accent-color: var(--teal); margin: 14px 0 0; height: 22px; cursor: pointer; }
+.scenario .assumption { font-size: 12px; color: #d3ddce; background: #0e1912; border-left: 2px solid #9a8159; padding: 12px; }
+.ev { padding: 12px 0; }
+.ev span, .ev small { display: block; color: var(--dim); font-size: 11px; }
+.ev strong { display: block; font-size: 29px; letter-spacing: -.02em; }
+.positive { color: var(--teal); }
+.negative { color: #f4ad8e; }
+.chart { width: 100%; margin-top: -7px; overflow: visible; }
+.chart text { fill: #b7c8bc; font-size: 12px; font-family: inherit; }
+.formula { text-align: center; font-family: monospace; background: #0c1710; border-radius: 6px; padding: 10px; font-size: 12px; }
+.timeline { display: flex; gap: 7px; overflow-x: auto; padding: 10px 0 16px; scrollbar-color: #466552 #132019; }
+.timeline button { min-width: 160px; max-width: 190px; text-align: left; background: #122018; font-size: 12px; flex-shrink: 0; }
+.timeline button small { display: block; color: var(--dim); margin-bottom: 7px; }
+.timeline button[aria-pressed=true] { border-color: var(--teal); box-shadow: inset 0 3px var(--teal); }
+.focus { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: #23392c; padding: 12px; border-radius: 8px; font-size: 12px; }
+.focus span { color: #b2c7b9; }
+.locked { display: flex; gap: 18px; align-items: center; padding: 24px; margin-top: 16px; border: 1px dashed #49644e; border-radius: 10px; }
+.locked > span { font-size: 30px; color: var(--teal); }
+.locked b { font-size: 13px; }
+.locked p { color: var(--dim); font-size: 12px; margin-bottom: 0; }
+.broadcast { margin-top: 18px; }
+.broadcast video { width: 100%; max-height: 65vh; background: #030805; border-radius: 9px; display: block; margin-top: 14px; }
+.warning { background: #2f2c1f; border-left: 2px solid #c69e68; color: #e4d1ad; padding: 12px 16px; font-size: 12px; }
+.credit { color: var(--dim); font-size: 12px; }
+.outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px 0; }
+.outcomes h3 { font-size: 24px; margin: 12px 0; }
+.outcomes p { font-size: 13px; color: var(--dim); }
+.context { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 20px; align-items: start; padding: 22px 0 40px; }
+.context h2 { font-size: 25px; line-height: 1.2; margin-top: 12px; }
+.context p { color: var(--dim); font-size: 12px; }
+.profile { border-left: 1px solid #395342; padding: 0 18px; }
+.profile h3 { display: flex; align-items: center; justify-content: space-between; margin-top: 0; font-size: 22px; }
+.profile h3 span { font-size: 10px; background: #283e2e; border-radius: 5px; padding: 5px 8px; color: var(--teal); }
+.profile b { font-size: 14px; }
+.reports { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.reports h3 { font-size: 15px; }
+.reports p { color: #b8cdbf; font-size: 13px; line-height: 1.7; }
+.reports a { font-size: 11px; }
+.hypotheses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+.hypotheses .panel { padding: 20px; }
+.hypothesisNumber { color: #608872; font-size: 25px; }
+.hypotheses h3 { font-size: 18px; min-height: 46px; }
+.hypotheses p { font-size: 12px; line-height: 1.7; }
+.hypotheses p b { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #b8cfbd; }
+.needed { border-top: 1px solid #3c5042; padding-top: 15px; color: #c4dfcd; }
+.needed > b { font-size: 11px; text-transform: uppercase; }
+.needed p { margin-bottom: 0; }
+.demo footer { color: var(--dim); font-size: 12px; }
+.demo footer h2 { color: var(--ink); }
+.demo footer li { margin: 8px 0; }
+.demo code { overflow-wrap: anywhere; font-size: 10px; }
+@media (max-width: 850px) {
+  :global(main):has(.demo) { padding: 16px; }
+  .grid { grid-template-columns: 1fr; gap: 0; }
+  .heading { align-items: flex-start; }
+  .heading h1 { font-size: 30px; }
+  .provenance { font-size: 11px; white-space: normal; max-width: 155px; }
+  .context { grid-template-columns: 1fr 1fr; }
+  .context > div:first-child { grid-column: 1 / -1; }
+  .hypotheses { grid-template-columns: 1fr; gap: 0; }
+  .hypotheses h3 { min-height: 0; }
+}
+@media (max-width: 440px) {
+  .heading { flex-direction: column; gap: 15px; }
+  .provenance { max-width: none; }
+  .provenance small { display: inline; margin-left: 8px; }
+  .panel { padding: 16px; }
+  .lenses button { padding: 9px; font-size: 12px; }
+  .lenses small { font-size: 10px !important; }
+  .priceStrip strong { font-size: 18px; }
+  .sectionTitle h2 { font-size: 16px; }
+  .outcomes { grid-template-columns: 1fr; }
+  .reports { grid-template-columns: 1fr; }
+}

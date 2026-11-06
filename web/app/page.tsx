@@ -55,7 +55,7 @@ export default function Home() {
             <span>{s.key}</span>
             <span>
               {s.stakes.sb}/{s.stakes.bb}
-              {s.stakes.ante > 0 && ` ante ${s.stakes.ante}`} {s.stakes.currency}
+              {s.stakes.ante > 0 && ` ${s.stakes.ante_kind === "big_blind" ? "BB ante" : "ante per player"} ${s.stakes.ante}`} {s.stakes.currency}
             </span>
             <span>
               {s.verified}/{s.hand_count} hands checked

@@ -15,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <header className="top">
           <Link href="/">Poker Memory</Link>
+          <Link href="/demo">Hand study</Link>
           <span className="muted">after-session review</span>
         </header>
         <main>{children}</main>

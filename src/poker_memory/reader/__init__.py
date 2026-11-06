@@ -1,6 +1,7 @@
-"""Read one televised poker hand from its TV graphics, on a CPU, in well under a second.
+"""Read one televised poker hand from its TV graphics on a CPU.
 
-1. Read the whole file, then decode each keyframe (one every few seconds) on the workers.
+1. Read the whole file, then decode each keyframe (one every few seconds) on the workers, feeding later packets
+   when the codec delays a frame.
 2. Once every keyframe is read: where two neighbouring keyframes differ, the first one's decoder goes on through the
    stretch between them, sampling about four pictures a second, and stops as soon as the graphics match the second.
    The last keyframe's decoder goes on to the end of the recording. Workers only decode; one thread reads the
@@ -17,12 +18,12 @@ import queue
 import re
 import threading
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Iterator
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from functools import partial
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import av
 
@@ -30,6 +31,9 @@ from ..model import HandRecord, Stakes
 from .hand import BLANK, Moment, Seen, build
 from .overlay import TEXT_CUT, Card, Catalog, Look, Ocr, look_all, parse_blinds, parse_rank, parse_status, same_look
 from .video import Clip, keyframe, stretch
+
+if TYPE_CHECKING:
+    from .pokergo import PokerGoObservations
 
 EVERY = 6  # every 6th picture: about four a second at 24 fps
 BATCH = 64  # most pictures read in one go
@@ -48,6 +52,7 @@ class Reading:
     seconds: dict[str, float]
     pictures: int  # pictures read: keyframes plus samples between them
     ocr_reads: int
+    observations: PokerGoObservations | None = None
 
 
 _OCR: Ocr | None = None
@@ -81,7 +86,7 @@ def _scan(pool: ThreadPoolExecutor, path: Path) -> tuple[list[Look], list[Look]]
     # (what, keyframe number, payload): ("key", k, picture), ("gap", k, picture or None once done) and
     # ("error", 0, exception)
     inbox: queue.SimpleQueue[tuple[str, int, Any]] = queue.SimpleQueue()
-    decoders: dict[int, av.CodecContext] = {}  # each keyframe's, until it is known whether the stretch after is needed
+    decoders: dict[int, Iterator[av.VideoFrame]] = {}
     stop: dict[int, bool] = {}
     leash: dict[int, threading.Semaphore] = {}
 
@@ -97,10 +102,10 @@ def _scan(pool: ThreadPoolExecutor, path: Path) -> tuple[list[Look], list[Look]]
 
     def decode_gap(k: int, late: bool) -> None:
         try:
-            codec = decoders.pop(k)
+            frames = decoders.pop(k)
             if late:
-                codec = keyframe(clip, k, TAIL_THREADS)[0]
-            pictures = stretch(clip, k, codec, EVERY)
+                frames = keyframe(clip, k, TAIL_THREADS)[0]
+            pictures = stretch(clip, k, frames, EVERY)
             while leash[k].acquire() and not stop[k]:
                 picture = next(pictures, None)
                 if picture is None:
@@ -125,8 +130,7 @@ def _scan(pool: ThreadPoolExecutor, path: Path) -> tuple[list[Look], list[Look]]
                 del decoders[k]
             else:
                 gaps.append(k)
-        if clip.keys[-1] + 1 < len(clip.packets):
-            gaps.append(len(keys) - 1)
+        gaps.append(len(keys) - 1)
         for n, k in enumerate(gaps):
             stop[k], between[k], leash[k] = False, [], threading.Semaphore(LEASH)
             running += 1
@@ -215,7 +219,26 @@ def _state(i: int, text: str) -> str:
 
 
 def read_hand(path: Path) -> Reading:
+    started = time.perf_counter()
     path = Path(path)
+    with av.open(str(path)) as container:
+        stream = container.streams.video[0]
+        if (stream.width, stream.height) == (854, 480):
+            from .pokergo import build_preflop, observe, recognizes
+
+            first = next(container.decode(stream), None)
+            if first is None:
+                raise ValueError("native video decoded no frames")
+            ocr = _ocr()
+            if not recognizes(first.to_ndarray(format="rgb24"), ocr):
+                raise ValueError("unsupported native 854x480 broadcast layout")
+            calls = ocr.calls
+            evidence = observe(path, ocr)
+            draft = build_preflop(evidence)
+            assert evidence.stakes is not None  # Required by the successful builder.
+            seconds = {**evidence.seconds, "total": time.perf_counter() - started}
+            return Reading(draft.record, evidence.stakes, draft.issues, draft.wins, [], seconds,
+                           evidence.sampled_frames, ocr.calls - calls, evidence)
     clock = [time.perf_counter()]
     seconds: dict[str, float] = {}
 

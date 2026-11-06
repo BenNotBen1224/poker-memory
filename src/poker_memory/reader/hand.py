@@ -170,7 +170,7 @@ def _stacks(actions: list[Action], board: list[tuple[float, str, list[str]]], se
             sb: int, bb: int, to_call: dict[int, list[int]]) -> dict[int, tuple[int, str]]:
     """The broadcast never shows stacks. An all-in gives one exactly; every other seat gets the least it could
     hold: what it put in plus the last amount it was asked to call."""
-    total = {s: stakes.ante for s in seats}
+    total = stakes.antes_for(seats, bb)
     street = {s: 0 for s in seats}
     street[sb], street[bb] = stakes.sb, stakes.bb
     high = stakes.bb

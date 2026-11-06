@@ -74,11 +74,20 @@ def _read(videos: list[Path]) -> None:
     import yaml
 
     from .reader import read_hand
+    from .reader.pokergo import UncertainHand
 
     for n, video in enumerate(videos):
-        reading = read_hand(video)
         if n:
             print("---")
+        try:
+            reading = read_hand(video)
+        except UncertainHand as error:
+            import sys
+
+            print(yaml.safe_dump({"status": "uncertain", "stage": error.stage,
+                                  "observations": error.evidence.model_dump(mode="json")}, sort_keys=False), end="")
+            print(str(error), file=sys.stderr)
+            raise SystemExit(2) from error
         print(f"# {video.name}: read in {reading.seconds['total']:.2f} s from {reading.pictures} pictures")
         for issue in reading.issues:
             print(f"# {issue}")

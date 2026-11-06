@@ -1,15 +1,15 @@
 """Get pictures out of a recording without decoding all of it.
 
-The file is read once, into its compressed packets. A keyframe decodes on its own, so decoding just those gives a
-picture every few seconds, each on any free core. The stretch after a keyframe can only be decoded from that
-keyframe, so `stretch` goes on with the decoder that decoded it, on one core, so many stretches can run side by
-side; the caller stops it as soon as it has seen enough.
+The file is read once, into its compressed packets. Each keyframe starts an independent decoder, which may need
+later packets before returning reordered pictures. Its iterator retains that decoder for the stretch after the
+keyframe; stretches can run side by side and stop once the caller has seen enough.
 """
 
 from __future__ import annotations
 
 from collections.abc import Iterator
 from dataclasses import dataclass
+from itertools import chain, islice
 from pathlib import Path
 
 import av
@@ -26,7 +26,7 @@ class Picture:
 
 @dataclass(frozen=True)
 class Clip:
-    """A recording's compressed packets, in decode order; each one decodes to one shown picture."""
+    """A recording's compressed packets in decode order, with presentation times and keyframe packet indexes."""
 
     codec: str
     extradata: bytes | None
@@ -71,22 +71,46 @@ def _picture(frame: av.VideoFrame, time: float) -> Picture:
     return Picture(time, *planes)
 
 
-def keyframe(clip: Clip, k: int, threads: int = 1) -> tuple[av.CodecContext, Picture]:
-    """Keyframe k's picture, and the decoder that decoded it, ready to go on into the stretch after it."""
+def _time(frame: av.VideoFrame) -> float:
+    if frame.pts is None or frame.time_base is None:
+        raise ValueError("decoded video frame has no presentation timestamp")
+    return frame.pts * frame.time_base.numerator / frame.time_base.denominator
+
+
+def _frames(clip: Clip, k: int, threads: int) -> Iterator[av.VideoFrame]:
     codec = _decoder(clip, threads)
-    i = clip.keys[k]
-    frames = codec.decode(clip.packets[i])
-    if len(frames) != 1:
-        raise ValueError(f"keyframe {k} decoded to {len(frames)} pictures")
-    return codec, _picture(frames[0], clip.times[i])
+    start = clip.keys[k]
+    end_time = clip.times[clip.keys[k + 1]] if k + 1 < len(clip.keys) else float("inf")
+    # Look ahead past a GOP's packet boundary to drain reordered pictures; None flushes the final GOP at EOF.
+    for packet in chain(islice(clip.packets, start, None), (None,)):
+        for frame in codec.decode(packet):
+            if packet is None:
+                # PyAV's bare-codec EOF flush preserves PTS but does not attach the packet stream's time base.
+                frame.time_base = clip.packets[start].time_base
+            time = _time(frame)
+            if time >= end_time:
+                return
+            if time >= clip.times[start]:
+                yield frame
 
 
-def stretch(clip: Clip, k: int, codec: av.CodecContext, every: int) -> Iterator[Picture]:
+def keyframe(clip: Clip, k: int, threads: int = 1) -> tuple[Iterator[av.VideoFrame], Picture]:
+    """Keyframe k's picture and its retained presentation-order decoder iterator."""
+    frames = _frames(clip, k, threads)
+    frame = next(frames, None)
+    if frame is None or _time(frame) != clip.times[clip.keys[k]]:
+        raise ValueError(f"keyframe {k} did not decode at its presentation timestamp")
+    return frames, _picture(frame, _time(frame))
+
+
+def stretch(clip: Clip, k: int, frames: Iterator[av.VideoFrame], every: int) -> Iterator[Picture]:
     """Every `every`-th picture after keyframe k, up to the next keyframe, going on with the decoder that decoded k.
     After the last keyframe it goes on to the end of the recording, and gives the last picture too."""
-    start = clip.keys[k]
-    end = clip.keys[k + 1] if k + 1 < len(clip.keys) else len(clip.packets)
-    for i in range(start + 1, end):
-        for frame in codec.decode(clip.packets[i]):
-            if (i - start) % every == 0 or i == len(clip.packets) - 1:
-                yield _picture(frame, clip.times[i])
+    last = None
+    last_index = 0
+    for i, frame in enumerate(frames, 1):
+        if i % every == 0:
+            yield _picture(frame, _time(frame))
+        last, last_index = frame, i
+    if k == len(clip.keys) - 1 and last is not None and last_index % every:
+        yield _picture(last, _time(last))

@@ -123,7 +123,12 @@ def _moment(time, ann=None, bob=None, cat=None, board=()):
     return Moment(float(time), seen, tuple(board) + (None,) * (5 - len(board)), np.zeros((8, 40), bool))
 
 
-def test_build_turns_a_timeline_into_a_hand():
+@pytest.mark.parametrize("stakes,expected_stacks", [
+    (Stakes(sb=1, bb=2), {1: 8, 2: 4, 3: 16}),
+    (Stakes(sb=1, bb=2, ante=5), {1: 13, 2: 9, 3: 21}),
+    (Stakes(sb=1, bb=2, ante=5, ante_kind="big_blind"), {1: 8, 2: 9, 3: 16}),
+])
+def test_build_turns_a_timeline_into_a_hand(stakes, expected_stacks):
     """Three players. Panels first show up in the order players act before the flop: button, small blind, big
     blind. CAT's panel goes away for good before the flop, and BOB's on the flop, so both folded."""
     flop = ("Qs", "Jd", "2c")
@@ -140,7 +145,7 @@ def test_build_turns_a_timeline_into_a_hand():
         _moment(18, ann="BET 8", board=flop), _moment(19, ann="BET 8", board=flop),
         _moment(20, ann="WIN 14", board=flop), _moment(21, ann="WIN 14", board=flop),
     ]
-    draft = build(moments, Stakes(sb=1, bb=2))
+    draft = build(moments, stakes)
     record = draft.record
     assert (record.button, record.hero.seat, record.hero.cards) == (3, 1, "KcKd")
     assert [(s.seat, s.alias, s.hole_cam) for s in record.seats] == [
@@ -155,6 +160,7 @@ def test_build_turns_a_timeline_into_a_hand():
         "s1 fold @00:18.0",
     ]
     assert (draft.wins, draft.issues) == ({3: 14}, [])
+    assert {s.seat: s.stack for s in record.seats} == expected_stacks
 
 
 def _event(line: str) -> tuple[str, float]:

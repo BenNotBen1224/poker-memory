@@ -14,7 +14,7 @@ from pydantic import BaseModel
 
 from .model import STREETS, Event, HandRecord, Stakes, VideoTime, parse_cards, parse_event
 
-ENGINE_VERSION = f"pokerkit-{version('pokerkit')}/replay-1"
+ENGINE_VERSION = f"pokerkit-{version('pokerkit')}/replay-2"
 
 _AUTOMATIONS = (
     Automation.ANTE_POSTING,
@@ -83,8 +83,13 @@ def replay(record: HandRecord, stakes: Stakes) -> Replay:
     hero = record.hero.seat
     hero_cards = parse_cards(record.hero.cards)
     camera_cards = {c for s in record.seats if s.hole_cam for c in parse_cards(s.hole_cam)}  # only for the reuse check
+    big_blind = order[0] if len(order) == 2 else order[1]
+    antes = stakes.antes_for(order, big_blind)
+    raw_antes = tuple(antes[seat] for seat in order)
+    if len(order) == 2:
+        raw_antes = raw_antes[::-1]  # PokerKit reverses both ante and blind positions heads-up.
     state = NoLimitTexasHoldem.create_state(
-        _AUTOMATIONS, True, stakes.ante, (stakes.sb, stakes.bb), stakes.bb,
+        _AUTOMATIONS, stakes.ante_kind == "uniform", raw_antes, (stakes.sb, stakes.bb), stakes.bb,
         tuple(start[seat] for seat in order), len(order), mode=Mode.CASH_GAME,
     )
     while state.hole_dealee_index is not None:
