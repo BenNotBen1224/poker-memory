@@ -1,0 +1,12 @@
+tank_30 caption word between "make" and "decision" (source ~374.91 s): KEEP "a".
+- large-v3 on final MP4: "make my decision" (my 0.24). medium.en earlier: "make the decision". Models disagree with each other.
+- Acoustics (out\tank30-acoustic.txt): "make" = m-hum 374.71, vowel 374.77-374.83, k closure/release 374.84-374.91;
+  short open vowel (F1~740, F2~1760, no nasal murmur) 374.92-374.93; d voice-bar 374.933 then d burst 374.942.
+  Only ~50 ms between the k release and the d burst: fits a reduced "a"; "my" (m-hum + sliding vowel) needs ~150 ms+.
+- wav2vec2 CTC scores (out\tank30-ctc-candidates.txt) are NOT used: the model decodes nothing on this murmured line,
+  so it just prefers fewer letters ("no word" wins every window).
+- No published quote found (WPT.com Matt Clark 2018-03-06; foxsports.com.au 2018-03-08).
+Residual risk: low-volume function word; meaning is identical either way.
+
+Update after final render (sha256 936bfb51...): verify's medium.en heard "before I make a decision." (matches caption);
+large-v3 heard "make my(0.37) decision". Models still split; caption stays "a".

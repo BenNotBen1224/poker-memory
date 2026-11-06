@@ -1,0 +1,52 @@
+[
+ {
+  "text": "This",
+  "start": 0.1,
+  "end": 0.26
+ },
+ {
+  "text": "is",
+  "start": 0.38,
+  "end": 0.64
+ },
+ {
+  "text": "unreal",
+  "start": 1.23,
+  "end": 1.86
+ },
+ {
+  "text": "that",
+  "start": 1.88,
+  "end": 2.0
+ },
+ {
+  "text": "he's",
+  "start": 2.0,
+  "end": 2.14
+ },
+ {
+  "text": "considering",
+  "start": 2.18,
+  "end": 2.58
+ },
+ {
+  "text": "getting",
+  "start": 2.6,
+  "end": 2.8
+ },
+ {
+  "text": "away",
+  "start": 2.84,
+  "end": 3.0
+ },
+ {
+  "text": "from",
+  "start": 3.06,
+  "end": 3.18
+ },
+ {
+  "text": "this.",
+  "start": 3.22,
+  "end": 3.34
+ }
+]

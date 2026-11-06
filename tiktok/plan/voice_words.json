@@ -1,0 +1,1142 @@
+{
+ "cowboys": {
+  "parts": [
+   [
+    23.72,
+    25.62
+   ]
+  ],
+  "words": [
+   {
+    "text": "Couple",
+    "key": "cowboys",
+    "start": 0.38,
+    "end": 0.5,
+    "ctc_start": 0.38,
+    "score": -3.424
+   },
+   {
+    "text": "of",
+    "key": "cowboys",
+    "start": 0.5,
+    "end": 0.64,
+    "ctc_start": 0.56,
+    "score": -4.205
+   },
+   {
+    "text": "cowboys",
+    "key": "cowboys",
+    "start": 0.67,
+    "end": 1.17,
+    "ctc_start": 0.68,
+    "score": -0.481
+   },
+   {
+    "text": "here",
+    "key": "cowboys",
+    "start": 1.17,
+    "end": 1.44,
+    "ctc_start": 1.22,
+    "score": -0.595
+   },
+   {
+    "text": "for",
+    "key": "cowboys",
+    "start": 1.48,
+    "end": 1.56,
+    "ctc_start": 1.48,
+    "score": -2.21
+   },
+   {
+    "text": "Ian.",
+    "key": "cowboys",
+    "start": 1.64,
+    "end": 1.76,
+    "ctc_start": 1.64,
+    "score": -2.441
+   }
+  ]
+ },
+ "atleast": {
+  "parts": [
+   [
+    46.88,
+    48.81
+   ]
+  ],
+  "words": [
+   {
+    "text": "Joe",
+    "key": "atleast",
+    "start": 0.14,
+    "end": 0.54,
+    "ctc_start": 0.34,
+    "score": -0.034
+   },
+   {
+    "text": "is",
+    "key": "atleast",
+    "start": 0.64,
+    "end": 0.72,
+    "ctc_start": 0.64,
+    "score": -0.105
+   },
+   {
+    "text": "going",
+    "key": "atleast",
+    "start": 0.74,
+    "end": 0.9,
+    "ctc_start": 0.74,
+    "score": -0.018
+   },
+   {
+    "text": "to",
+    "key": "atleast",
+    "start": 0.96,
+    "end": 1.04,
+    "ctc_start": 0.96,
+    "score": -0.608
+   },
+   {
+    "text": "at",
+    "key": "atleast",
+    "start": 1.1,
+    "end": 1.18,
+    "ctc_start": 1.1,
+    "score": -0.275
+   },
+   {
+    "text": "least",
+    "key": "atleast",
+    "start": 1.22,
+    "end": 1.44,
+    "ctc_start": 1.22,
+    "score": -0.001
+   },
+   {
+    "text": "call.",
+    "key": "atleast",
+    "start": 1.56,
+    "end": 1.82,
+    "ctc_start": 1.56,
+    "score": -0.002
+   }
+  ]
+ },
+ "farbest": {
+  "parts": [
+   [
+    66.71,
+    68.88
+   ]
+  ],
+  "words": [
+   {
+    "text": "Ian's",
+    "key": "farbest",
+    "start": 0.16,
+    "end": 0.48,
+    "ctc_start": 0.18,
+    "score": -4.061
+   },
+   {
+    "text": "hand",
+    "key": "farbest",
+    "start": 0.5,
+    "end": 0.78,
+    "ctc_start": 0.68,
+    "score": -1.685
+   },
+   {
+    "text": "far",
+    "key": "farbest",
+    "start": 0.88,
+    "end": 1.04,
+    "ctc_start": 0.88,
+    "score": -0.59
+   },
+   {
+    "text": "and",
+    "key": "farbest",
+    "start": 1.08,
+    "end": 1.16,
+    "ctc_start": 1.08,
+    "score": -3.943
+   },
+   {
+    "text": "away",
+    "key": "farbest",
+    "start": 1.18,
+    "end": 1.34,
+    "ctc_start": 1.18,
+    "score": -0.031
+   },
+   {
+    "text": "the",
+    "key": "farbest",
+    "start": 1.4,
+    "end": 1.48,
+    "ctc_start": 1.4,
+    "score": -0.004
+   },
+   {
+    "text": "best",
+    "key": "farbest",
+    "start": 1.5,
+    "end": 1.72,
+    "ctc_start": 1.52,
+    "score": -0.254
+   },
+   {
+    "text": "still.",
+    "key": "farbest",
+    "start": 1.74,
+    "end": 2.04,
+    "ctc_start": 1.74,
+    "score": -4.109
+   }
+  ]
+ },
+ "hate": {
+  "parts": [
+   [
+    125.9,
+    128.36
+   ]
+  ],
+  "words": [
+   {
+    "text": "You",
+    "key": "hate",
+    "start": 0.16,
+    "end": 0.26,
+    "ctc_start": 0.2,
+    "score": -0.129
+   },
+   {
+    "text": "just",
+    "key": "hate",
+    "start": 0.35,
+    "end": 0.54,
+    "ctc_start": 0.36,
+    "score": -0.107
+   },
+   {
+    "text": "hate",
+    "key": "hate",
+    "start": 0.68,
+    "end": 0.88,
+    "ctc_start": 0.68,
+    "score": -0.165
+   },
+   {
+    "text": "to",
+    "key": "hate",
+    "start": 0.91,
+    "end": 1.02,
+    "ctc_start": 0.94,
+    "score": -0.285
+   },
+   {
+    "text": "lay",
+    "key": "hate",
+    "start": 1.08,
+    "end": 1.22,
+    "ctc_start": 1.08,
+    "score": -0.082
+   },
+   {
+    "text": "down",
+    "key": "hate",
+    "start": 1.3,
+    "end": 1.48,
+    "ctc_start": 1.3,
+    "score": -0.001
+   },
+   {
+    "text": "kings.",
+    "key": "hate",
+    "start": 1.62,
+    "end": 1.94,
+    "ctc_start": 1.62,
+    "score": -4.953
+   }
+  ]
+ },
+ "bet": {
+  "parts": [
+   [
+    197.02,
+    201.16
+   ]
+  ],
+  "words": [
+   {
+    "text": "800,000",
+    "key": "bet800",
+    "start": 0.04,
+    "end": 0.96,
+    "ctc_start": 0.08,
+    "score": -0.047
+   },
+   {
+    "text": "is",
+    "key": "bet800",
+    "start": 1.02,
+    "end": 1.1,
+    "ctc_start": 1.02,
+    "score": -0.059
+   },
+   {
+    "text": "the",
+    "key": "bet800",
+    "start": 1.12,
+    "end": 1.2,
+    "ctc_start": 1.12,
+    "score": -1.507
+   },
+   {
+    "text": "bet.",
+    "key": "bet800",
+    "start": 1.32,
+    "end": 1.54,
+    "ctc_start": 1.32,
+    "score": -1.534
+   },
+   {
+    "text": "2.2",
+    "key": "center",
+    "start": 1.66,
+    "end": 2.38,
+    "ctc_start": 1.68,
+    "score": -0.034
+   },
+   {
+    "text": "million",
+    "key": "center",
+    "start": 2.39,
+    "end": 2.8,
+    "ctc_start": 2.52,
+    "score": -0.012
+   },
+   {
+    "text": "already",
+    "key": "center",
+    "start": 2.88,
+    "end": 3.32,
+    "ctc_start": 2.98,
+    "score": -0.013
+   },
+   {
+    "text": "in",
+    "key": "center",
+    "start": 3.38,
+    "end": 3.46,
+    "ctc_start": 3.38,
+    "score": -0.001
+   },
+   {
+    "text": "the",
+    "key": "center",
+    "start": 3.48,
+    "end": 3.56,
+    "ctc_start": 3.48,
+    "score": -0.002
+   },
+   {
+    "text": "center.",
+    "key": "center",
+    "start": 3.6,
+    "end": 3.98,
+    "ctc_start": 3.6,
+    "score": -2.957
+   }
+  ]
+ },
+ "wow": {
+  "parts": [
+   [
+    232.62,
+    235.74
+   ]
+  ],
+  "words": [
+   {
+    "text": "Yes,",
+    "key": "wow",
+    "start": 0.66,
+    "end": 0.92,
+    "ctc_start": 0.7,
+    "score": -0.004
+   },
+   {
+    "text": "wow.",
+    "key": "wow",
+    "start": 1.12,
+    "end": 1.28,
+    "ctc_start": 1.12,
+    "score": -5.835
+   },
+   {
+    "text": "Yeah,",
+    "key": "wow",
+    "start": 1.91,
+    "end": 2.28,
+    "ctc_start": 2.14,
+    "score": -2.296
+   },
+   {
+    "text": "wow",
+    "key": "wow",
+    "start": 2.35,
+    "end": 2.54,
+    "ctc_start": 2.36,
+    "score": -0.353
+   },
+   {
+    "text": "indeed.",
+    "key": "wow",
+    "start": 2.7,
+    "end": 3.08,
+    "ctc_start": 2.7,
+    "score": -2.866
+   }
+  ]
+ },
+ "stacks": {
+  "parts": [
+   [
+    236.9,
+    239.07
+   ]
+  ],
+  "words": [
+   {
+    "text": "Two",
+    "key": "stacks",
+    "start": 0.09,
+    "end": 0.26,
+    "ctc_start": 0.14,
+    "score": -0.862
+   },
+   {
+    "text": "biggest",
+    "key": "stacks",
+    "start": 0.46,
+    "end": 0.76,
+    "ctc_start": 0.46,
+    "score": -1.303
+   },
+   {
+    "text": "stacks",
+    "key": "stacks",
+    "start": 0.82,
+    "end": 1.18,
+    "ctc_start": 0.82,
+    "score": -0.025
+   },
+   {
+    "text": "at",
+    "key": "stacks",
+    "start": 1.33,
+    "end": 1.5,
+    "ctc_start": 1.44,
+    "score": -0.028
+   },
+   {
+    "text": "the",
+    "key": "stacks",
+    "start": 1.56,
+    "end": 1.64,
+    "ctc_start": 1.58,
+    "score": -0.028
+   },
+   {
+    "text": "table.",
+    "key": "stacks",
+    "start": 1.66,
+    "end": 2.02,
+    "ctc_start": 1.7,
+    "score": -0.011
+   }
+  ]
+ },
+ "tank_hf": {
+  "parts": [
+   [
+    247.06,
+    250.14
+   ]
+  ],
+  "words": [
+   {
+    "text": "I",
+    "key": "highfive",
+    "start": 0.6,
+    "end": 0.68,
+    "ctc_start": 0.6,
+    "score": -4.54
+   },
+   {
+    "text": "would",
+    "key": "highfive",
+    "start": 0.7,
+    "end": 0.82,
+    "ctc_start": 0.7,
+    "score": -3.455
+   },
+   {
+    "text": "have",
+    "key": "highfive",
+    "start": 0.86,
+    "end": 0.98,
+    "ctc_start": 0.9,
+    "score": -6.749
+   },
+   {
+    "text": "high-fived",
+    "key": "highfive",
+    "start": 1.4,
+    "end": 1.92,
+    "ctc_start": 1.4,
+    "score": -0.082
+   },
+   {
+    "text": "people",
+    "key": "highfive",
+    "start": 2.0,
+    "end": 2.24,
+    "ctc_start": 2.0,
+    "score": -0.013
+   },
+   {
+    "text": "and",
+    "key": "highfive",
+    "start": 2.3,
+    "end": 2.38,
+    "ctc_start": 2.3,
+    "score": -0.154
+   },
+   {
+    "text": "called",
+    "key": "highfive",
+    "start": 2.39,
+    "end": 2.66,
+    "ctc_start": 2.42,
+    "score": -0.051
+   },
+   {
+    "text": "already.",
+    "key": "highfive",
+    "start": 2.66,
+    "end": 3.04,
+    "ctc_start": 2.72,
+    "score": -1.778
+   }
+  ]
+ },
+ "tank_nw": {
+  "parts": [
+   [
+    282.5,
+    284.32
+   ]
+  ],
+  "words": [
+   {
+    "text": "There's",
+    "key": "noway",
+    "start": 0.2,
+    "end": 0.4,
+    "ctc_start": 0.2,
+    "score": -0.075
+   },
+   {
+    "text": "no",
+    "key": "noway",
+    "start": 0.44,
+    "end": 0.54,
+    "ctc_start": 0.44,
+    "score": -0.033
+   },
+   {
+    "text": "way",
+    "key": "noway",
+    "start": 0.64,
+    "end": 0.74,
+    "ctc_start": 0.64,
+    "score": -0.014
+   },
+   {
+    "text": "he",
+    "key": "noway",
+    "start": 0.8,
+    "end": 0.88,
+    "ctc_start": 0.8,
+    "score": -0.018
+   },
+   {
+    "text": "gets",
+    "key": "noway",
+    "start": 0.88,
+    "end": 1.02,
+    "ctc_start": 0.88,
+    "score": -0.006
+   },
+   {
+    "text": "away",
+    "key": "noway",
+    "start": 1.03,
+    "end": 1.2,
+    "ctc_start": 1.06,
+    "score": -0.047
+   },
+   {
+    "text": "from",
+    "key": "noway",
+    "start": 1.26,
+    "end": 1.38,
+    "ctc_start": 1.26,
+    "score": -0.095
+   },
+   {
+    "text": "this,",
+    "key": "noway",
+    "start": 1.42,
+    "end": 1.52,
+    "ctc_start": 1.42,
+    "score": -2.37
+   },
+   {
+    "text": "right?",
+    "key": "noway",
+    "start": 1.58,
+    "end": 1.8,
+    "ctc_start": 1.58,
+    "score": -2.664
+   }
+  ]
+ },
+ "tank_30": {
+  "parts": [
+   [
+    370.86,
+    375.43
+   ]
+  ],
+  "words": [
+   {
+    "text": "I",
+    "key": "thirty",
+    "start": 0.73,
+    "end": 1.02,
+    "ctc_start": 1.0,
+    "score": -0.116
+   },
+   {
+    "text": "guess",
+    "key": "thirty",
+    "start": 1.1,
+    "end": 1.28,
+    "ctc_start": 1.1,
+    "score": -3.6
+   },
+   {
+    "text": "I",
+    "key": "thirty",
+    "start": 1.33,
+    "end": 1.41,
+    "ctc_start": 1.38,
+    "score": -7.545
+   },
+   {
+    "text": "can't",
+    "key": "thirty",
+    "start": 1.46,
+    "end": 1.64,
+    "ctc_start": 1.46,
+    "score": -4.376
+   },
+   {
+    "text": "wait",
+    "key": "thirty",
+    "start": 1.68,
+    "end": 1.84,
+    "ctc_start": 1.68,
+    "score": -1.002
+   },
+   {
+    "text": "30",
+    "key": "thirty",
+    "start": 1.92,
+    "end": 2.06,
+    "ctc_start": 1.92,
+    "score": -2.922
+   },
+   {
+    "text": "minutes",
+    "key": "thirty",
+    "start": 2.08,
+    "end": 2.48,
+    "ctc_start": 2.08,
+    "score": -2.622
+   },
+   {
+    "text": "to",
+    "key": "thirty",
+    "start": 2.56,
+    "end": 2.64,
+    "ctc_start": 2.56,
+    "score": -2.337
+   },
+   {
+    "text": "find",
+    "key": "thirty",
+    "start": 2.74,
+    "end": 2.92,
+    "ctc_start": 2.74,
+    "score": -2.48
+   },
+   {
+    "text": "out",
+    "key": "thirty",
+    "start": 3.06,
+    "end": 3.14,
+    "ctc_start": 3.06,
+    "score": -1.501
+   },
+   {
+    "text": "before",
+    "key": "thirty",
+    "start": 3.16,
+    "end": 3.4,
+    "ctc_start": 3.16,
+    "score": -3.887
+   },
+   {
+    "text": "I",
+    "key": "thirty",
+    "start": 3.46,
+    "end": 3.54,
+    "ctc_start": 3.46,
+    "score": -1.569
+   },
+   {
+    "text": "make",
+    "key": "thirty",
+    "start": 3.9,
+    "end": 4.04,
+    "ctc_start": 3.9,
+    "score": -2.803
+   },
+   {
+    "text": "a",
+    "key": "thirty",
+    "start": 4.05,
+    "end": 4.08,
+    "ctc_start": 4.06,
+    "score": -5.857
+   },
+   {
+    "text": "decision",
+    "key": "thirty",
+    "start": 4.08,
+    "end": 4.54,
+    "ctc_start": 4.1,
+    "score": -5.427
+   }
+  ]
+ },
+ "tank_kd": {
+  "parts": [
+   [
+    399.84,
+    401.95
+   ]
+  ],
+  "words": [
+   {
+    "text": "I'm",
+    "key": "killed",
+    "start": 0.34,
+    "end": 0.42,
+    "ctc_start": 0.36,
+    "score": -2.393
+   },
+   {
+    "text": "just",
+    "key": "killed",
+    "start": 0.44,
+    "end": 0.52,
+    "ctc_start": 0.44,
+    "score": -6.177
+   },
+   {
+    "text": "going",
+    "key": "killed",
+    "start": 0.54,
+    "end": 0.68,
+    "ctc_start": 0.54,
+    "score": -3.299
+   },
+   {
+    "text": "to",
+    "key": "killed",
+    "start": 0.72,
+    "end": 0.8,
+    "ctc_start": 0.72,
+    "score": -2.573
+   },
+   {
+    "text": "keep",
+    "key": "killed",
+    "start": 0.84,
+    "end": 0.96,
+    "ctc_start": 0.84,
+    "score": -5.023
+   },
+   {
+    "text": "using",
+    "key": "killed",
+    "start": 1.0,
+    "end": 1.22,
+    "ctc_start": 1.0,
+    "score": -4.131
+   },
+   {
+    "text": "it",
+    "key": "killed",
+    "start": 1.26,
+    "end": 1.32,
+    "ctc_start": 1.26,
+    "score": -2.935
+   },
+   {
+    "text": "until",
+    "key": "killed",
+    "start": 1.32,
+    "end": 1.44,
+    "ctc_start": 1.34,
+    "score": -6.4
+   },
+   {
+    "text": "my",
+    "key": "killed",
+    "start": 1.46,
+    "end": 1.54,
+    "ctc_start": 1.46,
+    "score": -0.922
+   },
+   {
+    "text": "hand's",
+    "key": "killed",
+    "start": 1.56,
+    "end": 1.78,
+    "ctc_start": 1.56,
+    "score": -0.861
+   },
+   {
+    "text": "killed",
+    "key": "killed",
+    "start": 1.86,
+    "end": 2.08,
+    "ctc_start": 1.86,
+    "score": -2.005
+   }
+  ]
+ },
+ "beating": {
+  "parts": [
+   [
+    423.7,
+    426.68
+   ]
+  ],
+  "words": [
+   {
+    "text": "Why",
+    "key": "beating",
+    "start": 0.06,
+    "end": 0.2,
+    "ctc_start": 0.08,
+    "score": -2.031
+   },
+   {
+    "text": "is",
+    "key": "beating",
+    "start": 0.26,
+    "end": 0.34,
+    "ctc_start": 0.26,
+    "score": -1.54
+   },
+   {
+    "text": "he",
+    "key": "beating",
+    "start": 0.35,
+    "end": 0.43,
+    "ctc_start": 0.36,
+    "score": -1.297
+   },
+   {
+    "text": "beating",
+    "key": "beating",
+    "start": 0.48,
+    "end": 0.68,
+    "ctc_start": 0.48,
+    "score": -0.094
+   },
+   {
+    "text": "himself",
+    "key": "beating",
+    "start": 0.7,
+    "end": 0.92,
+    "ctc_start": 0.7,
+    "score": -0.001
+   },
+   {
+    "text": "up?",
+    "key": "beating",
+    "start": 1.01,
+    "end": 1.09,
+    "ctc_start": 1.04,
+    "score": -4.013
+   },
+   {
+    "text": "He",
+    "key": "beating",
+    "start": 1.09,
+    "end": 1.2,
+    "ctc_start": 1.14,
+    "score": -0.64
+   },
+   {
+    "text": "folded.",
+    "key": "beating",
+    "start": 1.3,
+    "end": 2.26,
+    "ctc_start": 1.3,
+    "score": -1.359
+   }
+  ]
+ },
+ "whatis": {
+  "parts": [
+   [
+    426.69,
+    430.15
+   ]
+  ],
+  "words": [
+   {
+    "text": "What",
+    "key": "whatis",
+    "start": 0.04,
+    "end": 0.48,
+    "ctc_start": 0.34,
+    "score": -0.18
+   },
+   {
+    "text": "is",
+    "key": "whatis",
+    "start": 0.51,
+    "end": 0.77,
+    "ctc_start": 1.08,
+    "score": -2.721,
+    "measured": true
+   },
+   {
+    "text": "that?",
+    "key": "whatis",
+    "start": 0.77,
+    "end": 1.29,
+    "ctc_start": 1.32,
+    "score": -4.482,
+    "measured": true
+   },
+   {
+    "text": "That",
+    "key": "whatis",
+    "start": 1.29,
+    "end": 1.54,
+    "ctc_start": 1.52,
+    "score": -3.624,
+    "measured": true
+   },
+   {
+    "text": "is",
+    "key": "whatis",
+    "start": 1.54,
+    "end": 1.76,
+    "ctc_start": 1.72,
+    "score": -3.849,
+    "measured": true
+   },
+   {
+    "text": "unbelievable.",
+    "key": "whatis",
+    "start": 2.04,
+    "end": 3.32,
+    "ctc_start": 2.04,
+    "score": -2.341
+   }
+  ]
+ },
+ "camo": {
+  "parts": [
+   [
+    440.52,
+    443.645
+   ]
+  ],
+  "words": [
+   {
+    "text": "Yeah,",
+    "key": "camo",
+    "start": 0.02,
+    "end": 0.54,
+    "ctc_start": 0.1,
+    "score": -1.92
+   },
+   {
+    "text": "Joe's",
+    "key": "camo",
+    "start": 0.61,
+    "end": 1.0,
+    "ctc_start": 0.64,
+    "score": -0.167
+   },
+   {
+    "text": "hand",
+    "key": "camo",
+    "start": 1.06,
+    "end": 1.32,
+    "ctc_start": 1.06,
+    "score": -0.437
+   },
+   {
+    "text": "was",
+    "key": "camo",
+    "start": 1.4,
+    "end": 1.52,
+    "ctc_start": 1.42,
+    "score": -0.0
+   },
+   {
+    "text": "perfectly",
+    "key": "camo",
+    "start": 1.66,
+    "end": 2.16,
+    "ctc_start": 1.66,
+    "score": -2.738
+   },
+   {
+    "text": "camouflaged.",
+    "key": "camo",
+    "start": 2.24,
+    "end": 3.08,
+    "ctc_start": 2.24,
+    "score": -3.374
+   }
+  ]
+ },
+ "figure": {
+  "parts": [
+   [
+    443.635,
+    444.86
+   ]
+  ],
+  "words": [
+   {
+    "text": "How",
+    "key": "figure",
+    "start": 0.02,
+    "end": 0.18,
+    "ctc_start": 0.1,
+    "score": -0.531
+   },
+   {
+    "text": "did",
+    "key": "figure",
+    "start": 0.24,
+    "end": 0.36,
+    "ctc_start": 0.24,
+    "score": -1.111
+   },
+   {
+    "text": "he",
+    "key": "figure",
+    "start": 0.4,
+    "end": 0.48,
+    "ctc_start": 0.4,
+    "score": -0.201
+   },
+   {
+    "text": "figure",
+    "key": "figure",
+    "start": 0.56,
+    "end": 0.8,
+    "ctc_start": 0.56,
+    "score": -0.088
+   },
+   {
+    "text": "that",
+    "key": "figure",
+    "start": 0.86,
+    "end": 0.98,
+    "ctc_start": 0.86,
+    "score": -0.127
+   },
+   {
+    "text": "out?",
+    "key": "figure",
+    "start": 0.98,
+    "end": 1.14,
+    "ctc_start": 1.06,
+    "score": -0.53
+   }
+  ]
+ },
+ "icant": {
+  "parts": [
+   [
+    446.16,
+    447.3
+   ]
+  ],
+  "words": [
+   {
+    "text": "I",
+    "key": "icant",
+    "start": 0.06,
+    "end": 0.14,
+    "ctc_start": 0.06,
+    "score": -1.749
+   },
+   {
+    "text": "can't.",
+    "key": "icant",
+    "start": 0.24,
+    "end": 0.52,
+    "ctc_start": 0.24,
+    "score": -1.675
+   },
+   {
+    "text": "I",
+    "key": "icant",
+    "start": 0.56,
+    "end": 0.68,
+    "ctc_start": 0.66,
+    "score": -1.761
+   },
+   {
+    "text": "can't.",
+    "key": "icant",
+    "start": 0.75,
+    "end": 1.1,
+    "ctc_start": 0.76,
+    "score": -2.63
+   }
+  ]
+ }
+}

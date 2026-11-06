@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="t d">
+<title id="t">Where Poker Memory stands</title>
+<desc id="d">On the real WPT hand 26 of 27 reader checks pass (cards, seats, chips, timing); one fold is read 3.1 seconds late. A warm read takes about 1 second, about 2.3 seconds from a fresh start. The river solver estimates calling at about 4.3 million chips better than folding under assumed ranges. On a stricter 100-hand benchmark, 0 hands are certified so far.</desc>
+<rect width="1200" height="400" rx="18" fill="#0f1512"/>
+<g font-family="system-ui, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <text x="40" y="52" fill="#e8efe9" font-size="24" font-weight="800">Where it stands</text>
+  <text x="40" y="80" fill="#93a39a" font-size="15">Measured on one real WPT final-table hand (CC BY 3.0). Yellow works with limits. Red is not there yet.</text>
+
+  <!-- card 1 -->
+  <rect x="40" y="110" width="262" height="250" rx="14" fill="#18211d" stroke="#2b3832"/>
+  <circle cx="66" cy="138" r="7" fill="#f2b84b"/>
+  <text x="82" y="143" fill="#93a39a" font-size="13" font-weight="700" letter-spacing="1.5">READ ACCURACY</text>
+  <text x="62" y="218" fill="#e8efe9" font-size="64" font-weight="800">26/27</text>
+  <text x="62" y="250" fill="#cfe3d7" font-size="15">checks pass</text>
+  <g transform="translate(62 272)">
+    <rect width="218" height="10" rx="5" fill="#26332d"/>
+    <rect width="210" height="10" rx="5" fill="#4cc38a"/>
+  </g>
+  <text x="62" y="314" fill="#93a39a" font-size="13">Cards, seats, chips, timing.</text>
+  <text x="62" y="333" fill="#93a39a" font-size="13">The miss: a fold read 3.1 s late.</text>
+
+  <!-- card 2 -->
+  <rect x="320" y="110" width="262" height="250" rx="14" fill="#18211d" stroke="#2b3832"/>
+  <circle cx="346" cy="138" r="7" fill="#f2b84b"/>
+  <text x="362" y="143" fill="#93a39a" font-size="13" font-weight="700" letter-spacing="1.5">SPEED</text>
+  <text x="342" y="218" fill="#e8efe9" font-size="64" font-weight="800">~1 s</text>
+  <text x="342" y="250" fill="#cfe3d7" font-size="15">per 7.5-minute hand</text>
+  <g transform="translate(342 268)" font-size="12" fill="#cfe3d7">
+    <rect width="44" height="12" rx="4" fill="#4cc38a"/><text x="52" y="11">already running 1.0 s</text>
+    <rect y="20" width="101" height="12" rx="4" fill="#6b8f7f"/><text x="109" y="31">fresh start 2.3 s</text>
+  </g>
+  <text x="342" y="333" fill="#93a39a" font-size="13">CPU only · ~$0.0004 a hand</text>
+
+  <!-- card 3 -->
+  <rect x="600" y="110" width="262" height="250" rx="14" fill="#18211d" stroke="#2b3832"/>
+  <circle cx="626" cy="138" r="7" fill="#f2b84b"/>
+  <text x="642" y="143" fill="#93a39a" font-size="13" font-weight="700" letter-spacing="1.5">RIVER SOLVER</text>
+  <text x="622" y="218" fill="#e8efe9" font-size="56" font-weight="800">+4.3M</text>
+  <text x="622" y="250" fill="#cfe3d7" font-size="15">call vs fold, estimated</text>
+  <g transform="translate(622 268)" font-size="12">
+    <rect width="150" height="12" rx="4" fill="#4cc38a"/><text x="158" y="11" fill="#cfe3d7">call +3.50M</text>
+    <rect y="20" width="34" height="12" rx="4" fill="#c46a5a"/><text x="42" y="31" fill="#cfe3d7">fold −0.80M</text>
+  </g>
+  <text x="622" y="333" fill="#93a39a" font-size="13">Assumed ranges · river only · no ICM</text>
+
+  <!-- card 4 -->
+  <rect x="880" y="110" width="280" height="250" rx="14" fill="#18211d" stroke="#2b3832"/>
+  <circle cx="906" cy="138" r="7" fill="#e5534b"/>
+  <text x="922" y="143" fill="#93a39a" font-size="13" font-weight="700" letter-spacing="1.5">STRICT BENCHMARK</text>
+  <text x="902" y="218" fill="#e8efe9" font-size="64" font-weight="800">0/100</text>
+  <text x="902" y="250" fill="#cfe3d7" font-size="15">hands certified so far</text>
+  <g transform="translate(902 272)">
+    <rect width="236" height="10" rx="5" fill="#26332d"/>
+  </g>
+  <text x="902" y="314" fill="#93a39a" font-size="13">Needs footage we have rights</text>
+  <text x="902" y="333" fill="#93a39a" font-size="13">to and independent answers.</text>
+</g>
+</svg>

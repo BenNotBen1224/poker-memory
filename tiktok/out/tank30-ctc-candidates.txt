@@ -1,0 +1,12 @@
+
+[370.86-375.43] greedy='I GIVE THE COWHIT LA OT IT I NOT WHY NA'
+    logP vs best -> (none):+0.00  a:-14.10  my:-23.67  the:-24.53
+[373.50-375.43] greedy='A LAV I  AN'
+    logP vs best -> (none):+0.00  a:-10.70  the:-16.60  my:-17.47
+[374.25-375.43] greedy='LI'
+    logP vs best -> (none):+0.00  a:-12.59  my:-24.44  the:-24.83
+[374.60-375.43] greedy=''
+    logP vs best -> (none):+0.00  a:-12.43  the:-23.74  my:-24.40
+[374.60-375.80] greedy='LI'
+    logP vs best -> (none):+0.00  a:-9.23  the:-15.64  my:-20.01
+

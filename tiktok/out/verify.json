@@ -1,0 +1,1237 @@
+{
+ "file": "out/steinman-fold-tiktok.mp4",
+ "verdict": "PASS",
+ "seconds": 74,
+ "checks": [
+  {
+   "name": "format",
+   "ok": true,
+   "detail": "[1080, 1920] 24000/1001 h264/High ['aac', 48000, 2] color=[1, 1, 1, 1] boxes=['ftyp', 'moov', 'free', 'mdat']"
+  },
+  {
+   "name": "all frames decode",
+   "ok": true,
+   "detail": "1887 frames, first at 0.0s, container 78.72s"
+  },
+  {
+   "name": "frame log",
+   "ok": true,
+   "detail": "1887 rows, wrong source frame 0"
+  },
+  {
+   "name": "hole cards masked before reveal",
+   "ok": true,
+   "detail": "1479 frames before 61.69s all masked (['default', 'table'])"
+  },
+  {
+   "name": "no voice clip crosses the reveal",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "name": "no spoiler words in source clips",
+   "ok": true,
+   "detail": "0 hits over ['large-noprompt', 'large-v3', 'medium.en', 'small.en']"
+  },
+  {
+   "name": "no spoiler words heard before reveal",
+   "ok": true,
+   "detail": "0 hits in 122 heard words"
+  },
+  {
+   "name": "no commentator names heard",
+   "ok": true,
+   "detail": "0 hits in 138 heard words"
+  },
+  {
+   "name": "loudness",
+   "ok": "True",
+   "detail": "{'lufs': np.float64(-14.15), 'true_peak_dbtp': np.float64(-1.25), 'sample_peak_dbfs': np.float32(-1.62)}"
+  },
+  {
+   "name": "audio in sync with the timeline",
+   "ok": true,
+   "detail": "{'lag_samples': 0, 'lag_ms': 0.0, 'corr': 0.99939, 'residual_db': -29.1, 'length_diff_samples': 786}"
+  },
+  {
+   "name": "audio length",
+   "ok": true,
+   "detail": "audio 78.72s vs video 78.704s, first audio at 0.0"
+  },
+  {
+   "name": "captions on time",
+   "ok": true,
+   "detail": "worst median offset (0.025, 'whatis')"
+  }
+ ],
+ "format": {
+  "container_s": 78.72,
+  "codec": "h264",
+  "profile": "High",
+  "size": [
+   1080,
+   1920
+  ],
+  "pix_fmt": "yuv420p",
+  "avg_rate": "24000/1001",
+  "color": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "audio": [
+   "aac",
+   48000,
+   2
+  ],
+  "bytes": 30090176,
+  "boxes": [
+   "ftyp",
+   "moov",
+   "free",
+   "mdat"
+  ],
+  "video_frames": 1887,
+  "first_video_time": 0.0,
+  "audio_first_time": 0.0,
+  "audio_samples": 3778560,
+  "audio_s": 78.72
+ },
+ "log": {
+  "frames": 1887,
+  "contiguous": true,
+  "unmasked_before_reveal": [],
+  "masks_before_reveal": [
+   "default",
+   "table"
+  ],
+  "segment_mismatch": [],
+  "wrong_source_frame": []
+ },
+ "source_scan": {
+  "models": [
+   "large-noprompt",
+   "large-v3",
+   "medium.en",
+   "small.en"
+  ],
+  "hits": [],
+  "heard": {
+   "hook/large-noprompt": "",
+   "hook/large-v3": "This is unreal that he's considering getting away from this.",
+   "hook/medium.en": "This is unreal that he's considering getting away from this",
+   "hook/small.en": "This is unreal that he's considering getting away from this.",
+   "cowboys/large-noprompt": "",
+   "cowboys/large-v3": "A couple of cowboys here for Ian.",
+   "cowboys/medium.en": "Couple of cowboys here for Ian.",
+   "cowboys/small.en": "Couple of cowboys here for Ian.",
+   "atleast/large-noprompt": "",
+   "atleast/large-v3": "Joe is going to at least call.",
+   "atleast/medium.en": "Joe is going to at least call.",
+   "atleast/small.en": "Joe is going to at least call.",
+   "farbest/large-noprompt": "",
+   "farbest/large-v3": "Ian's hand far and away the best still. Let's see",
+   "farbest/medium.en": "Ian's hand far and away the best still. Let's",
+   "farbest/small.en": "Ian's hand far and away the best still. Let's",
+   "hate/large-noprompt": "",
+   "hate/large-v3": "",
+   "hate/medium.en": "You just hate to lay down kings.",
+   "hate/small.en": "just hate to lay down King yeah",
+   "bet/large-noprompt": "800,000 is the bet 2.2 million already in the center",
+   "bet/large-v3": "",
+   "bet/medium.en": "changer. 800,000 is the bet. 2.2 million already in the center.",
+   "bet/small.en": "800,000 is the bet. 2.2 million already in the center and",
+   "wow/large-noprompt": "yes wow yeah wow indeed two",
+   "wow/large-v3": "Yes, wow. Yeah, wow indeed.",
+   "wow/medium.en": "Yes, wow, yeah, wow indeed.",
+   "wow/small.en": "Yes. Wow. Yeah. Wow. Indeed.",
+   "stacks/large-noprompt": "two biggest stacks at the table",
+   "stacks/large-v3": "Two biggest stacks at the table.",
+   "stacks/medium.en": "Two biggest stacks at the table.",
+   "stacks/small.en": "Two biggest stacks at the table.",
+   "tank_hf/large-noprompt": "",
+   "tank_hf/large-v3": "I would have high-fived people and called already.",
+   "tank_hf/medium.en": "have high-fived people and called already",
+   "tank_hf/small.en": "I would have high five people and called already.",
+   "tank_nw/large-noprompt": "",
+   "tank_nw/large-v3": "There's no way he gets away from this, right? He has",
+   "tank_nw/medium.en": "there's no way he gets away from this right he has",
+   "tank_nw/small.en": "There's no way he gets away from this, right? He has",
+   "tank_30/large-noprompt": "I guess I can't wait 30 minutes to find out before I make a decision bye",
+   "tank_30/large-v3": "I guess I can't wait 30 minutes to find out before I make a decision.",
+   "tank_30/medium.en": "I can't wait 30 minutes to find out before I make the decision, huh?",
+   "tank_30/small.en": "",
+   "tank_kd/large-noprompt": "I'm just going to keep using it until my hands kill",
+   "tank_kd/large-v3": "I'm just going to keep using it until my hand's killed.",
+   "tank_kd/medium.en": "I'm just gonna keep using it until my hand's killed,",
+   "tank_kd/small.en": "",
+   "beating/large-noprompt": "is he beating himself up he folded what is",
+   "beating/large-v3": "is he beating himself up? He folded. What is",
+   "beating/medium.en": "Why is he beating himself up? He folded. Oh my God.",
+   "beating/small.en": "is he beating himself? He folded. What What",
+   "whatis/large-noprompt": "is that that is unbelievable",
+   "whatis/large-v3": "What is that? That is unbelievable.",
+   "whatis/medium.en": "What is that? That is unbelievable.",
+   "whatis/small.en": "What What is that? That is unbelievable."
+  }
+ },
+ "mix_hits": [],
+ "name_hits": [],
+ "loudness": {
+  "lufs": -14.15,
+  "true_peak_dbtp": -1.25,
+  "sample_peak_dbfs": "-1.62"
+ },
+ "av": {
+  "lag_samples": 0,
+  "lag_ms": 0.0,
+  "corr": 0.99939,
+  "residual_db": -29.1,
+  "length_diff_samples": 786
+ },
+ "captions": [
+  {
+   "clip": "hook",
+   "start": 0.15,
+   "words": 10,
+   "aligned": 10,
+   "median_offset_s": 0.0,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.15,
+   "text_match": 1.0,
+   "caption": "This is unreal that he's considering getting away from this.",
+   "heard": "This is unreal that he's considering getting away from this."
+  },
+  {
+   "clip": "cowboys",
+   "start": 5.2,
+   "words": 6,
+   "aligned": 6,
+   "median_offset_s": 0.01,
+   "median_offset_ctc_s": 0.015,
+   "max_abs_offset_s": 0.01,
+   "text_match": 1.0,
+   "caption": "Couple of cowboys here for Ian.",
+   "heard": "Couple of cowboys here for Ian."
+  },
+  {
+   "clip": "atleast",
+   "start": 8.55,
+   "words": 7,
+   "aligned": 7,
+   "median_offset_s": 0.01,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.05,
+   "text_match": 1.0,
+   "caption": "Joe is going to at least call.",
+   "heard": "Joe is going to at least call."
+  },
+  {
+   "clip": "farbest",
+   "start": 11.04,
+   "words": 8,
+   "aligned": 8,
+   "median_offset_s": 0.0,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.01,
+   "text_match": 1.0,
+   "caption": "Ian's hand far and away the best still.",
+   "heard": "Ian's hand far and away the best still."
+  },
+  {
+   "clip": "hate",
+   "start": 13.86,
+   "words": 7,
+   "aligned": 7,
+   "median_offset_s": -0.01,
+   "median_offset_ctc_s": -0.01,
+   "max_abs_offset_s": 0.16,
+   "text_match": 1.0,
+   "caption": "You just hate to lay down kings.",
+   "heard": "You just hate to lay down kings."
+  },
+  {
+   "clip": "bet",
+   "start": 19.63,
+   "words": 10,
+   "aligned": 10,
+   "median_offset_s": 0.005,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.01,
+   "text_match": 1.0,
+   "caption": "800,000 is the bet. 2.2 million already in the center.",
+   "heard": "800 ,000 is the bet, 2 .2 million already in the center."
+  },
+  {
+   "clip": "wow",
+   "start": 27.56,
+   "words": 5,
+   "aligned": 5,
+   "median_offset_s": 0.0,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.05,
+   "text_match": 0.91,
+   "caption": "Yes, wow. Yeah, wow indeed.",
+   "heard": "yes Wow yeah Wow indeed two"
+  },
+  {
+   "clip": "stacks",
+   "start": 31.19,
+   "words": 6,
+   "aligned": 6,
+   "median_offset_s": -0.005,
+   "median_offset_ctc_s": 0.02,
+   "max_abs_offset_s": 0.01,
+   "text_match": 0.91,
+   "caption": "Two biggest stacks at the table.",
+   "heard": "biggest stacks at the table"
+  },
+  {
+   "clip": "tank_hf",
+   "start": 36.15,
+   "words": 8,
+   "aligned": 8,
+   "median_offset_s": -0.005,
+   "median_offset_ctc_s": 0.0,
+   "max_abs_offset_s": 0.21,
+   "text_match": 0.89,
+   "caption": "I would have high-fived people and called already.",
+   "heard": "would have high fived people and called already there's"
+  },
+  {
+   "clip": "tank_nw",
+   "start": 39.51,
+   "words": 9,
+   "aligned": 9,
+   "median_offset_s": 0.0,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.03,
+   "text_match": 0.94,
+   "caption": "There's no way he gets away from this, right?",
+   "heard": "no way he gets away from this right"
+  },
+  {
+   "clip": "tank_30",
+   "start": 42.85,
+   "words": 15,
+   "aligned": 15,
+   "median_offset_s": 0.01,
+   "median_offset_ctc_s": 0.02,
+   "max_abs_offset_s": 0.17,
+   "text_match": 0.93,
+   "caption": "I guess I can't wait 30 minutes to find out before I make a decision",
+   "heard": "I guess I can't wait 30 nights to find out before I make a decision."
+  },
+  {
+   "clip": "tank_kd",
+   "start": 47.43,
+   "words": 11,
+   "aligned": 11,
+   "median_offset_s": 0.01,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.05,
+   "text_match": 1.0,
+   "caption": "I'm just going to keep using it until my hand's killed",
+   "heard": "I'm just going to keep using it until my hand's killed."
+  },
+  {
+   "clip": "beating",
+   "start": 50.65,
+   "words": 8,
+   "aligned": 8,
+   "median_offset_s": 0.0,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.22,
+   "text_match": 0.57,
+   "caption": "Why is he beating himself up? He folded.",
+   "heard": "Why is he beating himself? He fell in! Oh my god! What is"
+  },
+  {
+   "clip": "whatis",
+   "start": 53.65,
+   "words": 6,
+   "aligned": 6,
+   "median_offset_s": 0.025,
+   "median_offset_ctc_s": 0.05,
+   "max_abs_offset_s": 0.09,
+   "text_match": 1.0,
+   "caption": "What is that? That is unbelievable.",
+   "heard": "What is that? That is unbelievable!"
+  },
+  {
+   "clip": "camo",
+   "start": 63.59,
+   "words": 6,
+   "aligned": 6,
+   "median_offset_s": 0.01,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.13,
+   "text_match": 0.92,
+   "caption": "Yeah, Joe's hand was perfectly camouflaged.",
+   "heard": "Yeah! Joe's hand was perfectly camouflaged! How"
+  },
+  {
+   "clip": "figure",
+   "start": 66.81,
+   "words": 6,
+   "aligned": 6,
+   "median_offset_s": 0.0,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.09,
+   "text_match": 1.0,
+   "caption": "How did he figure that out?",
+   "heard": "How did he figure that out?"
+  },
+  {
+   "clip": "icant",
+   "start": 76.6,
+   "words": 4,
+   "aligned": 4,
+   "median_offset_s": -0.01,
+   "median_offset_ctc_s": 0.01,
+   "max_abs_offset_s": 0.06,
+   "text_match": 0.86,
+   "caption": "I can't. I can't.",
+   "heard": "can't, I can't."
+  }
+ ],
+ "sheets": [
+  "sheet-01.jpg",
+  "sheet-02.jpg",
+  "sheet-03.jpg",
+  "sheet-04.jpg",
+  "sheet-05.jpg",
+  "sheet-06.jpg"
+ ],
+ "heard": [
+  {
+   "w": "This",
+   "t": 0.0,
+   "end": 0.46,
+   "p": 0.55
+  },
+  {
+   "w": "is",
+   "t": 0.46,
+   "end": 1.2,
+   "p": 0.99
+  },
+  {
+   "w": "unreal",
+   "t": 1.2,
+   "end": 1.92,
+   "p": 0.97
+  },
+  {
+   "w": "that",
+   "t": 1.92,
+   "end": 2.22,
+   "p": 0.73
+  },
+  {
+   "w": "he's",
+   "t": 2.22,
+   "end": 2.34,
+   "p": 0.94
+  },
+  {
+   "w": "considering",
+   "t": 2.34,
+   "end": 2.68,
+   "p": 0.98
+  },
+  {
+   "w": "getting",
+   "t": 2.68,
+   "end": 2.92,
+   "p": 0.98
+  },
+  {
+   "w": "away",
+   "t": 2.92,
+   "end": 3.14,
+   "p": 1.0
+  },
+  {
+   "w": "from",
+   "t": 3.14,
+   "end": 3.36,
+   "p": 0.99
+  },
+  {
+   "w": "this.",
+   "t": 3.36,
+   "end": 4.14,
+   "p": 0.97
+  },
+  {
+   "w": "Couple",
+   "t": 5.24,
+   "end": 5.76,
+   "p": 0.62
+  },
+  {
+   "w": "of",
+   "t": 5.76,
+   "end": 5.92,
+   "p": 0.98
+  },
+  {
+   "w": "cowboys",
+   "t": 5.92,
+   "end": 6.38,
+   "p": 0.94
+  },
+  {
+   "w": "here",
+   "t": 6.38,
+   "end": 6.62,
+   "p": 0.99
+  },
+  {
+   "w": "for",
+   "t": 6.62,
+   "end": 6.82,
+   "p": 0.46
+  },
+  {
+   "w": "Ian.",
+   "t": 6.82,
+   "end": 7.0,
+   "p": 0.96
+  },
+  {
+   "w": "Joe",
+   "t": 8.62,
+   "end": 9.1,
+   "p": 0.93
+  },
+  {
+   "w": "is",
+   "t": 9.1,
+   "end": 9.28,
+   "p": 0.98
+  },
+  {
+   "w": "going",
+   "t": 9.28,
+   "end": 9.44,
+   "p": 0.99
+  },
+  {
+   "w": "to",
+   "t": 9.44,
+   "end": 9.6,
+   "p": 1.0
+  },
+  {
+   "w": "at",
+   "t": 9.6,
+   "end": 9.8,
+   "p": 0.96
+  },
+  {
+   "w": "least",
+   "t": 9.8,
+   "end": 9.98,
+   "p": 0.99
+  },
+  {
+   "w": "call.",
+   "t": 9.98,
+   "end": 10.4,
+   "p": 1.0
+  },
+  {
+   "w": "Ian's",
+   "t": 11.28,
+   "end": 11.62,
+   "p": 0.86
+  },
+  {
+   "w": "hand",
+   "t": 11.62,
+   "end": 11.78,
+   "p": 0.98
+  },
+  {
+   "w": "far",
+   "t": 11.78,
+   "end": 12.12,
+   "p": 0.86
+  },
+  {
+   "w": "and",
+   "t": 12.12,
+   "end": 12.26,
+   "p": 0.84
+  },
+  {
+   "w": "away",
+   "t": 12.26,
+   "end": 12.4,
+   "p": 1.0
+  },
+  {
+   "w": "the",
+   "t": 12.4,
+   "end": 12.54,
+   "p": 0.68
+  },
+  {
+   "w": "best",
+   "t": 12.54,
+   "end": 12.72,
+   "p": 0.92
+  },
+  {
+   "w": "still.",
+   "t": 12.72,
+   "end": 13.06,
+   "p": 0.92
+  },
+  {
+   "w": "You",
+   "t": 14.12,
+   "end": 14.16,
+   "p": 0.8
+  },
+  {
+   "w": "just",
+   "t": 14.16,
+   "end": 14.42,
+   "p": 0.99
+  },
+  {
+   "w": "hate",
+   "t": 14.42,
+   "end": 14.72,
+   "p": 0.99
+  },
+  {
+   "w": "to",
+   "t": 14.72,
+   "end": 14.98,
+   "p": 1.0
+  },
+  {
+   "w": "lay",
+   "t": 14.98,
+   "end": 15.1,
+   "p": 1.0
+  },
+  {
+   "w": "down",
+   "t": 15.1,
+   "end": 15.4,
+   "p": 1.0
+  },
+  {
+   "w": "kings.",
+   "t": 15.4,
+   "end": 15.84,
+   "p": 0.51
+  },
+  {
+   "w": "800",
+   "t": 19.7,
+   "end": 20.08,
+   "p": 0.42
+  },
+  {
+   "w": ",000",
+   "t": 20.08,
+   "end": 20.58,
+   "p": 0.93
+  },
+  {
+   "w": "is",
+   "t": 20.58,
+   "end": 20.74,
+   "p": 0.99
+  },
+  {
+   "w": "the",
+   "t": 20.74,
+   "end": 20.94,
+   "p": 0.99
+  },
+  {
+   "w": "bet,",
+   "t": 20.94,
+   "end": 21.18,
+   "p": 0.99
+  },
+  {
+   "w": "2",
+   "t": 21.42,
+   "end": 21.52,
+   "p": 0.94
+  },
+  {
+   "w": ".2",
+   "t": 21.52,
+   "end": 22.08,
+   "p": 0.99
+  },
+  {
+   "w": "million",
+   "t": 22.08,
+   "end": 22.4,
+   "p": 0.98
+  },
+  {
+   "w": "already",
+   "t": 22.4,
+   "end": 22.9,
+   "p": 0.99
+  },
+  {
+   "w": "in",
+   "t": 22.9,
+   "end": 23.12,
+   "p": 1.0
+  },
+  {
+   "w": "the",
+   "t": 23.12,
+   "end": 23.28,
+   "p": 1.0
+  },
+  {
+   "w": "center.",
+   "t": 23.28,
+   "end": 23.54,
+   "p": 0.97
+  },
+  {
+   "w": "yes",
+   "t": 27.82,
+   "end": 28.5,
+   "p": 0.06
+  },
+  {
+   "w": "Wow",
+   "t": 28.5,
+   "end": 28.92,
+   "p": 0.17
+  },
+  {
+   "w": "yeah",
+   "t": 28.92,
+   "end": 29.82,
+   "p": 0.67
+  },
+  {
+   "w": "Wow",
+   "t": 29.82,
+   "end": 30.16,
+   "p": 0.84
+  },
+  {
+   "w": "indeed",
+   "t": 30.16,
+   "end": 30.58,
+   "p": 1.0
+  },
+  {
+   "w": "two",
+   "t": 30.58,
+   "end": 31.52,
+   "p": 0.64
+  },
+  {
+   "w": "biggest",
+   "t": 31.52,
+   "end": 31.96,
+   "p": 0.97
+  },
+  {
+   "w": "stacks",
+   "t": 31.96,
+   "end": 32.34,
+   "p": 0.97
+  },
+  {
+   "w": "at",
+   "t": 32.34,
+   "end": 32.74,
+   "p": 1.0
+  },
+  {
+   "w": "the",
+   "t": 32.74,
+   "end": 32.92,
+   "p": 1.0
+  },
+  {
+   "w": "table",
+   "t": 32.92,
+   "end": 33.72,
+   "p": 1.0
+  },
+  {
+   "w": "I",
+   "t": 33.72,
+   "end": 36.88,
+   "p": 0.86
+  },
+  {
+   "w": "would",
+   "t": 36.88,
+   "end": 37.02,
+   "p": 0.99
+  },
+  {
+   "w": "have",
+   "t": 37.02,
+   "end": 37.3,
+   "p": 0.97
+  },
+  {
+   "w": "high",
+   "t": 37.3,
+   "end": 37.74,
+   "p": 0.96
+  },
+  {
+   "w": "fived",
+   "t": 37.74,
+   "end": 38.04,
+   "p": 0.52
+  },
+  {
+   "w": "people",
+   "t": 38.04,
+   "end": 38.38,
+   "p": 0.96
+  },
+  {
+   "w": "and",
+   "t": 38.38,
+   "end": 38.58,
+   "p": 0.9
+  },
+  {
+   "w": "called",
+   "t": 38.58,
+   "end": 38.78,
+   "p": 0.99
+  },
+  {
+   "w": "already",
+   "t": 38.78,
+   "end": 39.2,
+   "p": 0.99
+  },
+  {
+   "w": "there's",
+   "t": 39.2,
+   "end": 39.94,
+   "p": 0.96
+  },
+  {
+   "w": "no",
+   "t": 39.94,
+   "end": 40.1,
+   "p": 0.99
+  },
+  {
+   "w": "way",
+   "t": 40.1,
+   "end": 40.28,
+   "p": 0.99
+  },
+  {
+   "w": "he",
+   "t": 40.28,
+   "end": 40.4,
+   "p": 0.96
+  },
+  {
+   "w": "gets",
+   "t": 40.4,
+   "end": 40.54,
+   "p": 0.99
+  },
+  {
+   "w": "away",
+   "t": 40.54,
+   "end": 40.74,
+   "p": 1.0
+  },
+  {
+   "w": "from",
+   "t": 40.74,
+   "end": 40.92,
+   "p": 0.86
+  },
+  {
+   "w": "this",
+   "t": 40.92,
+   "end": 41.08,
+   "p": 0.93
+  },
+  {
+   "w": "right",
+   "t": 41.08,
+   "end": 41.96,
+   "p": 0.98
+  },
+  {
+   "w": "I",
+   "t": 43.5,
+   "end": 43.94,
+   "p": 0.5
+  },
+  {
+   "w": "guess",
+   "t": 43.94,
+   "end": 44.14,
+   "p": 0.92
+  },
+  {
+   "w": "I",
+   "t": 44.14,
+   "end": 44.32,
+   "p": 0.88
+  },
+  {
+   "w": "can't",
+   "t": 44.32,
+   "end": 44.56,
+   "p": 0.96
+  },
+  {
+   "w": "wait",
+   "t": 44.56,
+   "end": 44.7,
+   "p": 0.99
+  },
+  {
+   "w": "30",
+   "t": 44.7,
+   "end": 45.0,
+   "p": 0.71
+  },
+  {
+   "w": "nights",
+   "t": 45.0,
+   "end": 45.32,
+   "p": 0.6
+  },
+  {
+   "w": "to",
+   "t": 45.32,
+   "end": 45.56,
+   "p": 0.97
+  },
+  {
+   "w": "find",
+   "t": 45.56,
+   "end": 45.76,
+   "p": 0.98
+  },
+  {
+   "w": "out",
+   "t": 45.76,
+   "end": 46.02,
+   "p": 1.0
+  },
+  {
+   "w": "before",
+   "t": 46.02,
+   "end": 46.34,
+   "p": 0.7
+  },
+  {
+   "w": "I",
+   "t": 46.34,
+   "end": 46.64,
+   "p": 0.96
+  },
+  {
+   "w": "make",
+   "t": 46.64,
+   "end": 46.92,
+   "p": 0.88
+  },
+  {
+   "w": "a",
+   "t": 46.92,
+   "end": 47.08,
+   "p": 0.18
+  },
+  {
+   "w": "decision.",
+   "t": 47.08,
+   "end": 47.38,
+   "p": 0.89
+  },
+  {
+   "w": "I'm",
+   "t": 47.78,
+   "end": 47.94,
+   "p": 0.95
+  },
+  {
+   "w": "just",
+   "t": 47.94,
+   "end": 48.02,
+   "p": 0.93
+  },
+  {
+   "w": "going",
+   "t": 48.02,
+   "end": 48.1,
+   "p": 0.29
+  },
+  {
+   "w": "to",
+   "t": 48.1,
+   "end": 48.16,
+   "p": 1.0
+  },
+  {
+   "w": "keep",
+   "t": 48.16,
+   "end": 48.26,
+   "p": 0.99
+  },
+  {
+   "w": "using",
+   "t": 48.26,
+   "end": 48.48,
+   "p": 0.99
+  },
+  {
+   "w": "it",
+   "t": 48.48,
+   "end": 48.66,
+   "p": 0.41
+  },
+  {
+   "w": "until",
+   "t": 48.66,
+   "end": 48.82,
+   "p": 0.96
+  },
+  {
+   "w": "my",
+   "t": 48.82,
+   "end": 49.0,
+   "p": 1.0
+  },
+  {
+   "w": "hand's",
+   "t": 49.0,
+   "end": 49.28,
+   "p": 0.75
+  },
+  {
+   "w": "killed.",
+   "t": 49.28,
+   "end": 49.48,
+   "p": 0.99
+  },
+  {
+   "w": "Why",
+   "t": 50.72,
+   "end": 50.86,
+   "p": 0.86
+  },
+  {
+   "w": "is",
+   "t": 50.86,
+   "end": 51.02,
+   "p": 0.99
+  },
+  {
+   "w": "he",
+   "t": 51.02,
+   "end": 51.12,
+   "p": 1.0
+  },
+  {
+   "w": "beating",
+   "t": 51.12,
+   "end": 51.28,
+   "p": 1.0
+  },
+  {
+   "w": "himself?",
+   "t": 51.28,
+   "end": 51.56,
+   "p": 1.0
+  },
+  {
+   "w": "He",
+   "t": 51.76,
+   "end": 51.92,
+   "p": 0.78
+  },
+  {
+   "w": "fell",
+   "t": 51.92,
+   "end": 52.24,
+   "p": 0.28
+  },
+  {
+   "w": "in!",
+   "t": 52.24,
+   "end": 52.5,
+   "p": 0.36
+  },
+  {
+   "w": "Oh",
+   "t": 52.5,
+   "end": 52.52,
+   "p": 0.62
+  },
+  {
+   "w": "my",
+   "t": 52.52,
+   "end": 52.72,
+   "p": 0.92
+  },
+  {
+   "w": "god!",
+   "t": 52.72,
+   "end": 53.36,
+   "p": 0.55
+  },
+  {
+   "w": "What",
+   "t": 53.82,
+   "end": 53.88,
+   "p": 0.7
+  },
+  {
+   "w": "is",
+   "t": 53.88,
+   "end": 54.34,
+   "p": 0.99
+  },
+  {
+   "w": "that?",
+   "t": 54.34,
+   "end": 54.84,
+   "p": 0.99
+  },
+  {
+   "w": "That",
+   "t": 54.88,
+   "end": 55.18,
+   "p": 0.94
+  },
+  {
+   "w": "is",
+   "t": 55.18,
+   "end": 55.52,
+   "p": 0.99
+  },
+  {
+   "w": "unbelievable!",
+   "t": 55.52,
+   "end": 56.4,
+   "p": 0.94
+  },
+  {
+   "w": "Yeah!",
+   "t": 63.62,
+   "end": 64.06,
+   "p": 0.78
+  },
+  {
+   "w": "Joe's",
+   "t": 64.26,
+   "end": 64.7,
+   "p": 0.97
+  },
+  {
+   "w": "hand",
+   "t": 64.7,
+   "end": 64.94,
+   "p": 1.0
+  },
+  {
+   "w": "was",
+   "t": 64.94,
+   "end": 65.16,
+   "p": 1.0
+  },
+  {
+   "w": "perfectly",
+   "t": 65.16,
+   "end": 65.72,
+   "p": 0.99
+  },
+  {
+   "w": "camouflaged!",
+   "t": 65.72,
+   "end": 65.96,
+   "p": 0.99
+  },
+  {
+   "w": "How",
+   "t": 66.86,
+   "end": 67.02,
+   "p": 0.98
+  },
+  {
+   "w": "did",
+   "t": 67.02,
+   "end": 67.18,
+   "p": 0.99
+  },
+  {
+   "w": "he",
+   "t": 67.18,
+   "end": 67.32,
+   "p": 0.98
+  },
+  {
+   "w": "figure",
+   "t": 67.32,
+   "end": 67.6,
+   "p": 1.0
+  },
+  {
+   "w": "that",
+   "t": 67.6,
+   "end": 67.82,
+   "p": 1.0
+  },
+  {
+   "w": "out?",
+   "t": 67.82,
+   "end": 67.98,
+   "p": 1.0
+  },
+  {
+   "w": "I",
+   "t": 76.0,
+   "end": 76.82,
+   "p": 0.48
+  },
+  {
+   "w": "can't,",
+   "t": 76.82,
+   "end": 77.22,
+   "p": 0.97
+  },
+  {
+   "w": "I",
+   "t": 77.28,
+   "end": 77.36,
+   "p": 0.99
+  },
+  {
+   "w": "can't.",
+   "t": 77.36,
+   "end": 77.78,
+   "p": 1.0
+  }
+ ]
+}

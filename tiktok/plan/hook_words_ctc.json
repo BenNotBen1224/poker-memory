@@ -1,0 +1,72 @@
+[
+ {
+  "text": "This",
+  "start": 0.1,
+  "end": 0.26,
+  "score": -0.096,
+  "ctc_start": 0.1
+ },
+ {
+  "text": "is",
+  "start": 0.38,
+  "end": 0.64,
+  "score": -0.273,
+  "ctc_start": 0.52
+ },
+ {
+  "text": "unreal",
+  "start": 1.23,
+  "end": 1.86,
+  "score": -0.397,
+  "ctc_start": 1.38
+ },
+ {
+  "text": "that",
+  "start": 1.88,
+  "end": 2.0,
+  "score": -9.302,
+  "ctc_start": 1.88
+ },
+ {
+  "text": "he's",
+  "start": 2.0,
+  "end": 2.14,
+  "score": -4.491,
+  "ctc_start": 2.06
+ },
+ {
+  "text": "considering",
+  "start": 2.18,
+  "end": 2.58,
+  "score": -0.058,
+  "ctc_start": 2.18
+ },
+ {
+  "text": "getting",
+  "start": 2.6,
+  "end": 2.8,
+  "score": -0.069,
+  "ctc_start": 2.6
+ },
+ {
+  "text": "away",
+  "start": 2.84,
+  "end": 3.0,
+  "score": -0.026,
+  "ctc_start": 2.84
+ },
+ {
+  "text": "from",
+  "start": 3.06,
+  "end": 3.18,
+  "score": -0.061,
+  "ctc_start": 3.06
+ },
+ {
+  "text": "this.",
+  "start": 3.22,
+  "end": 3.34,
+  "score": -1.99,
+  "ctc_start": 3.22
+ }
+]

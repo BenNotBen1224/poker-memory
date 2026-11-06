@@ -1,0 +1,987 @@
+{
+ "unreal": {
+  "text": "This is unreal that he's considering getting away from this.",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 327.86,
+  "end": 332.86,
+  "words": [
+   {
+    "text": "This",
+    "start": 327.86,
+    "end": 328.38
+   },
+   {
+    "text": "is",
+    "start": 328.38,
+    "end": 328.66
+   },
+   {
+    "text": "unreal",
+    "start": 328.66,
+    "end": 331.02
+   },
+   {
+    "text": "that",
+    "start": 331.02,
+    "end": 331.58
+   },
+   {
+    "text": "he's",
+    "start": 331.58,
+    "end": 331.66
+   },
+   {
+    "text": "considering",
+    "start": 331.66,
+    "end": 331.94
+   },
+   {
+    "text": "getting",
+    "start": 331.94,
+    "end": 332.2
+   },
+   {
+    "text": "away",
+    "start": 332.2,
+    "end": 332.46
+   },
+   {
+    "text": "from",
+    "start": 332.46,
+    "end": 332.68
+   },
+   {
+    "text": "this.",
+    "start": 332.68,
+    "end": 332.86
+   }
+  ]
+ },
+ "cowboys": {
+  "text": "Couple of cowboys here for Ian.",
+  "speaker": null,
+  "model": "medium.en",
+  "match": 1.0,
+  "start": 23.86,
+  "end": 25.52,
+  "words": [
+   {
+    "text": "Couple",
+    "start": 23.86,
+    "end": 24.3
+   },
+   {
+    "text": "of",
+    "start": 24.3,
+    "end": 24.44
+   },
+   {
+    "text": "cowboys",
+    "start": 24.44,
+    "end": 24.9
+   },
+   {
+    "text": "here",
+    "start": 24.9,
+    "end": 25.12
+   },
+   {
+    "text": "for",
+    "start": 25.12,
+    "end": 25.34
+   },
+   {
+    "text": "Ian.",
+    "start": 25.34,
+    "end": 25.52
+   }
+  ]
+ },
+ "atleast": {
+  "text": "Joe is going to at least call.",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 46.98,
+  "end": 48.54,
+  "words": [
+   {
+    "text": "Joe",
+    "start": 46.98,
+    "end": 47.34
+   },
+   {
+    "text": "is",
+    "start": 47.34,
+    "end": 47.5
+   },
+   {
+    "text": "going",
+    "start": 47.5,
+    "end": 47.68
+   },
+   {
+    "text": "to",
+    "start": 47.68,
+    "end": 47.8
+   },
+   {
+    "text": "at",
+    "start": 47.8,
+    "end": 47.92
+   },
+   {
+    "text": "least",
+    "start": 47.92,
+    "end": 48.24
+   },
+   {
+    "text": "call.",
+    "start": 48.24,
+    "end": 48.54
+   }
+  ]
+ },
+ "farbest": {
+  "text": "Ian's hand far and away the best still.",
+  "speaker": null,
+  "model": "medium.en",
+  "match": 1.0,
+  "start": 67.08,
+  "end": 68.74,
+  "words": [
+   {
+    "text": "Ian's",
+    "start": 67.08,
+    "end": 67.26
+   },
+   {
+    "text": "hand",
+    "start": 67.26,
+    "end": 67.48
+   },
+   {
+    "text": "far",
+    "start": 67.48,
+    "end": 67.78
+   },
+   {
+    "text": "and",
+    "start": 67.78,
+    "end": 67.92
+   },
+   {
+    "text": "away",
+    "start": 67.92,
+    "end": 68.06
+   },
+   {
+    "text": "the",
+    "start": 68.06,
+    "end": 68.22
+   },
+   {
+    "text": "best",
+    "start": 68.22,
+    "end": 68.4
+   },
+   {
+    "text": "still.",
+    "start": 68.4,
+    "end": 68.74
+   }
+  ]
+ },
+ "hate": {
+  "text": "You just hate to lay down kings.",
+  "speaker": null,
+  "model": "medium.en",
+  "match": 1.0,
+  "start": 125.48,
+  "end": 127.8,
+  "words": [
+   {
+    "text": "You",
+    "start": 125.48,
+    "end": 125.96
+   },
+   {
+    "text": "just",
+    "start": 125.96,
+    "end": 126.44
+   },
+   {
+    "text": "hate",
+    "start": 126.44,
+    "end": 126.76
+   },
+   {
+    "text": "to",
+    "start": 126.76,
+    "end": 127.0
+   },
+   {
+    "text": "lay",
+    "start": 127.0,
+    "end": 127.14
+   },
+   {
+    "text": "down",
+    "start": 127.14,
+    "end": 127.46
+   },
+   {
+    "text": "kings.",
+    "start": 127.46,
+    "end": 127.8
+   }
+  ]
+ },
+ "bet800": {
+  "text": "800,000 is the bet.",
+  "speaker": null,
+  "model": "medium.en",
+  "match": 1.0,
+  "start": 197.12,
+  "end": 198.56,
+  "words": [
+   {
+    "text": "800,000",
+    "start": 197.12,
+    "end": 197.98
+   },
+   {
+    "text": "is",
+    "start": 197.98,
+    "end": 198.12
+   },
+   {
+    "text": "the",
+    "start": 198.12,
+    "end": 198.32
+   },
+   {
+    "text": "bet.",
+    "start": 198.32,
+    "end": 198.56
+   }
+  ]
+ },
+ "center": {
+  "text": "2.2 million already in the center.",
+  "speaker": null,
+  "model": "medium.en",
+  "match": 1.0,
+  "start": 198.8,
+  "end": 200.94,
+  "words": [
+   {
+    "text": "2.2",
+    "start": 198.8,
+    "end": 199.46
+   },
+   {
+    "text": "million",
+    "start": 199.46,
+    "end": 199.78
+   },
+   {
+    "text": "already",
+    "start": 199.78,
+    "end": 200.26
+   },
+   {
+    "text": "in",
+    "start": 200.26,
+    "end": 200.5
+   },
+   {
+    "text": "the",
+    "start": 200.5,
+    "end": 200.64
+   },
+   {
+    "text": "center.",
+    "start": 200.64,
+    "end": 200.94
+   }
+  ]
+ },
+ "wow": {
+  "text": "Yes, wow. Yeah, wow indeed.",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 232.72,
+  "end": 235.4,
+  "words": [
+   {
+    "text": "Yes,",
+    "start": 232.72,
+    "end": 233.38
+   },
+   {
+    "text": "wow.",
+    "start": 233.42,
+    "end": 233.76
+   },
+   {
+    "text": "Yeah,",
+    "start": 234.08,
+    "end": 234.74
+   },
+   {
+    "text": "wow",
+    "start": 234.84,
+    "end": 235.04
+   },
+   {
+    "text": "indeed.",
+    "start": 235.04,
+    "end": 235.4
+   }
+  ]
+ },
+ "stacks": {
+  "text": "Two biggest stacks at the table.",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 236.36,
+  "end": 238.78,
+  "words": [
+   {
+    "text": "Two",
+    "start": 236.36,
+    "end": 237.02
+   },
+   {
+    "text": "biggest",
+    "start": 237.02,
+    "end": 237.54
+   },
+   {
+    "text": "stacks",
+    "start": 237.54,
+    "end": 237.86
+   },
+   {
+    "text": "at",
+    "start": 237.86,
+    "end": 238.28
+   },
+   {
+    "text": "the",
+    "start": 238.28,
+    "end": 238.44
+   },
+   {
+    "text": "table.",
+    "start": 238.44,
+    "end": 238.78
+   }
+  ]
+ },
+ "considering": {
+  "text": "Wow, he's actually considering this.",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 243.58,
+  "end": 246.1,
+  "words": [
+   {
+    "text": "Wow,",
+    "start": 243.58,
+    "end": 244.1
+   },
+   {
+    "text": "he's",
+    "start": 244.16,
+    "end": 244.28
+   },
+   {
+    "text": "actually",
+    "start": 244.28,
+    "end": 245.18
+   },
+   {
+    "text": "considering",
+    "start": 245.18,
+    "end": 245.7
+   },
+   {
+    "text": "this.",
+    "start": 245.7,
+    "end": 246.1
+   }
+  ]
+ },
+ "highfive": {
+  "text": "I would have high-fived people and called already.",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 247.16,
+  "end": 249.88,
+  "words": [
+   {
+    "text": "I",
+    "start": 247.16,
+    "end": 247.68
+   },
+   {
+    "text": "would",
+    "start": 247.68,
+    "end": 247.84
+   },
+   {
+    "text": "have",
+    "start": 247.84,
+    "end": 247.96
+   },
+   {
+    "text": "high-fived",
+    "start": 247.96,
+    "end": 248.92
+   },
+   {
+    "text": "people",
+    "start": 248.92,
+    "end": 249.12
+   },
+   {
+    "text": "and",
+    "start": 249.12,
+    "end": 249.34
+   },
+   {
+    "text": "called",
+    "start": 249.34,
+    "end": 249.58
+   },
+   {
+    "text": "already.",
+    "start": 249.58,
+    "end": 249.88
+   }
+  ]
+ },
+ "burning": {
+  "text": "He's burning through those time extensions.",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 273.04,
+  "end": 275.0,
+  "words": [
+   {
+    "text": "He's",
+    "start": 273.04,
+    "end": 273.52
+   },
+   {
+    "text": "burning",
+    "start": 273.52,
+    "end": 273.76
+   },
+   {
+    "text": "through",
+    "start": 273.76,
+    "end": 274.0
+   },
+   {
+    "text": "those",
+    "start": 274.0,
+    "end": 274.32
+   },
+   {
+    "text": "time",
+    "start": 274.32,
+    "end": 274.6
+   },
+   {
+    "text": "extensions.",
+    "start": 274.6,
+    "end": 275.0
+   }
+  ]
+ },
+ "noway": {
+  "text": "There's no way he gets away from this, right?",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 0.947,
+  "start": 282.34,
+  "end": 284.14,
+  "words": [
+   {
+    "text": "There's",
+    "start": 282.34,
+    "end": 282.82
+   },
+   {
+    "text": "no",
+    "start": 282.82,
+    "end": 282.9
+   },
+   {
+    "text": "way",
+    "start": 282.9,
+    "end": 283.2
+   },
+   {
+    "text": "he",
+    "start": 283.2,
+    "end": 283.32
+   },
+   {
+    "text": "gets",
+    "start": 283.32,
+    "end": 283.46
+   },
+   {
+    "text": "away",
+    "start": 283.46,
+    "end": 283.6
+   },
+   {
+    "text": "from",
+    "start": 283.6,
+    "end": 283.8
+   },
+   {
+    "text": "this,",
+    "start": 283.8,
+    "end": 284.02
+   },
+   {
+    "text": "right?",
+    "start": 284.02,
+    "end": 284.14
+   }
+  ]
+ },
+ "howbeat": {
+  "text": "How can he think he's beat here?",
+  "speaker": null,
+  "model": "large-noprompt",
+  "match": 0.875,
+  "start": 297.3,
+  "end": 298.6,
+  "words": [
+   {
+    "text": "How",
+    "start": 297.3,
+    "end": 297.66
+   },
+   {
+    "text": "can",
+    "start": 297.66,
+    "end": 297.84
+   },
+   {
+    "text": "he",
+    "start": 297.84,
+    "end": 297.96
+   },
+   {
+    "text": "think",
+    "start": 297.96,
+    "end": 298.12
+   },
+   {
+    "text": "he's",
+    "start": 298.12,
+    "end": 298.26
+   },
+   {
+    "text": "beat",
+    "start": 298.26,
+    "end": 298.44
+   },
+   {
+    "text": "here?",
+    "start": 298.44,
+    "end": 298.6
+   }
+  ]
+ },
+ "thirty": {
+  "text": "I guess I can't wait 30 minutes to find out before I make a decision",
+  "speaker": "Ian",
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 370.94,
+  "end": 375.18,
+  "words": [
+   {
+    "text": "I",
+    "start": 370.94,
+    "end": 371.5
+   },
+   {
+    "text": "guess",
+    "start": 371.5,
+    "end": 372.06
+   },
+   {
+    "text": "I",
+    "start": 372.06,
+    "end": 372.16
+   },
+   {
+    "text": "can't",
+    "start": 372.16,
+    "end": 372.44
+   },
+   {
+    "text": "wait",
+    "start": 372.44,
+    "end": 372.6
+   },
+   {
+    "text": "30",
+    "start": 372.6,
+    "end": 372.84
+   },
+   {
+    "text": "minutes",
+    "start": 372.84,
+    "end": 373.16
+   },
+   {
+    "text": "to",
+    "start": 373.16,
+    "end": 373.4
+   },
+   {
+    "text": "find",
+    "start": 373.4,
+    "end": 373.68
+   },
+   {
+    "text": "out",
+    "start": 373.68,
+    "end": 373.9
+   },
+   {
+    "text": "before",
+    "start": 373.9,
+    "end": 374.18
+   },
+   {
+    "text": "I",
+    "start": 374.18,
+    "end": 374.36
+   },
+   {
+    "text": "make",
+    "start": 374.36,
+    "end": 374.76
+   },
+   {
+    "text": "a",
+    "start": 374.76,
+    "end": 374.88
+   },
+   {
+    "text": "decision",
+    "start": 374.88,
+    "end": 375.18
+   }
+  ]
+ },
+ "killed": {
+  "text": "I'm just going to keep using it until my hand's killed",
+  "speaker": "Ian",
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 399.92,
+  "end": 401.78,
+  "words": [
+   {
+    "text": "I'm",
+    "start": 399.92,
+    "end": 400.24
+   },
+   {
+    "text": "just",
+    "start": 400.24,
+    "end": 400.3
+   },
+   {
+    "text": "going",
+    "start": 400.3,
+    "end": 400.42
+   },
+   {
+    "text": "to",
+    "start": 400.42,
+    "end": 400.48
+   },
+   {
+    "text": "keep",
+    "start": 400.48,
+    "end": 400.58
+   },
+   {
+    "text": "using",
+    "start": 400.58,
+    "end": 400.82
+   },
+   {
+    "text": "it",
+    "start": 400.82,
+    "end": 400.98
+   },
+   {
+    "text": "until",
+    "start": 400.98,
+    "end": 401.12
+   },
+   {
+    "text": "my",
+    "start": 401.12,
+    "end": 401.28
+   },
+   {
+    "text": "hand's",
+    "start": 401.28,
+    "end": 401.62
+   },
+   {
+    "text": "killed",
+    "start": 401.62,
+    "end": 401.78
+   }
+  ]
+ },
+ "six": {
+  "text": "Six time extensions.",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 412.06,
+  "end": 415.04,
+  "words": [
+   {
+    "text": "Six",
+    "start": 412.06,
+    "end": 412.54
+   },
+   {
+    "text": "time",
+    "start": 414.08,
+    "end": 414.56
+   },
+   {
+    "text": "extensions.",
+    "start": 414.56,
+    "end": 415.04
+   }
+  ]
+ },
+ "beating": {
+  "text": "Why is he beating himself up? He folded.",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 423.0,
+  "end": 425.18,
+  "words": [
+   {
+    "text": "Why",
+    "start": 423.0,
+    "end": 423.48
+   },
+   {
+    "text": "is",
+    "start": 423.48,
+    "end": 423.96
+   },
+   {
+    "text": "he",
+    "start": 423.96,
+    "end": 424.08
+   },
+   {
+    "text": "beating",
+    "start": 424.08,
+    "end": 424.24
+   },
+   {
+    "text": "himself",
+    "start": 424.24,
+    "end": 424.48
+   },
+   {
+    "text": "up?",
+    "start": 424.48,
+    "end": 424.72
+   },
+   {
+    "text": "He",
+    "start": 424.78,
+    "end": 424.88
+   },
+   {
+    "text": "folded.",
+    "start": 424.88,
+    "end": 425.18
+   }
+  ]
+ },
+ "whatis": {
+  "text": "What is that? That is unbelievable.",
+  "speaker": null,
+  "model": "large-v3",
+  "match": 1.0,
+  "start": 426.28,
+  "end": 429.22,
+  "words": [
+   {
+    "text": "What",
+    "start": 426.28,
+    "end": 426.76
+   },
+   {
+    "text": "is",
+    "start": 426.76,
+    "end": 427.24
+   },
+   {
+    "text": "that?",
+    "start": 427.24,
+    "end": 427.58
+   },
+   {
+    "text": "That",
+    "start": 427.72,
+    "end": 428.0
+   },
+   {
+    "text": "is",
+    "start": 428.0,
+    "end": 428.3
+   },
+   {
+    "text": "unbelievable.",
+    "start": 428.3,
+    "end": 429.22
+   }
+  ]
+ },
+ "camo": {
+  "text": "Yeah, Joe's hand was perfectly camouflaged.",
+  "speaker": null,
+  "model": "small.en",
+  "match": 1.0,
+  "start": 440.6,
+  "end": 442.84,
+  "words": [
+   {
+    "text": "Yeah,",
+    "start": 440.6,
+    "end": 440.86
+   },
+   {
+    "text": "Joe's",
+    "start": 441.2,
+    "end": 441.54
+   },
+   {
+    "text": "hand",
+    "start": 441.54,
+    "end": 441.84
+   },
+   {
+    "text": "was",
+    "start": 441.84,
+    "end": 442.08
+   },
+   {
+    "text": "perfectly",
+    "start": 442.08,
+    "end": 442.6
+   },
+   {
+    "text": "camouflaged.",
+    "start": 442.6,
+    "end": 442.84
+   }
+  ]
+ },
+ "figure": {
+  "text": "How did he figure that out?",
+  "speaker": null,
+  "model": "small.en",
+  "match": 1.0,
+  "start": 443.68,
+  "end": 444.82,
+  "words": [
+   {
+    "text": "How",
+    "start": 443.68,
+    "end": 443.8
+   },
+   {
+    "text": "did",
+    "start": 443.8,
+    "end": 443.98
+   },
+   {
+    "text": "he",
+    "start": 443.98,
+    "end": 444.14
+   },
+   {
+    "text": "figure",
+    "start": 444.14,
+    "end": 444.4
+   },
+   {
+    "text": "that",
+    "start": 444.4,
+    "end": 444.62
+   },
+   {
+    "text": "out?",
+    "start": 444.62,
+    "end": 444.82
+   }
+  ]
+ },
+ "icant": {
+  "text": "I can't. I can't.",
+  "speaker": null,
+  "model": "large-noprompt",
+  "match": 1.0,
+  "start": 446.2,
+  "end": 447.22,
+  "words": [
+   {
+    "text": "I",
+    "start": 446.2,
+    "end": 446.34
+   },
+   {
+    "text": "can't.",
+    "start": 446.34,
+    "end": 446.7
+   },
+   {
+    "text": "I",
+    "start": 446.7,
+    "end": 446.8
+   },
+   {
+    "text": "can't.",
+    "start": 446.8,
+    "end": 447.22
+   }
+  ]
+ }
+}

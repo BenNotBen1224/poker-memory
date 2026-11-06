@@ -1,0 +1,333 @@
+{
+ "clips": [
+  {
+   "name": "hook",
+   "parts": [
+    [
+     328.12,
+     329.08
+    ],
+    [
+     330.66,
+     333.2
+    ]
+   ],
+   "at": 0.15,
+   "len": 3.62,
+   "lufs_in": -37.1,
+   "gain_db": 17.15,
+   "lufs_out": -20.0,
+   "snr_in_db": 18.2,
+   "snr_out_db": 21.1,
+   "expander_thr_db": -45.2
+  },
+  {
+   "name": "cowboys",
+   "parts": [
+    [
+     23.72,
+     25.62
+    ]
+   ],
+   "at": 5.1999,
+   "len": 1.9,
+   "lufs_in": -24.14,
+   "gain_db": 4.14,
+   "lufs_out": -20.0,
+   "snr_in_db": 29.8,
+   "snr_out_db": 29.8,
+   "expander_thr_db": null
+  },
+  {
+   "name": "atleast",
+   "parts": [
+    [
+     46.88,
+     48.81
+    ]
+   ],
+   "at": 8.5548,
+   "len": 1.93,
+   "lufs_in": -37.98,
+   "gain_db": 18.07,
+   "lufs_out": -20.0,
+   "snr_in_db": 17.3,
+   "snr_out_db": 21.0,
+   "expander_thr_db": -45.4
+  },
+  {
+   "name": "farbest",
+   "parts": [
+    [
+     66.71,
+     68.88
+    ]
+   ],
+   "at": 11.0407,
+   "len": 2.17,
+   "lufs_in": -22.21,
+   "gain_db": 2.21,
+   "lufs_out": -20.0,
+   "snr_in_db": 23.5,
+   "snr_out_db": 23.5,
+   "expander_thr_db": null
+  },
+  {
+   "name": "hate",
+   "parts": [
+    [
+     125.9,
+     128.36
+    ]
+   ],
+   "at": 13.8637,
+   "len": 2.46,
+   "lufs_in": -39.99,
+   "gain_db": 20.15,
+   "lufs_out": -20.0,
+   "snr_in_db": 13.1,
+   "snr_out_db": 16.5,
+   "expander_thr_db": -44.1
+  },
+  {
+   "name": "bet",
+   "parts": [
+    [
+     197.02,
+     201.16
+    ]
+   ],
+   "at": 19.631,
+   "len": 4.14,
+   "lufs_in": -22.49,
+   "gain_db": 2.49,
+   "lufs_out": -20.0,
+   "snr_in_db": 18.3,
+   "snr_out_db": 18.3,
+   "expander_thr_db": null
+  },
+  {
+   "name": "wow",
+   "parts": [
+    [
+     232.62,
+     235.74
+    ]
+   ],
+   "at": 27.5558,
+   "len": 3.12,
+   "lufs_in": -31.52,
+   "gain_db": 11.36,
+   "lufs_out": -20.0,
+   "snr_in_db": 23.4,
+   "snr_out_db": 29.9,
+   "expander_thr_db": -44.2
+  },
+  {
+   "name": "stacks",
+   "parts": [
+    [
+     236.9,
+     239.07
+    ]
+   ],
+   "at": 31.1888,
+   "len": 2.17,
+   "lufs_in": -22.28,
+   "gain_db": 2.28,
+   "lufs_out": -20.0,
+   "snr_in_db": 27.0,
+   "snr_out_db": 27.0,
+   "expander_thr_db": null
+  },
+  {
+   "name": "tank_hf",
+   "parts": [
+    [
+     247.06,
+     250.14
+    ]
+   ],
+   "at": 36.146,
+   "len": 3.08,
+   "lufs_in": -33.96,
+   "gain_db": 13.98,
+   "lufs_out": -20.0,
+   "snr_in_db": 22.8,
+   "snr_out_db": 25.6,
+   "expander_thr_db": -45.7
+  },
+  {
+   "name": "tank_nw",
+   "parts": [
+    [
+     282.5,
+     284.32
+    ]
+   ],
+   "at": 39.5058,
+   "len": 1.82,
+   "lufs_in": -25.87,
+   "gain_db": 5.87,
+   "lufs_out": -20.0,
+   "snr_in_db": 32.6,
+   "snr_out_db": 32.6,
+   "expander_thr_db": null
+  },
+  {
+   "name": "tank_30",
+   "parts": [
+    [
+     370.86,
+     375.43
+    ]
+   ],
+   "at": 42.8528,
+   "len": 4.57,
+   "lufs_in": -40.88,
+   "gain_db": 20.98,
+   "lufs_out": -20.0,
+   "snr_in_db": 15.4,
+   "snr_out_db": 19.8,
+   "expander_thr_db": -46.3
+  },
+  {
+   "name": "tank_kd",
+   "parts": [
+    [
+     399.84,
+     401.95
+    ]
+   ],
+   "at": 47.429,
+   "len": 2.11,
+   "lufs_in": -46.18,
+   "gain_db": 24.0,
+   "lufs_out": -22.31,
+   "snr_in_db": 10.4,
+   "snr_out_db": 13.3,
+   "expander_thr_db": -50.8
+  },
+  {
+   "name": "beating",
+   "parts": [
+    [
+     423.7,
+     426.68
+    ]
+   ],
+   "at": 50.6495,
+   "len": 2.98,
+   "lufs_in": -19.75,
+   "gain_db": -0.25,
+   "lufs_out": -20.0,
+   "snr_in_db": 26.2,
+   "snr_out_db": 26.2,
+   "expander_thr_db": null
+  },
+  {
+   "name": "whatis",
+   "parts": [
+    [
+     426.69,
+     430.15
+    ]
+   ],
+   "at": 53.6459,
+   "len": 3.46,
+   "lufs_in": -20.09,
+   "gain_db": 0.09,
+   "lufs_out": -20.0,
+   "snr_in_db": 17.8,
+   "snr_out_db": 17.8,
+   "expander_thr_db": null
+  },
+  {
+   "name": "camo",
+   "parts": [
+    [
+     440.52,
+     443.645
+    ]
+   ],
+   "at": 63.5866,
+   "len": 3.125,
+   "lufs_in": -26.52,
+   "gain_db": 6.52,
+   "lufs_out": -20.0,
+   "snr_in_db": 12.0,
+   "snr_out_db": 12.0,
+   "expander_thr_db": null
+  },
+  {
+   "name": "figure",
+   "parts": [
+    [
+     443.635,
+     444.86
+    ]
+   ],
+   "at": 66.8111,
+   "len": 1.225,
+   "lufs_in": -24.35,
+   "gain_db": 4.35,
+   "lufs_out": -20.0,
+   "snr_in_db": 13.4,
+   "snr_out_db": 13.4,
+   "expander_thr_db": null
+  },
+  {
+   "name": "icant",
+   "parts": [
+    [
+     446.16,
+     447.3
+    ]
+   ],
+   "at": 76.5996,
+   "len": 1.14,
+   "lufs_in": -26.27,
+   "gain_db": 6.27,
+   "lufs_out": -20.0,
+   "snr_in_db": 18.3,
+   "snr_out_db": 18.3,
+   "expander_thr_db": null
+  }
+ ],
+ "limiter": {
+  "max_gr_db": 7.48,
+  "pct_time_gr_over_1db": 2.93,
+  "pct_time_gr_over_3db": 1.22,
+  "gr_over_4db_at_s": [
+   15.3,
+   15.4,
+   26.1,
+   26.3,
+   26.4,
+   26.5,
+   29.8,
+   30.1,
+   37.6,
+   37.7,
+   37.9,
+   47.0,
+   47.1,
+   61.7,
+   61.8,
+   61.9,
+   62.0,
+   62.1,
+   62.2,
+   62.3
+  ]
+ },
+ "lufs": -14.13,
+ "true_peak_dbtp": -1.2,
+ "ceiling_db": -2.0,
+ "master_gain_db": 7.28,
+ "sample_peak": 0.7943,
+ "samples": 3778560,
+ "end_sample": 3777774,
+ "cues": 91,
+ "seconds": 8.1
+}

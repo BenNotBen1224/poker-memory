@@ -226,3 +226,9 @@ node_modules/
 .next/
 *.tsbuildinfo
 
+
+# TikTok pipeline outputs (the MP4 is a release asset)
+/tiktok/cache/
+/tiktok/out/*.mp4
+/tiktok/out/*.wav
+

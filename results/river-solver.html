@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poker Memory: the hand, the model, and what EV means</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#10171e;color:#edf3fa;font:16px/1.6 system-ui}
+main{max-width:1040px;margin:auto;padding:28px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2;margin:8px 0 16px;max-width:790px}
+h2{font-size:26px;line-height:1.3;margin:0 0 18px}h3{font-size:17px;margin:0 0 6px}
+section{margin-top:42px;padding-top:22px;border-top:1px solid #334455;scroll-margin-top:20px}
+p{margin:8px 0}a{color:#a5caff}code{font-size:12px;overflow-wrap:anywhere}
+.muted,.label{color:#b4c3d1;font-size:14px}.label{letter-spacing:.04em}
+.intro{font-size:18px;max-width:780px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.panel{border:1px solid #334455;background:#17232e;border-radius:12px;padding:20px;min-width:0}
+.number{display:block;font-size:30px;line-height:1.3;margin:8px 0;color:#a7dcbc}
+.loss{color:#f4bb61}.notice{border-left:4px solid #f4bb61;background:#242a30;padding:14px 18px;margin-top:18px}
+.playing-cards{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.playing-card{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;width:53px;height:76px;background:#f3f5f7;border-radius:7px;color:#16222b;font-size:23px;font-weight:700;line-height:1.1;box-shadow:0 2px 0 #738294}
+.playing-card span{font-size:26px}.playing-card.red{color:#b02738}.board{display:flex;gap:24px;flex-wrap:wrap;margin:18px 0}
+.board-group>span{display:block;font-size:13px;color:#b4c3d1}
+.timeline{list-style:none;padding:0;margin:20px 0}.timeline li{display:grid;grid-template-columns:58px 1fr 170px;gap:16px;border-top:1px solid #334455;padding:16px 0;align-items:start}
+.time{color:#9ac3ff;font-variant-numeric:tabular-nums;font-size:13px}.pot span{display:block;font-size:12px;color:#b4c3d1}.pot strong{font-size:21px}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:16px 0}
+.flow article{position:relative;border:1px solid #456581;border-radius:9px;padding:14px;background:#17232e;font-size:14px}
+.flow .step{display:block;color:#9ac3ff;font-size:25px;margin-bottom:8px}
+.flow h3{font-size:16px}.flow p{margin:0}.formula{font-size:20px;padding:18px;border:1px solid #456581;border-radius:10px;background:#142431;margin:16px 0;overflow-wrap:anywhere}
+.formula small{display:block;font-size:14px;color:#b4c3d1;margin-top:8px}
+.pot-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}
+.pot-flow .panel{padding:14px}.pot-flow strong{display:block;font-size:25px;margin:6px 0}
+svg{display:block;width:100%;height:auto}svg text{fill:#edf3fa;font:24px system-ui}svg .chart-tag{font-size:18px;fill:#b4c3d1}
+.chart-caption{font-size:14px;color:#b4c3d1;margin-top:12px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;margin:16px 0}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #334455;vertical-align:top}th{font-size:14px;color:#b4c3d1;font-weight:500}td{font-size:16px}
+.proof,nav{display:flex;gap:12px 20px;flex-wrap:wrap;margin:18px 0}nav a{font-size:14px}
+details{margin:18px 0}summary{cursor:pointer;color:#a5caff;font-size:16px}
+.end-note{margin:28px 0;color:#b4c3d1;font-size:14px}
+@media(max-width:680px){main{padding:22px 18px}.grid,.flow,.pot-flow{grid-template-columns:1fr}
+.flow article{padding:14px 14px 14px 50px}.flow .step{position:absolute;left:15px;top:10px}
+.timeline li{grid-template-columns:58px 1fr;gap:10px}.pot{grid-column:2}.pot span,.pot strong{display:inline;font-size:14px}.pot span{margin-right:8px}
+.panel{padding:16px}th,td{padding:10px 6px;font-size:13px}.formula{font-size:18px}h2{font-size:23px}}
+@media print{body{background:#fff;color:#111}.panel,.notice,.formula,.flow article{background:#fff;color:#111}a,.muted,.label,.chart-caption{color:#333}svg text{fill:#111}section{break-inside:avoid}}
+</style></head><body><main>
+<div class="label">A REAL TOURNAMENT HAND, EXPLAINED FROM START TO FINISH</div>
+<h1>Why does the model prefer calling when Ian's fold saved chips?</h1>
+<p class="intro">Ian has three kings. Joe moves all-in. Ian folds. The model prefers a call because it assumes Joe can raise with many weaker hands. The broadcast shows Joe had a straight, but Ian could not see Joe's cards.</p>
+<p class="intro">Those statements describe different things: a decision with hidden cards, and the outcome after the cards are known.</p>
+<nav aria-label="Report sections"><a href="#hand">The hand</a><a href="#flow">How the model works</a><a href="#ev">What EV means</a><a href="#bet">The bet</a><a href="#call">The call</a><a href="#outcome">The actual result</a></nav>
+
+<section id="hand"><h2>1. The hand before any estimates</h2>
+<p>This is the WPT Rolling Thunder final table, with five players left. The other three fold before the flop. Ian and Joe play the rest of the hand.</p>
+<div class="grid">
+<div class="panel"><div class="label">IAN, THE PLAYER WE ARE REVIEWING</div><h3>Small blind</h3><span class="playing-cards"><span class="playing-card red" role="img" aria-label="king of diamonds">K<span>&diams;</span></span><span class="playing-card " role="img" aria-label="king of spades">K<span>&spades;</span></span></span><p>His two private cards are a pair of kings.</p><p class="muted">He has 4,975,000 chips left at the start of the river.</p></div>
+<div class="panel"><div class="label">JOE, HIS OPPONENT</div><h3>Big blind</h3><div class="playing-cards" aria-label="Joe's cards are unknown to Ian"><span class="playing-card">?</span><span class="playing-card">?</span></div><p>Ian cannot see Joe's cards.</p><p class="muted">Joe has 2,940,000 chips left at the start of the river.</p></div>
+</div>
+<div class="board"><div class="board-group"><span>Flop: first three shared cards</span><span class="playing-cards"><span class="playing-card red" role="img" aria-label="ace of hearts">A<span>&hearts;</span></span><span class="playing-card red" role="img" aria-label="5 of hearts">5<span>&hearts;</span></span><span class="playing-card " role="img" aria-label="7 of spades">7<span>&spades;</span></span></span></div><div class="board-group"><span>Turn: fourth card</span><span class="playing-cards"><span class="playing-card " role="img" aria-label="jack of clubs">J<span>&clubs;</span></span></span></div><div class="board-group"><span>River: final card</span><span class="playing-cards"><span class="playing-card " role="img" aria-label="king of clubs">K<span>&clubs;</span></span></span></div></div>
+<p>The river king gives Ian three kings. All amounts below are tournament chips, not money. <b>1M means 1,000,000 chips.</b></p>
+<p class="muted">Blinds are 30,000 and 60,000. Each of five players pays a 10,000 ante. The initial 50,000 in antes is included in every pot below.</p>
+<ol class="timeline" aria-label="Recorded betting and pot growth"><li><span class="time">00:40<br>to 00:51</span><div><h3>Before the flop</h3><p>The other three players have folded. Ian raises to 160,000. Joe calls.</p></div><div class="pot"><span>Pot after these actions</span><strong>370,000</strong></div></li><li><span class="time">00:58<br>to 01:27</span><div><h3>Flop: A-heart, 5-heart, 7-spade</h3><p>Ian bets 150,000. Joe calls.</p></div><div class="pot"><span>Pot after these actions</span><strong>670,000</strong></div></li><li><span class="time">01:32<br>to 02:23</span><div><h3>Turn: J-club</h3><p>Ian checks. Joe bets 370,000. Ian calls.</p></div><div class="pot"><span>Pot after these actions</span><strong>1,410,000</strong></div></li><li><span class="time">02:35</span><div><h3>River: K-club</h3><p>Ian now has three kings. No more cards will be dealt.</p></div><div class="pot"><span>Pot after these actions</span><strong>1,410,000</strong></div></li><li><span class="time">03:09</span><div><h3>Ian bets</h3><p>Ian puts in 800,000.</p></div><div class="pot"><span>Pot after these actions</span><strong>2,210,000</strong></div></li><li><span class="time">03:35</span><div><h3>Joe raises all-in</h3><p>Joe puts in 2,940,000 total, not 2,940,000 on top of Ian's bet.</p></div><div class="pot"><span>Pot after these actions</span><strong>5,150,000</strong></div></li></ol>
+<p class="muted">The times point into the video and are approximate. Seat labels and the dealer button were inferred. The clip may contain edits.</p>
+<p class="muted">Source: <a href="https://commons.wikimedia.org/wiki/File:Incredibly_Unbelievable_Fold_on_the_World_Poker_Tour.webm">World Poker Tour, Incredibly Unbelievable Fold</a>, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. This demo uses a human-reviewed transcription of the real recording.</p>
+</section>
+
+<section id="flow"><h2>2. How the video becomes an answer</h2>
+<div class="flow" aria-label="Five steps from recording to estimated values">
+<article><span class="step">1</span><h3>Read the recording</h3><p>Record cards, players, actions, amounts, and times. This demo's hand was checked by a person.</p></article>
+<article><span class="step">2</span><h3>Replay the hand</h3><p>Rebuild the pot, stacks, and legal choices at each action.</p></article>
+<article><span class="step">3</span><h3>Assume possible hands</h3><p>Build a range: possible two-card hands and their weights. Do not feed Joe's revealed cards into the solver.</p></article>
+<article><span class="step">4</span><h3>Solve the river</h3><p>Compare legal bets, calls, raises, and folds for both players within a limited set of bet sizes.</p></article>
+<article><span class="step">5</span><h3>Explain the choices</h3><p>Show estimated average chip results, assumptions, and the matching video moments.</p></article>
+</div>
+<div class="notice"><b>The hand record is observed. Joe's range is assumed.</b> Before the river, this model filters hands after calls only. Bets, raises, and checks do not narrow those starting ranges. It is not a learned profile of Joe.</div>
+<p>The river solver then weights Joe's possible hands by how often its strategy takes the recorded line. That assumption drives the call estimate below.</p>
+<p class="muted">GTO means game-theory optimal. This is an approximate solution to a restricted two-player river game, not a solution to the entire tournament.</p>
+</section>
+
+<section id="ev"><h2>3. EV means an average result, not a bet amount</h2>
+<p><b>Expected value, or EV, is the average net chips a choice would return across the model's possible opposing hands and responses.</b> A positive number means an average gain. A negative number means an average loss.</p>
+<p>On this river there are no cards left to come. The uncertainty is what Joe holds and how he responds, not which card arrives next.</p>
+<div class="formula">EV = chance of winning &times; net gain when winning<br>&minus; chance of losing &times; net loss when losing
+<small>This two-outcome formula applies to this all-in comparison. Ian's three kings cannot tie another hand on this board. Other spots may also need a tie term.</small></div>
+<div class="notice"><b>The charts start counting chips at the start of the river.</b> Earlier contributions are already in the pot. Ian's 800,000 river bet still counts as a cost, so folding later shows &minus;800,000, not zero.</div>
+<p class="muted">Values are rounded for reading. The full API responses retain the numerical output. Decimal places do not establish accuracy.</p>
+</section>
+
+<section id="bet"><h2>4. First decision: how much should Ian bet?</h2>
+<p>At 02:35, before Ian bets, the pot is <b>1,410,000</b>. He can check or choose one of the model's bet sizes.</p>
+<div class="panel chart"><svg viewBox="0 0 800 406" role="img" aria-label="Estimated net chips from the start of the river, in millions"><line x1="400" y1="60" x2="400" y2="400" stroke="#64788b"/><text x="12" y="34">check</text><text class="chart-tag" x="12" y="56"></text><text x="788" y="34" text-anchor="end">+2.037M</text><rect x="400.0" y="63" width="367.2" height="16" rx="4" fill="#7eb2ff"/><text x="12" y="112">bet 465,300</text><text class="chart-tag" x="12" y="134">Highest estimate</text><text x="788" y="112" text-anchor="end">+2.053M</text><rect x="400.0" y="141" width="370.0" height="16" rx="4" fill="#7eb2ff"/><text x="12" y="190">bet 800,000</text><text class="chart-tag" x="12" y="212">Ian's recorded move</text><text x="788" y="190" text-anchor="end">+2.038M</text><rect x="400.0" y="219" width="367.3" height="16" rx="4" fill="#f4bb61"/><text x="12" y="268">bet 1,057,500</text><text class="chart-tag" x="12" y="290"></text><text x="788" y="268" text-anchor="end">+2.019M</text><rect x="400.0" y="297" width="363.9" height="16" rx="4" fill="#7eb2ff"/><text x="12" y="346">bet 2,940,000</text><text class="chart-tag" x="12" y="368"></text><text x="788" y="346" text-anchor="end">+1.957M</text><rect x="400.0" y="375" width="352.6" height="16" rx="4" fill="#7eb2ff"/></svg><p class="chart-caption">Estimated net chips from the start of the river. Blue is an alternative. Gold is Ian's recorded move. Each row includes the model's possible later responses, not just the bet itself.</p></div>
+<p class="muted">The 465,300 and 1,057,500 sizes are 33% and 75% of the starting pot. The model also includes Ian's recorded 800,000 bet and a bet that covers Joe's stack. It does not search every possible size.</p>
+<p>The model ranks a <b>465,300 bet</b> highest at about <b>+2.053M chips</b>. Ian's 800,000 bet is estimated at +2.038M.</p>
+<p>An estimate can exceed the current pot because Joe can put in more chips before the hand ends.</p>
+<p>The estimated gap is about <b>15,000 chips</b>. That small gap is not proof that Ian chose the wrong size. The model does not certify the accuracy of this hand's estimates.</p>
+<p class="muted">Joe does not always shove in these comparisons. The model includes his possible folds, calls, and raises. A 2,940,000 bet covers Joe's remaining stack; it does not use all of Ian's larger stack.</p>
+</section>
+
+<section id="call"><h2>5. Second decision: call Joe's all-in or fold?</h2>
+<p>After Ian bets 800,000, Joe raises to <b>2,940,000 total</b>. Ian must add <b>2,140,000</b> to match it.</p>
+<div class="pot-flow">
+<div class="panel"><span class="label">ALREADY IN THE MIDDLE</span><strong>5,150,000</strong><span>1,410,000 old pot + Ian's 800,000 + Joe's 2,940,000</span></div>
+<div class="panel"><span class="label">IAN'S ADDITIONAL CALL</span><strong>+ 2,140,000</strong><span>2,940,000 total needed &minus; the 800,000 he already bet</span></div>
+<div class="panel"><span class="label">FINAL POT IF HE CALLS</span><strong>= 7,290,000</strong><span>The pot is the total prize, not Ian's net profit.</span></div>
+</div>
+<div class="formula">Break-even win chance = 2,140,000 &divide; 7,290,000 = <b>29.4%</b>
+<small>From this decision onward, folding costs no more chips. With no ties, a call needs to win more than 29.4% of the time to beat folding on chip value alone.</small></div>
+<p><b>The model estimates Ian wins about 88.3% of the time against the hands it has Joe raise all-in here.</b> This is a result of the assumed ranges and strategy, not an observed fact about Joe.</p>
+<div class="grid">
+<div class="panel"><div class="label">IF IAN CALLS AND WINS</div><strong class="number">+4.350M chips</strong><p>He receives 7.290M and subtracts his 2.940M total river contribution.</p><p class="muted">Model weight: about 88.3%.</p></div>
+<div class="panel"><div class="label">IF IAN CALLS AND LOSES</div><strong class="number loss">-2.940M chips</strong><p>He loses the 800,000 already bet and the additional 2,140,000 call.</p><p class="muted">Model weight: about 11.7%.</p></div>
+</div>
+<div class="formula">88.3% &times; +4.350M<br>&minus; 11.7% &times; 2.940M<br>&asymp; <b>+3.496M chips</b>
+<small>The displayed probabilities are rounded. The stored solver value uses unrounded weights.</small></div>
+<div class="panel chart"><svg viewBox="0 0 800 172" role="img" aria-label="Estimated net chips from the start of the river, in millions"><line x1="400" y1="60" x2="400" y2="166" stroke="#64788b"/><text x="12" y="34">fold</text><text class="chart-tag" x="12" y="56">Ian's recorded move</text><text x="788" y="34" text-anchor="end">-0.800M</text><rect x="315.3" y="63" width="84.7" height="16" rx="4" fill="#f4bb61"/><text x="12" y="112">call</text><text class="chart-tag" x="12" y="134">Highest estimate</text><text x="788" y="112" text-anchor="end">+3.496M</text><rect x="400.0" y="141" width="370.0" height="16" rx="4" fill="#7eb2ff"/></svg><p class="chart-caption">Same start-of-river baseline as the first chart. The label "call (all-in)" in the app means matching Joe's all-in. Ian would still have 2,035,000 chips behind.</p></div>
+<h3>Why was the report showing a 4.30M difference?</h3>
+<p>It subtracts the fold estimate from the call estimate: +3.496M &minus; (&minus;0.800M) &asymp; <b>+4.30M</b>. It is an estimated advantage over folding, not a payment or a guaranteed win.</p>
+<table aria-label="Two accounting baselines for the same decision">
+<thead><tr><th>Choice</th><th>Count from river start<br>Used in the charts</th><th>Count only from now<br>Treat the 800,000 as spent</th></tr></thead>
+<tbody><tr><td>Fold</td><td>-0.800M</td><td>0</td></tr>
+<tr><td>Call</td><td>+3.496M</td><td>+4.296M</td></tr>
+<tr><td>Call minus fold</td><td>+4.296M</td><td>+4.296M</td></tr></tbody>
+</table>
+<p>Changing the starting point changes both EV labels by the same 800,000. It does not change which move the model ranks higher.</p>
+</section>
+
+<section id="outcome"><h2>6. The actual result was different from the model's average</h2>
+<div class="grid">
+<div class="panel"><div class="label">BROADCAST CARDS, SHOWN HERE AS HINDSIGHT</div><span class="playing-cards"><span class="playing-card " role="img" aria-label="queen of clubs">Q<span>&clubs;</span></span><span class="playing-card red" role="img" aria-label="ten of diamonds">10<span>&diams;</span></span></span><p>Joe has queen-ten. With the shared J, K, and A, he has a straight: 10-J-Q-K-A. That beats Ian's three kings.</p></div>
+<div class="panel"><div class="label">07:04, IAN FOLDS</div><strong class="number loss">&minus;1,490,000 chips</strong><p>That is Ian's actual loss across the whole hand: 690,000 before the river, plus his 800,000 river bet.</p></div>
+</div>
+<p>Against Joe's actual queen-ten, calling would have lost another 2,140,000 chips. Ian's fold saved those chips in this particular hand.</p>
+<div class="notice"><b>The useful conclusion is conditional.</b> If Joe raises with the broad mix of hands in this model, calling ranks higher. If his real range is much stronger, that conclusion can reverse. The default-range result alone is not enough to judge Ian's fold.</div>
+<p>Joe's broadcast cards are excluded from the solver inputs. Using them to justify a decision Ian made without seeing them would mix hindsight with decision analysis.</p>
+</section>
+
+<section id="limits"><h2>7. What this demonstration does and does not establish</h2>
+<p>The full flow works for this reviewed hand: recorded actions become a reconstructed game state, then assumed ranges, then estimated choices with video links.</p>
+<p>The solver covers two-player rivers and a finite set of legal bet sizes. It ignores tournament payout effects, often called ICM. Those effects matter because tournament chips do not translate directly into prize money.</p>
+<p>The measured solver gap is 0.48% of the starting pot, averaged across its ranges. <b>That is not a 0.48% error bar on Ian's EV</b>, and it does not validate the opponent range.</p>
+<p>This example does not prove automatic understanding of an unseen video in under one second. There are no paid inference calls in this local analysis, but compute and video acquisition still have costs.</p>
+<details><summary>Revision and how to check it yourself</summary>
+<p>The solver tests live in <code>tests/test_solver.py</code> and <code>tests/test_gto.py</code>. Run <code>python -m pytest tests/test_solver.py tests/test_gto.py</code> to repeat them.</p>
+<p class="muted">Code revision <a href="https://github.com/BenNotBen1224/poker-memory/commit/2597df8d060be796c0827d31e3b78bf1b2ef2195">2597df8</a><br>API evidence captured 2026-11-04T22:15:35.228203+00:00<br>Explanation generated 2026-11-04T22:28:05.825682+00:00. This report revision changes the explanation, not the solver or its saved values.</p>
+</details>
+<p>To see the hand with its video moments, run the web app locally (see the <a href="https://github.com/BenNotBen1224/poker-memory#use-it">README</a>) and open <code>/s/wpt-rolling-thunder-final-table</code>.</p>
+</section>
+<p class="end-note">Read the charts as answers to "What would be best under these assumptions?", not "What was guaranteed to happen?"</p>
+</main></body></html>

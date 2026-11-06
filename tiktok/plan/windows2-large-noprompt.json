@@ -1,0 +1,1137 @@
+[
+ {
+  "start": 194.14,
+  "end": 200.8,
+  "text": "this is a game changer 800,000 is the bet 2.2 million already in the center",
+  "words": [
+   {
+    "start": 194.14,
+    "end": 194.7,
+    "word": " this",
+    "p": 0.127
+   },
+   {
+    "start": 194.7,
+    "end": 195.26,
+    "word": " is",
+    "p": 0.987
+   },
+   {
+    "start": 195.26,
+    "end": 195.52,
+    "word": " a",
+    "p": 0.823
+   },
+   {
+    "start": 195.52,
+    "end": 196.02,
+    "word": " game",
+    "p": 0.952
+   },
+   {
+    "start": 196.02,
+    "end": 196.5,
+    "word": " changer",
+    "p": 0.791
+   },
+   {
+    "start": 196.5,
+    "end": 197.24,
+    "word": " 800",
+    "p": 0.348
+   },
+   {
+    "start": 197.24,
+    "end": 197.9,
+    "word": ",000",
+    "p": 0.815
+   },
+   {
+    "start": 197.9,
+    "end": 198.04,
+    "word": " is",
+    "p": 0.953
+   },
+   {
+    "start": 198.04,
+    "end": 198.14,
+    "word": " the",
+    "p": 0.99
+   },
+   {
+    "start": 198.14,
+    "end": 198.38,
+    "word": " bet",
+    "p": 0.961
+   },
+   {
+    "start": 198.38,
+    "end": 198.82,
+    "word": " 2",
+    "p": 0.846
+   },
+   {
+    "start": 198.82,
+    "end": 199.36,
+    "word": ".2",
+    "p": 0.995
+   },
+   {
+    "start": 199.36,
+    "end": 199.66,
+    "word": " million",
+    "p": 0.993
+   },
+   {
+    "start": 199.66,
+    "end": 200.08,
+    "word": " already",
+    "p": 0.99
+   },
+   {
+    "start": 200.08,
+    "end": 200.4,
+    "word": " in",
+    "p": 0.999
+   },
+   {
+    "start": 200.4,
+    "end": 200.48,
+    "word": " the",
+    "p": 0.999
+   },
+   {
+    "start": 200.48,
+    "end": 200.8,
+    "word": " center",
+    "p": 0.989
+   }
+  ]
+ },
+ {
+  "start": 201.46,
+  "end": 203.74,
+  "text": "and yeah like you said tal i don't see the hit",
+  "words": [
+   {
+    "start": 201.46,
+    "end": 202.02,
+    "word": " and",
+    "p": 0.86
+   },
+   {
+    "start": 202.02,
+    "end": 202.36,
+    "word": " yeah",
+    "p": 0.957
+   },
+   {
+    "start": 202.36,
+    "end": 202.58,
+    "word": " like",
+    "p": 0.928
+   },
+   {
+    "start": 202.58,
+    "end": 202.7,
+    "word": " you",
+    "p": 0.995
+   },
+   {
+    "start": 202.7,
+    "end": 202.88,
+    "word": " said",
+    "p": 0.998
+   },
+   {
+    "start": 202.88,
+    "end": 203.06,
+    "word": " tal",
+    "p": 0.119
+   },
+   {
+    "start": 203.06,
+    "end": 203.22,
+    "word": " i",
+    "p": 0.763
+   },
+   {
+    "start": 203.22,
+    "end": 203.42,
+    "word": " don't",
+    "p": 0.993
+   },
+   {
+    "start": 203.42,
+    "end": 203.48,
+    "word": " see",
+    "p": 0.997
+   },
+   {
+    "start": 203.48,
+    "end": 203.62,
+    "word": " the",
+    "p": 0.44
+   },
+   {
+    "start": 203.62,
+    "end": 203.74,
+    "word": " hit",
+    "p": 0.844
+   }
+  ]
+ },
+ {
+  "start": 232.44,
+  "end": 238.74,
+  "text": "yes wow yeah wow indeed two biggest stacks at the table",
+  "words": [
+   {
+    "start": 232.44,
+    "end": 233.32,
+    "word": " yes",
+    "p": 0.177
+   },
+   {
+    "start": 233.32,
+    "end": 233.82,
+    "word": " wow",
+    "p": 0.864
+   },
+   {
+    "start": 233.82,
+    "end": 234.58,
+    "word": " yeah",
+    "p": 0.906
+   },
+   {
+    "start": 234.58,
+    "end": 235.02,
+    "word": " wow",
+    "p": 0.99
+   },
+   {
+    "start": 235.02,
+    "end": 235.42,
+    "word": " indeed",
+    "p": 0.999
+   },
+   {
+    "start": 235.42,
+    "end": 237.02,
+    "word": " two",
+    "p": 0.974
+   },
+   {
+    "start": 237.02,
+    "end": 237.54,
+    "word": " biggest",
+    "p": 0.999
+   },
+   {
+    "start": 237.54,
+    "end": 237.84,
+    "word": " stacks",
+    "p": 0.947
+   },
+   {
+    "start": 237.84,
+    "end": 238.28,
+    "word": " at",
+    "p": 1.0
+   },
+   {
+    "start": 238.28,
+    "end": 238.44,
+    "word": " the",
+    "p": 1.0
+   },
+   {
+    "start": 238.44,
+    "end": 238.74,
+    "word": " table",
+    "p": 1.0
+   }
+  ]
+ },
+ {
+  "start": 297.3,
+  "end": 300.92,
+  "text": "how can he think he's beat here I don't know I I'm shocked",
+  "words": [
+   {
+    "start": 297.3,
+    "end": 297.66,
+    "word": " how",
+    "p": 0.287
+   },
+   {
+    "start": 297.66,
+    "end": 297.84,
+    "word": " can",
+    "p": 0.951
+   },
+   {
+    "start": 297.84,
+    "end": 297.96,
+    "word": " he",
+    "p": 0.745
+   },
+   {
+    "start": 297.96,
+    "end": 298.12,
+    "word": " think",
+    "p": 0.987
+   },
+   {
+    "start": 298.12,
+    "end": 298.26,
+    "word": " he's",
+    "p": 0.964
+   },
+   {
+    "start": 298.26,
+    "end": 298.44,
+    "word": " beat",
+    "p": 0.893
+   },
+   {
+    "start": 298.44,
+    "end": 298.6,
+    "word": " here",
+    "p": 0.992
+   },
+   {
+    "start": 298.6,
+    "end": 298.84,
+    "word": " I",
+    "p": 0.28
+   },
+   {
+    "start": 298.84,
+    "end": 299.46,
+    "word": " don't",
+    "p": 0.991
+   },
+   {
+    "start": 299.46,
+    "end": 299.56,
+    "word": " know",
+    "p": 0.998
+   },
+   {
+    "start": 299.56,
+    "end": 299.8,
+    "word": " I",
+    "p": 0.949
+   },
+   {
+    "start": 299.8,
+    "end": 300.2,
+    "word": " I'm",
+    "p": 0.735
+   },
+   {
+    "start": 300.2,
+    "end": 300.92,
+    "word": " shocked",
+    "p": 0.904
+   }
+  ]
+ },
+ {
+  "start": 369.06,
+  "end": 370.3,
+  "text": "oh my goodness",
+  "words": [
+   {
+    "start": 369.06,
+    "end": 369.58,
+    "word": " oh",
+    "p": 0.393
+   },
+   {
+    "start": 369.58,
+    "end": 369.84,
+    "word": " my",
+    "p": 0.923
+   },
+   {
+    "start": 369.84,
+    "end": 370.3,
+    "word": " goodness",
+    "p": 0.975
+   }
+  ]
+ },
+ {
+  "start": 371.24,
+  "end": 373.18,
+  "text": "I guess I can't wait 30 minutes",
+  "words": [
+   {
+    "start": 371.24,
+    "end": 371.76,
+    "word": " I",
+    "p": 0.228
+   },
+   {
+    "start": 371.76,
+    "end": 372.06,
+    "word": " guess",
+    "p": 0.918
+   },
+   {
+    "start": 372.06,
+    "end": 372.2,
+    "word": " I",
+    "p": 0.901
+   },
+   {
+    "start": 372.2,
+    "end": 372.44,
+    "word": " can't",
+    "p": 0.971
+   },
+   {
+    "start": 372.44,
+    "end": 372.6,
+    "word": " wait",
+    "p": 0.998
+   },
+   {
+    "start": 372.6,
+    "end": 372.82,
+    "word": " 30",
+    "p": 0.796
+   },
+   {
+    "start": 372.82,
+    "end": 373.18,
+    "word": " minutes",
+    "p": 0.962
+   }
+  ]
+ },
+ {
+  "start": 373.18,
+  "end": 374.34,
+  "text": "to find out before I",
+  "words": [
+   {
+    "start": 373.18,
+    "end": 373.4,
+    "word": " to",
+    "p": 0.904
+   },
+   {
+    "start": 373.4,
+    "end": 373.68,
+    "word": " find",
+    "p": 0.991
+   },
+   {
+    "start": 373.68,
+    "end": 373.92,
+    "word": " out",
+    "p": 0.996
+   },
+   {
+    "start": 373.92,
+    "end": 374.16,
+    "word": " before",
+    "p": 0.744
+   },
+   {
+    "start": 374.16,
+    "end": 374.34,
+    "word": " I",
+    "p": 0.81
+   }
+  ]
+ },
+ {
+  "start": 374.34,
+  "end": 375.16,
+  "text": "make a decision",
+  "words": [
+   {
+    "start": 374.34,
+    "end": 374.78,
+    "word": " make",
+    "p": 0.329
+   },
+   {
+    "start": 374.78,
+    "end": 374.88,
+    "word": " a",
+    "p": 0.537
+   },
+   {
+    "start": 374.88,
+    "end": 375.16,
+    "word": " decision",
+    "p": 0.982
+   }
+  ]
+ },
+ {
+  "start": 375.16,
+  "end": 376.1,
+  "text": "bye",
+  "words": [
+   {
+    "start": 375.16,
+    "end": 376.1,
+    "word": " bye",
+    "p": 0.322
+   }
+  ]
+ },
+ {
+  "start": 377.0,
+  "end": 377.5,
+  "text": "five",
+  "words": [
+   {
+    "start": 377.0,
+    "end": 377.5,
+    "word": " five",
+    "p": 0.157
+   }
+  ]
+ },
+ {
+  "start": 381.12,
+  "end": 383.92,
+  "text": "this unreal",
+  "words": [
+   {
+    "start": 381.12,
+    "end": 382.52,
+    "word": " this",
+    "p": 0.504
+   },
+   {
+    "start": 382.52,
+    "end": 383.92,
+    "word": " unreal",
+    "p": 0.857
+   }
+  ]
+ },
+ {
+  "start": 396.5,
+  "end": 397.5,
+  "text": "oh my god",
+  "words": [
+   {
+    "start": 396.5,
+    "end": 396.96,
+    "word": " oh",
+    "p": 0.121
+   },
+   {
+    "start": 396.96,
+    "end": 397.24,
+    "word": " my",
+    "p": 0.867
+   },
+   {
+    "start": 397.24,
+    "end": 397.5,
+    "word": " god",
+    "p": 0.779
+   }
+  ]
+ },
+ {
+  "start": 397.5,
+  "end": 399.0,
+  "text": "the unbelievable",
+  "words": [
+   {
+    "start": 397.5,
+    "end": 397.8,
+    "word": " the",
+    "p": 0.21
+   },
+   {
+    "start": 397.8,
+    "end": 399.0,
+    "word": " unbelievable",
+    "p": 0.941
+   }
+  ]
+ },
+ {
+  "start": 399.8,
+  "end": 401.76,
+  "text": "I'm just going to keep using it until my hands kill",
+  "words": [
+   {
+    "start": 399.8,
+    "end": 400.26,
+    "word": " I'm",
+    "p": 0.59
+   },
+   {
+    "start": 400.26,
+    "end": 400.32,
+    "word": " just",
+    "p": 0.98
+   },
+   {
+    "start": 400.32,
+    "end": 400.44,
+    "word": " going",
+    "p": 0.448
+   },
+   {
+    "start": 400.44,
+    "end": 400.48,
+    "word": " to",
+    "p": 0.999
+   },
+   {
+    "start": 400.48,
+    "end": 400.58,
+    "word": " keep",
+    "p": 0.998
+   },
+   {
+    "start": 400.58,
+    "end": 400.8,
+    "word": " using",
+    "p": 0.986
+   },
+   {
+    "start": 400.8,
+    "end": 400.98,
+    "word": " it",
+    "p": 0.813
+   },
+   {
+    "start": 400.98,
+    "end": 401.12,
+    "word": " until",
+    "p": 0.994
+   },
+   {
+    "start": 401.12,
+    "end": 401.28,
+    "word": " my",
+    "p": 0.999
+   },
+   {
+    "start": 401.28,
+    "end": 401.52,
+    "word": " hands",
+    "p": 0.509
+   },
+   {
+    "start": 401.52,
+    "end": 401.76,
+    "word": " kill",
+    "p": 0.748
+   }
+  ]
+ },
+ {
+  "start": 409.56,
+  "end": 418.2,
+  "text": "another one six time extensions so we know how long he's waited on this one",
+  "words": [
+   {
+    "start": 409.56,
+    "end": 410.06,
+    "word": " another",
+    "p": 0.025
+   },
+   {
+    "start": 410.06,
+    "end": 410.26,
+    "word": " one",
+    "p": 0.867
+   },
+   {
+    "start": 410.26,
+    "end": 412.5,
+    "word": " six",
+    "p": 0.31
+   },
+   {
+    "start": 412.5,
+    "end": 414.0,
+    "word": " time",
+    "p": 0.919
+   },
+   {
+    "start": 414.0,
+    "end": 415.04,
+    "word": " extensions",
+    "p": 0.97
+   },
+   {
+    "start": 415.04,
+    "end": 416.7,
+    "word": " so",
+    "p": 0.917
+   },
+   {
+    "start": 416.7,
+    "end": 416.82,
+    "word": " we",
+    "p": 0.467
+   },
+   {
+    "start": 416.82,
+    "end": 416.96,
+    "word": " know",
+    "p": 0.998
+   },
+   {
+    "start": 416.96,
+    "end": 417.12,
+    "word": " how",
+    "p": 0.999
+   },
+   {
+    "start": 417.12,
+    "end": 417.32,
+    "word": " long",
+    "p": 0.999
+   },
+   {
+    "start": 417.32,
+    "end": 417.44,
+    "word": " he's",
+    "p": 0.997
+   },
+   {
+    "start": 417.44,
+    "end": 417.68,
+    "word": " waited",
+    "p": 0.992
+   },
+   {
+    "start": 417.68,
+    "end": 417.94,
+    "word": " on",
+    "p": 0.999
+   },
+   {
+    "start": 417.94,
+    "end": 418.08,
+    "word": " this",
+    "p": 0.999
+   },
+   {
+    "start": 418.08,
+    "end": 418.2,
+    "word": " one",
+    "p": 0.998
+   }
+  ]
+ },
+ {
+  "start": 418.2,
+  "end": 419.86,
+  "text": "three minutes not gonna be",
+  "words": [
+   {
+    "start": 418.2,
+    "end": 418.5,
+    "word": " three",
+    "p": 0.961
+   },
+   {
+    "start": 418.5,
+    "end": 418.8,
+    "word": " minutes",
+    "p": 0.997
+   },
+   {
+    "start": 418.8,
+    "end": 419.4,
+    "word": " not",
+    "p": 0.914
+   },
+   {
+    "start": 419.4,
+    "end": 419.66,
+    "word": " gonna",
+    "p": 0.642
+   },
+   {
+    "start": 419.66,
+    "end": 419.86,
+    "word": " be",
+    "p": 0.997
+   }
+  ]
+ },
+ {
+  "start": 420.5,
+  "end": 428.92,
+  "text": "this hard again why is he beating himself up he folded what is that that is unbelievable",
+  "words": [
+   {
+    "start": 420.5,
+    "end": 420.78,
+    "word": " this",
+    "p": 0.049
+   },
+   {
+    "start": 420.78,
+    "end": 421.02,
+    "word": " hard",
+    "p": 0.946
+   },
+   {
+    "start": 421.02,
+    "end": 421.26,
+    "word": " again",
+    "p": 0.974
+   },
+   {
+    "start": 421.26,
+    "end": 422.82,
+    "word": " why",
+    "p": 0.383
+   },
+   {
+    "start": 422.82,
+    "end": 423.96,
+    "word": " is",
+    "p": 0.986
+   },
+   {
+    "start": 423.96,
+    "end": 424.08,
+    "word": " he",
+    "p": 0.99
+   },
+   {
+    "start": 424.08,
+    "end": 424.24,
+    "word": " beating",
+    "p": 0.975
+   },
+   {
+    "start": 424.24,
+    "end": 424.48,
+    "word": " himself",
+    "p": 0.997
+   },
+   {
+    "start": 424.48,
+    "end": 424.72,
+    "word": " up",
+    "p": 0.642
+   },
+   {
+    "start": 424.72,
+    "end": 424.8,
+    "word": " he",
+    "p": 0.192
+   },
+   {
+    "start": 424.8,
+    "end": 425.18,
+    "word": " folded",
+    "p": 0.921
+   },
+   {
+    "start": 425.18,
+    "end": 426.34,
+    "word": " what",
+    "p": 0.367
+   },
+   {
+    "start": 426.34,
+    "end": 427.24,
+    "word": " is",
+    "p": 0.991
+   },
+   {
+    "start": 427.24,
+    "end": 427.56,
+    "word": " that",
+    "p": 0.986
+   },
+   {
+    "start": 427.56,
+    "end": 427.98,
+    "word": " that",
+    "p": 0.604
+   },
+   {
+    "start": 427.98,
+    "end": 428.48,
+    "word": " is",
+    "p": 0.99
+   },
+   {
+    "start": 428.48,
+    "end": 428.92,
+    "word": " unbelievable",
+    "p": 0.961
+   }
+  ]
+ },
+ {
+  "start": 430.36,
+  "end": 432.14,
+  "text": "what an incredible",
+  "words": [
+   {
+    "start": 430.36,
+    "end": 431.08,
+    "word": " what",
+    "p": 0.81
+   },
+   {
+    "start": 431.08,
+    "end": 431.8,
+    "word": " an",
+    "p": 0.913
+   },
+   {
+    "start": 431.8,
+    "end": 432.14,
+    "word": " incredible",
+    "p": 0.993
+   }
+  ]
+ },
+ {
+  "start": 434.52,
+  "end": 447.22,
+  "text": "Wow, Joe's sick. Wow. Joe is sick in this way till he sees what he has. Yeah, Joe's hand was perfectly camouflaged. How did he figure that out? Tyler, take us through that. I can't, I can't.",
+  "words": [
+   {
+    "start": 434.52,
+    "end": 434.96,
+    "word": " Wow,",
+    "p": 0.392
+   },
+   {
+    "start": 434.96,
+    "end": 435.38,
+    "word": " Joe's",
+    "p": 0.591
+   },
+   {
+    "start": 435.38,
+    "end": 435.92,
+    "word": " sick.",
+    "p": 0.988
+   },
+   {
+    "start": 436.2,
+    "end": 436.64,
+    "word": " Wow.",
+    "p": 0.946
+   },
+   {
+    "start": 437.16,
+    "end": 437.6,
+    "word": " Joe",
+    "p": 0.966
+   },
+   {
+    "start": 437.6,
+    "end": 437.86,
+    "word": " is",
+    "p": 0.861
+   },
+   {
+    "start": 437.86,
+    "end": 438.12,
+    "word": " sick",
+    "p": 0.993
+   },
+   {
+    "start": 438.12,
+    "end": 438.28,
+    "word": " in",
+    "p": 0.858
+   },
+   {
+    "start": 438.28,
+    "end": 438.4,
+    "word": " this",
+    "p": 0.949
+   },
+   {
+    "start": 438.4,
+    "end": 438.62,
+    "word": " way",
+    "p": 0.436
+   },
+   {
+    "start": 438.62,
+    "end": 438.78,
+    "word": " till",
+    "p": 0.498
+   },
+   {
+    "start": 438.78,
+    "end": 438.96,
+    "word": " he",
+    "p": 0.99
+   },
+   {
+    "start": 438.96,
+    "end": 439.22,
+    "word": " sees",
+    "p": 0.997
+   },
+   {
+    "start": 439.22,
+    "end": 439.4,
+    "word": " what",
+    "p": 0.972
+   },
+   {
+    "start": 439.4,
+    "end": 439.52,
+    "word": " he",
+    "p": 0.964
+   },
+   {
+    "start": 439.52,
+    "end": 439.76,
+    "word": " has.",
+    "p": 0.553
+   },
+   {
+    "start": 440.12,
+    "end": 440.56,
+    "word": " Yeah,",
+    "p": 0.878
+   },
+   {
+    "start": 440.76,
+    "end": 441.42,
+    "word": " Joe's",
+    "p": 0.991
+   },
+   {
+    "start": 441.42,
+    "end": 441.56,
+    "word": " hand",
+    "p": 0.977
+   },
+   {
+    "start": 441.56,
+    "end": 441.98,
+    "word": " was",
+    "p": 0.998
+   },
+   {
+    "start": 441.98,
+    "end": 442.44,
+    "word": " perfectly",
+    "p": 0.995
+   },
+   {
+    "start": 442.44,
+    "end": 443.54,
+    "word": " camouflaged.",
+    "p": 0.927
+   },
+   {
+    "start": 443.54,
+    "end": 443.68,
+    "word": " How",
+    "p": 0.995
+   },
+   {
+    "start": 443.68,
+    "end": 443.9,
+    "word": " did",
+    "p": 0.963
+   },
+   {
+    "start": 443.9,
+    "end": 444.06,
+    "word": " he",
+    "p": 0.995
+   },
+   {
+    "start": 444.06,
+    "end": 444.32,
+    "word": " figure",
+    "p": 0.998
+   },
+   {
+    "start": 444.32,
+    "end": 444.52,
+    "word": " that",
+    "p": 0.999
+   },
+   {
+    "start": 444.52,
+    "end": 444.72,
+    "word": " out?",
+    "p": 0.999
+   },
+   {
+    "start": 444.76,
+    "end": 445.14,
+    "word": " Tyler,",
+    "p": 0.978
+   },
+   {
+    "start": 445.2,
+    "end": 445.36,
+    "word": " take",
+    "p": 0.799
+   },
+   {
+    "start": 445.36,
+    "end": 445.6,
+    "word": " us",
+    "p": 0.992
+   },
+   {
+    "start": 445.6,
+    "end": 445.84,
+    "word": " through",
+    "p": 0.94
+   },
+   {
+    "start": 445.84,
+    "end": 446.14,
+    "word": " that.",
+    "p": 0.87
+   },
+   {
+    "start": 446.2,
+    "end": 446.34,
+    "word": " I",
+    "p": 0.98
+   },
+   {
+    "start": 446.34,
+    "end": 446.7,
+    "word": " can't,",
+    "p": 0.999
+   },
+   {
+    "start": 446.7,
+    "end": 446.8,
+    "word": " I",
+    "p": 0.998
+   },
+   {
+    "start": 446.8,
+    "end": 447.22,
+    "word": " can't.",
+    "p": 0.999
+   }
+  ]
+ }
+]

@@ -1,0 +1,36 @@
+PASS  format: [1080, 1920] 24000/1001 h264/High ['aac', 48000, 2] color=[1, 1, 1, 1] boxes=['ftyp', 'moov', 'free', 'mdat']
+PASS  all frames decode: 1887 frames, first at 0.0s, container 78.72s
+PASS  frame log: 1887 rows, wrong source frame 0
+PASS  hole cards masked before reveal: 1479 frames before 61.69s all masked (['default', 'table'])
+PASS  no voice clip crosses the reveal: none
+PASS  no spoiler words in source clips: 0 hits over ['large-noprompt', 'large-v3', 'medium.en', 'small.en']
+PASS  no spoiler words heard before reveal: 0 hits in 122 heard words
+PASS  no commentator names heard: 0 hits in 138 heard words
+PASS  loudness: {'lufs': np.float64(-14.15), 'true_peak_dbtp': np.float64(-1.25), 'sample_peak_dbfs': np.float32(-1.62)}
+PASS  audio in sync with the timeline: {'lag_samples': 0, 'lag_ms': 0.0, 'corr': 0.99939, 'residual_db': -29.1, 'length_diff_samples': 786}
+PASS  audio length: audio 78.72s vs video 78.704s, first audio at 0.0
+PASS  captions on time: worst median offset (0.025, 'whatis')
+
+captions (clip, start, median offset s, ctc-only, max |offset|, text match):
+  hook        0.15      0.0    0.01   0.15  1.00  heard: This is unreal that he's considering getting away from this.
+  cowboys     5.20     0.01   0.015   0.01  1.00  heard: Couple of cowboys here for Ian.
+  atleast     8.55     0.01    0.01   0.05  1.00  heard: Joe is going to at least call.
+  farbest    11.04      0.0    0.01   0.01  1.00  heard: Ian's hand far and away the best still.
+  hate       13.86    -0.01   -0.01   0.16  1.00  heard: You just hate to lay down kings.
+  bet        19.63    0.005    0.01   0.01  1.00  heard: 800 ,000 is the bet, 2 .2 million already in the center.
+  wow        27.56      0.0    0.01   0.05  0.91  heard: yes Wow yeah Wow indeed two
+  stacks     31.19   -0.005    0.02   0.01  0.91  heard: biggest stacks at the table
+  tank_hf    36.15   -0.005     0.0   0.21  0.89  heard: would have high fived people and called already there's
+  tank_nw    39.51      0.0    0.01   0.03  0.94  heard: no way he gets away from this right
+  tank_30    42.85     0.01    0.02   0.17  0.93  heard: I guess I can't wait 30 nights to find out before I make a decision.
+  tank_kd    47.43     0.01    0.01   0.05  1.00  heard: I'm just going to keep using it until my hand's killed.
+  beating    50.65      0.0    0.01   0.22  0.57  heard: Why is he beating himself? He fell in! Oh my god! What is
+  whatis     53.65    0.025    0.05   0.09  1.00  heard: What is that? That is unbelievable!
+  camo       63.59     0.01    0.01   0.13  0.92  heard: Yeah! Joe's hand was perfectly camouflaged! How
+  figure     66.81      0.0    0.01   0.09  1.00  heard: How did he figure that out?
+  icant      76.60    -0.01    0.01   0.06  0.86  heard: can't, I can't.
+
+spoiler hits:
+
+sheets: ['sheet-01.jpg', 'sheet-02.jpg', 'sheet-03.jpg', 'sheet-04.jpg', 'sheet-05.jpg', 'sheet-06.jpg']
+verdict: PASS

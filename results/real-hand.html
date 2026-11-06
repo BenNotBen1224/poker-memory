@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poker Memory on a real tournament hand</title><style>:root { --bg:#0f1412; --card:#18211d; --line:#2b3832; --text:#e8efe9; --mut:#93a39a; --green:#4cc38a; --blue:#6aa7f0; --amber:#f2b84b; --red:#f06a6a; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.45 system-ui, "Segoe UI", sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 18px; }
+h1 { font-size: 1.45rem; margin: 4px 0 2px; }
+h2 { font-size: 1.1rem; margin: 28px 0 8px; }
+.muted { color: var(--mut); }
+.small { font-size: 13px; }
+a { color: var(--blue); overflow-wrap: anywhere; }
+code { background: #0b0f0d; border-radius: 4px; padding: 0 4px; }
+.note { margin-top: 12px; padding: 12px; border-left: 3px solid var(--green); background: var(--card); border-radius: 0 8px 8px 0; }
+.hero { margin: 14px 0 0; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.hero img { display: block; width: 100%; height: auto; }
+.hero figcaption { padding: 10px 12px 6px; }
+.strip { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; padding: 4px 12px 12px; }
+.strip .grp { display: flex; align-items: center; gap: 3px; }
+.strip .lab { color: var(--mut); font-size: 12px; margin-right: 5px; }
+.cd { display: inline-block; min-width: 28px; text-align: center; background: #f4f1ea; color: #14181a; border-radius: 4px; padding: 2px 4px; font-weight: 700; }
+.cd.r { color: #c0322d; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 10px; margin-top: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.card > b { display: block; margin-bottom: 3px; color: var(--mut); font-weight: 600; font-size: 12px; }
+.card > b.green { color: var(--green); } .card > b.amber { color: var(--amber); }
+.big { font-size: 1.55rem; font-weight: 700; line-height: 1.15; }
+.green { color: var(--green); } .blue { color: var(--blue); } .amber { color: var(--amber); } .red { color: var(--red); }
+.scroll { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 6px; }
+.scroll svg { display: block; min-width: 820px; width: 100%; height: auto; }
+.q { margin: 12px 0 0 auto; max-width: 88%; width: fit-content; background: #1e3350; border: 1px solid #2f4f7a; border-radius: 12px 12px 2px 12px; padding: 8px 12px; }
+.a { margin: 6px auto 0 0; max-width: 96%; background: var(--card); border: 1px solid var(--line); border-radius: 12px 12px 12px 2px; padding: 8px 12px; }
+.a > div { margin: 3px 0; }
+.a .key { color: var(--green); font-weight: 600; }
+.a .time { color: var(--blue); }
+.a .hind { color: var(--amber); }
+.a .as { color: var(--mut); font-size: 13px; }
+.a .mut { color: var(--mut); }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; border-radius: 999px; padding: 0 7px; margin-right: 6px; border: 1px solid currentColor; }
+.frames { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr)); gap: 8px; }
+.frames figure, .pair figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frames img, .pair img { display: block; width: 100%; height: auto; }
+.frames figcaption, .pair figcaption { padding: 5px 8px; font-size: 13px; }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 10px; margin-top: 12px; }
+.pair .bad { border-top: 3px solid var(--red); }
+.pair .good { border-top: 3px solid var(--green); }
+.revs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 10px; margin-top: 12px; }
+.rev { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.rev.use { border-color: var(--green); }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 10px; }
+ul { margin: 6px 0 0; padding-left: 18px; } li { margin: 4px 0; }
+pre { background: #0b0f0d; border: 1px solid var(--line); border-radius: 8px; padding: 10px; overflow-x: auto; font-size: 13px; }
+</style></head>
+<body><main>
+<h1>Poker Memory on a real tournament hand ✅</h1>
+<div class="muted">A real, in-person World Poker Tour final-table clip (CC BY 3.0) · 76 tests passed ·
+commits <a href="https://github.com/BenNotBen1224/poker-memory/commit/2b8be6b44169ae971ef365fcb73dd9cfea8b3541">2b8be6b</a> and
+<a href="https://github.com/BenNotBen1224/poker-memory/commit/a2aecfda1fd43a4e940346256904758f79026edb">a2aecfd</a></div>
+<div class="note">I ran the app on a real recording. It replayed the hand legally, did the pot-odds math, answered what-ifs,
+and jumped the video to each moment. <b>I read the hand from the video by eye</b>, so times are good to about 1–3 s.
+I found no openly licensed <i>online-format</i> recording, so this run is in-person only.</div>
+
+<figure class="hero">
+<img src="real-frames/hero.jpg" alt="Frame at 07:04: Ian holds K♦ K♠ and faces Joe's all-in on A♥ 5♥ 7♠ J♣ K♣">
+<figcaption><b>07:04</b> — Ian has thought for <b>3 min 29 s</b> about Joe's all-in. He folds.
+<span class="muted small">Frame resized and labeled.</span></figcaption>
+<div class="strip">
+<span class="grp"><span class="lab">Ian (you)</span><span class="cd r">K♦</span><span class="cd">K♠</span></span>
+<span class="grp"><span class="lab">Board</span><span class="cd r">A♥</span><span class="cd r">5♥</span><span class="cd">7♠</span><span class="cd">J♣</span><span class="cd">K♣</span></span>
+<span class="grp"><span class="lab">Joe, seen by the TV hole-card camera</span><span class="cd">Q♣</span><span class="cd r">10♦</span></span>
+</div></figure>
+
+<div class="grid">
+<div class="card"><b>Needed to call</b><div class="big green">29.4%</div>Call 2,140,000 to win 7,290,000</div>
+<div class="card"><b>"What if he bluffs 10%?"</b><div class="big green">10.0%</div>equity → fold was reasonable (an assumption)</div>
+<div class="card"><b>"What if he has 77 or AK?"</b><div class="big amber">100.0%</div>equity → a call would have been better (an assumption)</div>
+<div class="card"><b>Joe thought</b><div class="big blue">25–27 s</div>03:09 bet → 03:35 all-in</div>
+<div class="card"><b>Ian thought</b><div class="big red">3 min 29 s</div>03:35 all-in → 07:04 fold</div>
+<div class="card"><b>Result</b><div class="big">−1,490,000</div>Ian · Joe won +1,520,000 chips</div>
+</div>
+
+<h2>The hand on the video clock</h2>
+<div class="scroll"><svg viewBox="0 0 1021 356" role="img" aria-label="Who did what, on the video clock" font-family="system-ui,Segoe UI,sans-serif">
+<rect x="116.0" y="22" width="104.0" height="292" fill="#6aa7f0" opacity=".09"/>
+<text x="168.0" y="38" text-anchor="middle" fill="#6aa7f0" font-size="12" font-weight="700">Preflop</text>
+<rect x="220.0" y="22" width="68.0" height="292" fill="#4cc38a" opacity=".09"/>
+<text x="254.0" y="38" text-anchor="middle" fill="#4cc38a" font-size="12" font-weight="700">Flop</text>
+<rect x="288.0" y="22" width="126.0" height="292" fill="#f2b84b" opacity=".09"/>
+<text x="351.0" y="38" text-anchor="middle" fill="#f2b84b" font-size="12" font-weight="700">Turn</text>
+<rect x="414.0" y="22" width="538.0" height="292" fill="#f06a6a" opacity=".09"/>
+<text x="683.0" y="38" text-anchor="middle" fill="#f06a6a" font-size="12" font-weight="700">River</text>
+<rect x="952.0" y="22" width="47.0" height="292" fill="#93a39a" opacity=".09"/>
+<line x1="104.0" x2="104.0" y1="22" y2="314" stroke="#2b3832" opacity=".7"/>
+<text x="104.0" y="330" text-anchor="middle" fill="#93a39a" font-size="11">0:00</text>
+<line x1="224.0" x2="224.0" y1="22" y2="314" stroke="#2b3832" opacity=".7"/>
+<text x="224.0" y="330" text-anchor="middle" fill="#93a39a" font-size="11">1:00</text>
+<line x1="344.0" x2="344.0" y1="22" y2="314" stroke="#2b3832" opacity=".7"/>
+<text x="344.0" y="330" text-anchor="middle" fill="#93a39a" font-size="11">2:00</text>
+<line x1="464.0" x2="464.0" y1="22" y2="314" stroke="#2b3832" opacity=".7"/>
+<text x="464.0" y="330" text-anchor="middle" fill="#93a39a" font-size="11">3:00</text>
+<line x1="584.0" x2="584.0" y1="22" y2="314" stroke="#2b3832" opacity=".7"/>
+<text x="584.0" y="330" text-anchor="middle" fill="#93a39a" font-size="11">4:00</text>
+<line x1="704.0" x2="704.0" y1="22" y2="314" stroke="#2b3832" opacity=".7"/>
+<text x="704.0" y="330" text-anchor="middle" fill="#93a39a" font-size="11">5:00</text>
+<line x1="824.0" x2="824.0" y1="22" y2="314" stroke="#2b3832" opacity=".7"/>
+<text x="824.0" y="330" text-anchor="middle" fill="#93a39a" font-size="11">6:00</text>
+<line x1="944.0" x2="944.0" y1="22" y2="314" stroke="#2b3832" opacity=".7"/>
+<text x="944.0" y="330" text-anchor="middle" fill="#93a39a" font-size="11">7:00</text>
+<text x="999.0" y="348" text-anchor="end" fill="#93a39a" font-size="11">clip ends 7:27</text>
+<line x1="0" x2="1021" y1="46" y2="46" stroke="#2b3832" opacity=".6"/>
+<text x="8" y="72.0" fill="#4cc38a" font-size="13" font-weight="700">Ian (you)</text>
+<line x1="116.0" x2="999.0" y1="68.0" y2="68.0" stroke="#2b3832"/>
+<rect x="534.0" y="82" width="418.0" height="14" rx="3" fill="#f06a6a" opacity=".9"/>
+<text x="743.0" y="93" text-anchor="middle" fill="#0f1412" font-size="10.5" font-weight="700">3 min 29 s to decide</text>
+<text x="184.0" y="57.0" text-anchor="middle" fill="#e8efe9" font-size="11">raise 160K</text>
+<circle cx="184.0" cy="68.0" r="6" fill="#4cc38a"/>
+<text x="258.0" y="57.0" text-anchor="middle" fill="#e8efe9" font-size="11">bet 150K</text>
+<circle cx="258.0" cy="68.0" r="6" fill="#4cc38a"/>
+<text x="298.0" y="87.0" text-anchor="middle" fill="#e8efe9" font-size="11">check</text>
+<circle cx="298.0" cy="68.0" r="6" fill="#4cc38a"/>
+<text x="390.0" y="57.0" text-anchor="middle" fill="#e8efe9" font-size="11">call 370K</text>
+<circle cx="390.0" cy="68.0" r="6" fill="#4cc38a"/>
+<text x="482.0" y="57.0" text-anchor="middle" fill="#e8efe9" font-size="11">bet 800K</text>
+<circle cx="482.0" cy="68.0" r="6" fill="#4cc38a"/>
+<text x="952.0" y="57.0" text-anchor="middle" fill="#e8efe9" font-size="11">fold</text>
+<circle cx="952.0" cy="68.0" r="6" fill="#0f1412" stroke="#4cc38a" stroke-width="2.5"/>
+<line x1="0" x2="1021" y1="104" y2="104" stroke="#2b3832" opacity=".6"/>
+<text x="8" y="130.0" fill="#6aa7f0" font-size="13" font-weight="700">Joe</text>
+<line x1="116.0" x2="999.0" y1="126.0" y2="126.0" stroke="#2b3832"/>
+<rect x="482.0" y="140" width="52.0" height="14" rx="3" fill="#f2b84b" opacity=".9"/>
+<text x="508.0" y="151" text-anchor="middle" fill="#0f1412" font-size="10.5" font-weight="700">25–27 s</text>
+<text x="206.0" y="115.0" text-anchor="middle" fill="#e8efe9" font-size="11">call 100K</text>
+<circle cx="206.0" cy="126.0" r="6" fill="#6aa7f0"/>
+<text x="278.0" y="115.0" text-anchor="middle" fill="#e8efe9" font-size="11">call 150K</text>
+<circle cx="278.0" cy="126.0" r="6" fill="#6aa7f0"/>
+<text x="338.0" y="145.0" text-anchor="middle" fill="#e8efe9" font-size="11">bet 370K</text>
+<circle cx="338.0" cy="126.0" r="6" fill="#6aa7f0"/>
+<text x="534.0" y="115.0" text-anchor="middle" fill="#e8efe9" font-size="11">all-in 2.94M</text>
+<circle cx="534.0" cy="126.0" r="6" fill="#6aa7f0"/>
+<line x1="0" x2="1021" y1="162" y2="162" stroke="#2b3832" opacity=".6"/>
+<text x="8" y="183.0" fill="#93a39a" font-size="13" font-weight="700">David</text>
+<line x1="116.0" x2="999.0" y1="179.0" y2="179.0" stroke="#2b3832"/>
+<text x="141.0" y="183.0" fill="#e8efe9" font-size="11">fold</text>
+<circle cx="130.0" cy="179.0" r="6" fill="#0f1412" stroke="#93a39a" stroke-width="2.5"/>
+<line x1="0" x2="1021" y1="196" y2="196" stroke="#2b3832" opacity=".6"/>
+<text x="8" y="217.0" fill="#93a39a" font-size="13" font-weight="700">Ping</text>
+<line x1="116.0" x2="999.0" y1="213.0" y2="213.0" stroke="#2b3832"/>
+<text x="146.0" y="217.0" fill="#e8efe9" font-size="11">fold</text>
+<circle cx="135.0" cy="213.0" r="6" fill="#0f1412" stroke="#93a39a" stroke-width="2.5"/>
+<line x1="0" x2="1021" y1="230" y2="230" stroke="#2b3832" opacity=".6"/>
+<text x="8" y="251.0" fill="#93a39a" font-size="13" font-weight="700">Andreas</text>
+<line x1="116.0" x2="999.0" y1="247.0" y2="247.0" stroke="#2b3832"/>
+<text x="155.0" y="251.0" fill="#e8efe9" font-size="11">fold</text>
+<circle cx="144.0" cy="247.0" r="6" fill="#0f1412" stroke="#93a39a" stroke-width="2.5"/>
+<line x1="0" x2="1021" y1="264" y2="264" stroke="#2b3832" opacity=".6"/>
+<text x="8" y="293.0" fill="#f2b84b" font-size="13" font-weight="700">Board</text>
+<line x1="116.0" x2="999.0" y1="289.0" y2="289.0" stroke="#2b3832"/>
+<text x="220.0" y="278.0" text-anchor="middle" fill="#e8efe9" font-size="11">flop A♥ 5♥ 7♠</text>
+<rect x="214.0" y="283.0" width="12" height="12" rx="2" fill="#f2b84b"/>
+<text x="288.0" y="308.0" text-anchor="middle" fill="#e8efe9" font-size="11">turn J♣</text>
+<rect x="282.0" y="283.0" width="12" height="12" rx="2" fill="#f2b84b"/>
+<text x="414.0" y="278.0" text-anchor="middle" fill="#e8efe9" font-size="11">river K♣</text>
+<rect x="408.0" y="283.0" width="12" height="12" rx="2" fill="#f2b84b"/>
+</svg></div>
+<div class="muted small" style="margin-top:6px">Every mark is a moment the app can jump the video to. Filled dot = action, hollow dot = fold,
+square = board card, bar = time spent deciding.</div>
+
+<h2>Asked in plain English (real answers)</h2>
+<div class="q">Was my river fold to the raise reasonable?</div>
+<div class="a">
+<div class="">Hand 1, river (revision 1): you fold.</div>
+<div class="">You held Kd Ks.</div>
+<div class="">Board at this point: Ah 5h 7s Jc Kc.</div>
+<div class="">Joe raises to 2940000 (all-in).</div>
+<div class="">Then you fold.</div>
+<div class="key">Calling cost 2140000 to win a pot of 7290000, so a call needed 29.4% equity.</div>
+<div class="key">Your equity is unknown: I need an assumption about his hands. Give a range (&quot;if he has 77, AK&quot;) or, on the river, a what-if (&quot;if he bluffs 10%&quot;).</div>
+<div class="mut">No verified GTO solution is available for this spot; nothing here is a solver result.</div>
+<div class="time">Joe took 25.0-27.0 s before acting (video 03:09 to 03:35).</div>
+<div class="time">You took 208.0-210.0 s (about 3 min 29 s) to decide.</div>
+<div class="hind"><span class="tag">hindsight</span>A hole-card camera in the broadcast showed Joe holding Qc Td. You could not see that at the table; it is hindsight and is not used in any number above.</div>
+<div class="hind"><span class="tag">hindsight</span>On the final board Joe has a straight and you have three of a kind: Joe&#x27;s hand wins. Calling here would have lost the pot.</div>
+<div class="">Your result in this hand: -1490000 chips.</div>
+</div>
+<div class="q">…what if he bluffs 10%?</div>
+<div class="a">
+<div class="key">If 10% of his hands are bluffs you beat and the rest beat you, your equity is 10.0%.</div>
+<div class="key">Under this assumption the fold was reasonable: you needed 29.4% and had 10.0%.</div>
+<div class="as"><span class="tag">assumption</span>what-if: 10% of his range is hands you beat, the rest beat you; ties excluded</div>
+<div class="as"><span class="tag">assumption</span>On this board 19 two-card hands beat you, 0 tie, and 971 lose to you; ties are left out of the what-if.</div>
+<div class="mut small">Rest of the answer is the same as above.</div>
+</div>
+<div class="q">…what if he has 77, AK?</div>
+<div class="a">
+<div class="key">Against 77,AK your equity is 100.0% (exact count over 6 hands).</div>
+<div class="key">Under this assumption a call would have been better: you needed 29.4% and had 100.0%.</div>
+<div class="as"><span class="tag">assumption</span>His range is 77,AK (6 hands left after removing known cards).</div>
+<div class="mut small">Rest of the answer is the same as above.</div>
+</div>
+<div class="muted small" style="margin-top:6px">The what-if answers use only what Ian could know. The hole-card camera line is labeled hindsight and is not used in any number.</div>
+
+<h2>Do the times match the video?</h2>
+<div class="muted small" style="margin-bottom:8px">One frame at the second the app jumps to, for each of the 16 events. The chips, the action label or the card
+itself should show within about 1–3 s. Frames are resized and labeled.</div>
+<div class="frames"><figure><img loading="lazy" src="real-frames/ev_01.jpg" alt="00:13 David folds"><figcaption><b>00:13</b> David folds</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_02.jpg" alt="00:15.5 Ping folds"><figcaption><b>00:15.5</b> Ping folds</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_03.jpg" alt="00:20 Andreas folds"><figcaption><b>00:20</b> Andreas folds</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_04.jpg" alt="00:40 Ian raises to 160000"><figcaption><b>00:40</b> Ian raises to 160000</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_05.jpg" alt="00:51 Joe calls 100000"><figcaption><b>00:51</b> Joe calls 100000</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_06.jpg" alt="00:58 Flop Ah 5h 7s"><figcaption><b>00:58</b> Flop Ah 5h 7s</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_07.jpg" alt="01:17 Ian bets 150000"><figcaption><b>01:17</b> Ian bets 150000</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_08.jpg" alt="01:27 Joe calls 150000"><figcaption><b>01:27</b> Joe calls 150000</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_09.jpg" alt="01:32 Turn Jc"><figcaption><b>01:32</b> Turn Jc</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_10.jpg" alt="01:37 Ian checks"><figcaption><b>01:37</b> Ian checks</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_11.jpg" alt="01:57 Joe bets 370000"><figcaption><b>01:57</b> Joe bets 370000</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_12.jpg" alt="02:23 Ian calls 370000"><figcaption><b>02:23</b> Ian calls 370000</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_13.jpg" alt="02:35 River Kc"><figcaption><b>02:35</b> River Kc</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_14.jpg" alt="03:09 Ian bets 800000"><figcaption><b>03:09</b> Ian bets 800000</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_15.jpg" alt="03:35 Joe raises to 2940000 (all-in)"><figcaption><b>03:35</b> Joe raises to 2940000 (all-in)</figcaption></figure>
+<figure><img loading="lazy" src="real-frames/ev_16.jpg" alt="07:04 Ian folds"><figcaption><b>07:04</b> Ian folds</figcaption></figure></div>
+
+<h2>What the check caught</h2>
+<div><b>Catch 1: the turn bet was 8 s late.</b> I had it at 02:05. The frames show Joe pushing his chips at 01:57 and his BET label at 01:58, so the fix went in as a new version.
+The on-screen pot only changes at 02:07, about 10 s after the chips, while the dealer counts. Flop, turn and river cards were also moved 1–2 s earlier, to when each card first shows.</div>
+<div class="pair">
+<figure class="bad"><img loading="lazy" src="real-frames/tb_before.jpg" alt="Frame at 02:05"><figcaption><b>Before: 02:05.</b> Too late. The camera has cut to Ian, Joe's BET label is already up, and the pot still reads 670,000.</figcaption></figure>
+<figure class="good"><img loading="lazy" src="real-frames/tb_after.jpg" alt="Frame at 01:57"><figcaption><b>After: 01:57.</b> Joe pushes his chips forward. Ian's label still says CHECK and Joe has no label yet. BET shows a second later.</figcaption></figure>
+</div>
+<div class="revs"><div class="rev"><b>Version 1</b> <span class="tag green">verified</span><div class="small" style="margin-top:6px">imported</div><div class="muted small" style="margin-top:4px">23:26</div></div>
+<div class="rev"><b>Version 2</b> <span class="tag green">verified</span><div class="small" style="margin-top:6px">Turn bet time: 02:05 was when the pot figure changed. The chips and the BET label are at 01:57.</div><div class="muted small" style="margin-top:4px">23:34</div></div>
+<div class="rev use"><b>Version 3</b> <span class="tag green">verified</span><span class="tag amber">in use</span><div class="small" style="margin-top:6px">Board card times: each card first shows face up at 00:58, 01:32 and 02:35. The earlier times were when the overlay updated.</div><div class="muted small" style="margin-top:4px">23:40</div></div></div>
+<div class="muted small" style="margin-top:6px">Every version is kept. Only a version that replays correctly goes into use. Version 2's note says the pot figure changed at 02:05;
+with the fixed frame tool it changes at 02:07. The bet time it records (01:57) still holds, and the stored note is left as written.</div>
+<div style="margin-top:12px"><b>Catch 2: my own frame tool ran late.</b> The helper that pulls frames out of the video returned a frame up to 5 s after the second I asked for.
+I noticed when the big photo at the top showed the wrong moment. I fixed it, added a test that pins the exact second, and re-checked the times that matter.
+The 16 proof frames above came out identical before and after, and the bet, all-in and fold times all held.</div>
+
+<h2>What worked, what was hard</h2>
+<div class="cols">
+<div class="card"><b class="green">Worked</b><ul>
+<li>One real clip went through the same app: legal-hand check, pot odds, two what-ifs, tap-to-jump video times.</li>
+<li>The TV shows Joe's hidden cards. Poker Memory kept them out of every number and shows them only as hindsight.</li>
+<li>Two of my own mistakes (a late turn bet, a late frame tool) were caught by looking at frames, and fixed with a new version and a test.</li>
+<li>Following the README from scratch gives the same answers (I re-ran it).</li></ul></div>
+<div class="card"><b class="amber">Hard or not solved</b><ul>
+<li>I read the hand by eye, frame by frame. There is no automatic video reading yet.</li>
+<li>Times are good to about 1–3 s. The fold hides in a face close-up, so it may be 1–2 s earlier than 07:04. Think times are video-clock times, and the clip may be edited.</li>
+<li>Seat numbers and the button are guessed. The video never shows them.</li>
+<li>A TV show needed three changes a home game didn't: antes, hole-card cameras, and an open-license rule.</li>
+<li>Free-form timing questions ("how long did I think?") are not understood; it falls back to the whole summary.</li>
+<li>One hand, in-person only.</li></ul></div>
+</div>
+<div class="note" style="border-color:var(--blue)"><b>Next:</b> read the video automatically (cards and pot are printed on screen), or run this on a recording you have.</div>
+
+<h2>Where the video came from</h2>
+<div class="card small"><b>Incredibly Unbelievable Fold on the World Poker Tour</b> by World Poker Tour, licensed
+<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. <a href="https://commons.wikimedia.org/wiki/File:Incredibly_Unbelievable_Fold_on_the_World_Poker_Tour.webm">Source on Wikimedia Commons</a>.
+Real footage of a WPT Rolling Thunder final table. The 35 MB file is not in git: <code>scripts/fetch_real_video.py</code> downloads it
+and checks SHA-1 <code>9e4f94ad95e0…</code>. The frames above are resized and labeled (adapted material); the clip itself is unchanged.</div>
+
+<h2>Run it yourself</h2>
+<pre>.\.venv\Scripts\python.exe scripts\fetch_real_video.py
+.\.venv\Scripts\poker-memory.exe --data data\real import examples\real\wpt_rolling_thunder.yaml
+.\.venv\Scripts\poker-memory.exe --data data\real end wpt-rolling-thunder-final-table
+.\.venv\Scripts\poker-memory.exe --data data\real ask "Was my river fold to the raise reasonable? what if he bluffs 10%"
+.\.venv\Scripts\poker-memory.exe --data data\real serve     # then: cd web; npm run start</pre>
+<div class="muted small">Branch <code>main</code>. Proof frames for any session file:
+<code>scripts\event_frames.py FILE.yaml --out DIR</code>.</div>
+</main></body></html>

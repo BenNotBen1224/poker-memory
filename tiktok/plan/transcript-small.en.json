@@ -1,0 +1,4550 @@
+{
+ "model": "small.en",
+ "source": "examples/real/wpt_rolling_thunder_fold.webm",
+ "duration": 447.5065625,
+ "seconds": 87.7,
+ "segments": [
+  {
+   "start": 0.78,
+   "end": 4.98,
+   "text": "PlayWPT's authentic online poker. Come and PlayWPT today.",
+   "avg_logprob": -0.236,
+   "no_speech_prob": 0.011,
+   "words": [
+    {
+     "start": 0.78,
+     "end": 1.4,
+     "word": " PlayWPT's",
+     "p": 0.663
+    },
+    {
+     "start": 1.4,
+     "end": 1.76,
+     "word": " authentic",
+     "p": 0.826
+    },
+    {
+     "start": 1.76,
+     "end": 2.46,
+     "word": " online",
+     "p": 0.994
+    },
+    {
+     "start": 2.46,
+     "end": 2.84,
+     "word": " poker.",
+     "p": 0.994
+    },
+    {
+     "start": 3.18,
+     "end": 3.18,
+     "word": " Come",
+     "p": 0.985
+    },
+    {
+     "start": 3.18,
+     "end": 3.42,
+     "word": " and",
+     "p": 0.97
+    },
+    {
+     "start": 3.42,
+     "end": 4.38,
+     "word": " PlayWPT",
+     "p": 0.863
+    },
+    {
+     "start": 4.38,
+     "end": 4.98,
+     "word": " today.",
+     "p": 0.954
+    }
+   ]
+  },
+  {
+   "start": 8.88,
+   "end": 12.64,
+   "text": "It's not a bad place to call home. It is a very nice place.",
+   "avg_logprob": -0.236,
+   "no_speech_prob": 0.011,
+   "words": [
+    {
+     "start": 8.88,
+     "end": 9.5,
+     "word": " It's",
+     "p": 0.805
+    },
+    {
+     "start": 9.5,
+     "end": 9.6,
+     "word": " not",
+     "p": 0.997
+    },
+    {
+     "start": 9.6,
+     "end": 9.72,
+     "word": " a",
+     "p": 0.997
+    },
+    {
+     "start": 9.72,
+     "end": 9.88,
+     "word": " bad",
+     "p": 0.999
+    },
+    {
+     "start": 9.88,
+     "end": 10.1,
+     "word": " place",
+     "p": 0.998
+    },
+    {
+     "start": 10.1,
+     "end": 10.24,
+     "word": " to",
+     "p": 0.998
+    },
+    {
+     "start": 10.24,
+     "end": 10.38,
+     "word": " call",
+     "p": 0.998
+    },
+    {
+     "start": 10.38,
+     "end": 10.66,
+     "word": " home.",
+     "p": 0.998
+    },
+    {
+     "start": 11.1,
+     "end": 11.16,
+     "word": " It",
+     "p": 0.96
+    },
+    {
+     "start": 11.16,
+     "end": 11.32,
+     "word": " is",
+     "p": 0.978
+    },
+    {
+     "start": 11.32,
+     "end": 11.48,
+     "word": " a",
+     "p": 0.952
+    },
+    {
+     "start": 11.48,
+     "end": 11.7,
+     "word": " very",
+     "p": 0.997
+    },
+    {
+     "start": 11.7,
+     "end": 11.94,
+     "word": " nice",
+     "p": 0.998
+    },
+    {
+     "start": 11.94,
+     "end": 12.64,
+     "word": " place.",
+     "p": 0.999
+    }
+   ]
+  },
+  {
+   "start": 23.12,
+   "end": 25.5,
+   "text": "Couple of cowboys here for Ian.",
+   "avg_logprob": -0.236,
+   "no_speech_prob": 0.011,
+   "words": [
+    {
+     "start": 23.12,
+     "end": 23.74,
+     "word": " Couple",
+     "p": 0.752
+    },
+    {
+     "start": 23.74,
+     "end": 24.36,
+     "word": " of",
+     "p": 0.984
+    },
+    {
+     "start": 24.36,
+     "end": 24.84,
+     "word": " cowboys",
+     "p": 0.745
+    },
+    {
+     "start": 24.84,
+     "end": 25.12,
+     "word": " here",
+     "p": 0.973
+    },
+    {
+     "start": 25.12,
+     "end": 25.32,
+     "word": " for",
+     "p": 0.344
+    },
+    {
+     "start": 25.32,
+     "end": 25.5,
+     "word": " Ian.",
+     "p": 0.195
+    }
+   ]
+  },
+  {
+   "start": 32.14,
+   "end": 33.92,
+   "text": "Could get sneaky with a limp.",
+   "avg_logprob": -0.373,
+   "no_speech_prob": 0.436,
+   "words": [
+    {
+     "start": 32.14,
+     "end": 32.58,
+     "word": " Could",
+     "p": 0.05
+    },
+    {
+     "start": 32.58,
+     "end": 33.02,
+     "word": " get",
+     "p": 0.888
+    },
+    {
+     "start": 33.02,
+     "end": 33.32,
+     "word": " sneaky",
+     "p": 0.947
+    },
+    {
+     "start": 33.32,
+     "end": 33.52,
+     "word": " with",
+     "p": 0.996
+    },
+    {
+     "start": 33.52,
+     "end": 33.66,
+     "word": " a",
+     "p": 0.445
+    },
+    {
+     "start": 33.66,
+     "end": 33.92,
+     "word": " limp.",
+     "p": 0.529
+    }
+   ]
+  },
+  {
+   "start": 36.5,
+   "end": 37.98,
+   "text": "He's going to go with the",
+   "avg_logprob": -0.373,
+   "no_speech_prob": 0.436,
+   "words": [
+    {
+     "start": 36.5,
+     "end": 36.94,
+     "word": " He's",
+     "p": 0.688
+    },
+    {
+     "start": 36.94,
+     "end": 37.1,
+     "word": " going",
+     "p": 0.482
+    },
+    {
+     "start": 37.1,
+     "end": 37.16,
+     "word": " to",
+     "p": 0.991
+    },
+    {
+     "start": 37.16,
+     "end": 37.3,
+     "word": " go",
+     "p": 0.986
+    },
+    {
+     "start": 37.3,
+     "end": 37.52,
+     "word": " with",
+     "p": 0.875
+    },
+    {
+     "start": 37.52,
+     "end": 37.98,
+     "word": " the",
+     "p": 0.683
+    }
+   ]
+  },
+  {
+   "start": 39.88,
+   "end": 40.76,
+   "text": "normal raise.",
+   "avg_logprob": -0.373,
+   "no_speech_prob": 0.436,
+   "words": [
+    {
+     "start": 39.88,
+     "end": 40.32,
+     "word": " normal",
+     "p": 0.848
+    },
+    {
+     "start": 40.32,
+     "end": 40.76,
+     "word": " raise.",
+     "p": 0.908
+    }
+   ]
+  },
+  {
+   "start": 46.94,
+   "end": 48.7,
+   "text": "Joe is going to at least call.",
+   "avg_logprob": -0.373,
+   "no_speech_prob": 0.436,
+   "words": [
+    {
+     "start": 46.94,
+     "end": 47.38,
+     "word": " Joe",
+     "p": 0.774
+    },
+    {
+     "start": 47.38,
+     "end": 47.58,
+     "word": " is",
+     "p": 0.979
+    },
+    {
+     "start": 47.58,
+     "end": 47.76,
+     "word": " going",
+     "p": 0.996
+    },
+    {
+     "start": 47.76,
+     "end": 47.92,
+     "word": " to",
+     "p": 0.996
+    },
+    {
+     "start": 47.92,
+     "end": 48.02,
+     "word": " at",
+     "p": 0.614
+    },
+    {
+     "start": 48.02,
+     "end": 48.26,
+     "word": " least",
+     "p": 0.993
+    },
+    {
+     "start": 48.26,
+     "end": 48.7,
+     "word": " call.",
+     "p": 0.985
+    }
+   ]
+  },
+  {
+   "start": 51.08,
+   "end": 52.98,
+   "text": "Joe is going to call, heads up to the flop.",
+   "avg_logprob": -0.373,
+   "no_speech_prob": 0.436,
+   "words": [
+    {
+     "start": 51.08,
+     "end": 51.52,
+     "word": " Joe",
+     "p": 0.187
+    },
+    {
+     "start": 51.52,
+     "end": 51.68,
+     "word": " is",
+     "p": 0.702
+    },
+    {
+     "start": 51.68,
+     "end": 51.82,
+     "word": " going",
+     "p": 0.663
+    },
+    {
+     "start": 51.82,
+     "end": 51.82,
+     "word": " to",
+     "p": 0.994
+    },
+    {
+     "start": 51.82,
+     "end": 51.94,
+     "word": " call,",
+     "p": 0.921
+    },
+    {
+     "start": 52.14,
+     "end": 52.34,
+     "word": " heads",
+     "p": 0.919
+    },
+    {
+     "start": 52.34,
+     "end": 52.5,
+     "word": " up",
+     "p": 0.958
+    },
+    {
+     "start": 52.5,
+     "end": 52.66,
+     "word": " to",
+     "p": 0.972
+    },
+    {
+     "start": 52.66,
+     "end": 52.76,
+     "word": " the",
+     "p": 0.951
+    },
+    {
+     "start": 52.76,
+     "end": 52.98,
+     "word": " flop.",
+     "p": 0.577
+    }
+   ]
+  },
+  {
+   "start": 60.18,
+   "end": 66.12,
+   "text": "A-7-5, couple of hearts out there, that's not going to affect either player.",
+   "avg_logprob": -0.477,
+   "no_speech_prob": 0.313,
+   "words": [
+    {
+     "start": 60.18,
+     "end": 60.58,
+     "word": " A",
+     "p": 0.049
+    },
+    {
+     "start": 60.58,
+     "end": 60.98,
+     "word": "-7",
+     "p": 0.188
+    },
+    {
+     "start": 60.98,
+     "end": 63.8,
+     "word": "-5,",
+     "p": 0.849
+    },
+    {
+     "start": 63.92,
+     "end": 64.0,
+     "word": " couple",
+     "p": 0.717
+    },
+    {
+     "start": 64.0,
+     "end": 64.2,
+     "word": " of",
+     "p": 0.88
+    },
+    {
+     "start": 64.2,
+     "end": 64.36,
+     "word": " hearts",
+     "p": 0.961
+    },
+    {
+     "start": 64.36,
+     "end": 64.6,
+     "word": " out",
+     "p": 0.988
+    },
+    {
+     "start": 64.6,
+     "end": 64.8,
+     "word": " there,",
+     "p": 0.996
+    },
+    {
+     "start": 64.94,
+     "end": 65.04,
+     "word": " that's",
+     "p": 0.975
+    },
+    {
+     "start": 65.04,
+     "end": 65.16,
+     "word": " not",
+     "p": 0.998
+    },
+    {
+     "start": 65.16,
+     "end": 65.28,
+     "word": " going",
+     "p": 0.632
+    },
+    {
+     "start": 65.28,
+     "end": 65.32,
+     "word": " to",
+     "p": 0.988
+    },
+    {
+     "start": 65.32,
+     "end": 65.52,
+     "word": " affect",
+     "p": 0.91
+    },
+    {
+     "start": 65.52,
+     "end": 65.74,
+     "word": " either",
+     "p": 0.782
+    },
+    {
+     "start": 65.74,
+     "end": 66.12,
+     "word": " player.",
+     "p": 0.986
+    }
+   ]
+  },
+  {
+   "start": 67.06,
+   "end": 68.68,
+   "text": "Ian's hand far and away the best still.",
+   "avg_logprob": -0.477,
+   "no_speech_prob": 0.313,
+   "words": [
+    {
+     "start": 67.06,
+     "end": 67.26,
+     "word": " Ian's",
+     "p": 0.965
+    },
+    {
+     "start": 67.26,
+     "end": 67.44,
+     "word": " hand",
+     "p": 0.979
+    },
+    {
+     "start": 67.44,
+     "end": 67.78,
+     "word": " far",
+     "p": 0.732
+    },
+    {
+     "start": 67.78,
+     "end": 67.86,
+     "word": " and",
+     "p": 0.843
+    },
+    {
+     "start": 67.86,
+     "end": 68.06,
+     "word": " away",
+     "p": 0.998
+    },
+    {
+     "start": 68.06,
+     "end": 68.18,
+     "word": " the",
+     "p": 0.95
+    },
+    {
+     "start": 68.18,
+     "end": 68.38,
+     "word": " best",
+     "p": 0.997
+    },
+    {
+     "start": 68.38,
+     "end": 68.68,
+     "word": " still.",
+     "p": 0.918
+    }
+   ]
+  },
+  {
+   "start": 68.96,
+   "end": 69.58,
+   "text": "Let's see how he plays.",
+   "avg_logprob": -0.477,
+   "no_speech_prob": 0.313,
+   "words": [
+    {
+     "start": 68.96,
+     "end": 69.08,
+     "word": " Let's",
+     "p": 0.987
+    },
+    {
+     "start": 69.08,
+     "end": 69.16,
+     "word": " see",
+     "p": 0.997
+    },
+    {
+     "start": 69.16,
+     "end": 69.26,
+     "word": " how",
+     "p": 0.997
+    },
+    {
+     "start": 69.26,
+     "end": 69.36,
+     "word": " he",
+     "p": 0.976
+    },
+    {
+     "start": 69.36,
+     "end": 69.58,
+     "word": " plays.",
+     "p": 0.918
+    }
+   ]
+  },
+  {
+   "start": 74.44,
+   "end": 76.22,
+   "text": "That's one hundred and fifty thousand",
+   "avg_logprob": -0.715,
+   "no_speech_prob": 0.399,
+   "words": [
+    {
+     "start": 74.44,
+     "end": 75.06,
+     "word": " That's",
+     "p": 0.499
+    },
+    {
+     "start": 75.06,
+     "end": 75.24,
+     "word": " one",
+     "p": 0.192
+    },
+    {
+     "start": 75.24,
+     "end": 75.46,
+     "word": " hundred",
+     "p": 0.66
+    },
+    {
+     "start": 75.46,
+     "end": 75.52,
+     "word": " and",
+     "p": 0.289
+    },
+    {
+     "start": 75.52,
+     "end": 75.8,
+     "word": " fifty",
+     "p": 0.976
+    },
+    {
+     "start": 75.8,
+     "end": 76.22,
+     "word": " thousand",
+     "p": 0.818
+    }
+   ]
+  },
+  {
+   "start": 88.64,
+   "end": 94.12,
+   "text": "Spicy float from from Jill in the ace five seven with the Queen ten",
+   "avg_logprob": -0.715,
+   "no_speech_prob": 0.399,
+   "words": [
+    {
+     "start": 88.64,
+     "end": 89.26,
+     "word": " Spicy",
+     "p": 0.723
+    },
+    {
+     "start": 89.26,
+     "end": 89.6,
+     "word": " float",
+     "p": 0.99
+    },
+    {
+     "start": 89.6,
+     "end": 89.96,
+     "word": " from",
+     "p": 0.994
+    },
+    {
+     "start": 89.96,
+     "end": 90.66,
+     "word": " from",
+     "p": 0.787
+    },
+    {
+     "start": 90.66,
+     "end": 91.16,
+     "word": " Jill",
+     "p": 0.865
+    },
+    {
+     "start": 91.16,
+     "end": 92.14,
+     "word": " in",
+     "p": 0.328
+    },
+    {
+     "start": 92.14,
+     "end": 92.24,
+     "word": " the",
+     "p": 0.995
+    },
+    {
+     "start": 92.24,
+     "end": 92.46,
+     "word": " ace",
+     "p": 0.562
+    },
+    {
+     "start": 92.46,
+     "end": 92.72,
+     "word": " five",
+     "p": 0.442
+    },
+    {
+     "start": 92.72,
+     "end": 93.06,
+     "word": " seven",
+     "p": 0.924
+    },
+    {
+     "start": 93.06,
+     "end": 93.26,
+     "word": " with",
+     "p": 0.98
+    },
+    {
+     "start": 93.26,
+     "end": 93.38,
+     "word": " the",
+     "p": 0.983
+    },
+    {
+     "start": 93.38,
+     "end": 93.56,
+     "word": " Queen",
+     "p": 0.732
+    },
+    {
+     "start": 93.56,
+     "end": 94.12,
+     "word": " ten",
+     "p": 0.209
+    }
+   ]
+  },
+  {
+   "start": 94.66,
+   "end": 100.16,
+   "text": "does not relented yeah sorry not relentless he knows that Ian's gonna",
+   "avg_logprob": -0.252,
+   "no_speech_prob": 0.697,
+   "words": [
+    {
+     "start": 94.66,
+     "end": 95.14,
+     "word": " does",
+     "p": 0.093
+    },
+    {
+     "start": 95.14,
+     "end": 95.38,
+     "word": " not",
+     "p": 0.986
+    },
+    {
+     "start": 95.38,
+     "end": 95.78,
+     "word": " relented",
+     "p": 0.208
+    },
+    {
+     "start": 95.78,
+     "end": 97.02,
+     "word": " yeah",
+     "p": 0.13
+    },
+    {
+     "start": 97.02,
+     "end": 98.0,
+     "word": " sorry",
+     "p": 0.9
+    },
+    {
+     "start": 98.0,
+     "end": 98.26,
+     "word": " not",
+     "p": 0.859
+    },
+    {
+     "start": 98.26,
+     "end": 98.54,
+     "word": " relentless",
+     "p": 0.165
+    },
+    {
+     "start": 98.54,
+     "end": 98.76,
+     "word": " he",
+     "p": 0.737
+    },
+    {
+     "start": 98.76,
+     "end": 99.0,
+     "word": " knows",
+     "p": 0.993
+    },
+    {
+     "start": 99.0,
+     "end": 99.4,
+     "word": " that",
+     "p": 0.606
+    },
+    {
+     "start": 99.4,
+     "end": 100.06,
+     "word": " Ian's",
+     "p": 0.902
+    },
+    {
+     "start": 100.06,
+     "end": 100.16,
+     "word": " gonna",
+     "p": 0.904
+    }
+   ]
+  },
+  {
+   "start": 100.16,
+   "end": 110.08,
+   "text": "bet that flop 100% of the time that he raises pre flop or near it and that is a",
+   "avg_logprob": -0.252,
+   "no_speech_prob": 0.697,
+   "words": [
+    {
+     "start": 100.16,
+     "end": 100.38,
+     "word": " bet",
+     "p": 0.996
+    },
+    {
+     "start": 100.38,
+     "end": 100.58,
+     "word": " that",
+     "p": 0.998
+    },
+    {
+     "start": 100.58,
+     "end": 100.86,
+     "word": " flop",
+     "p": 0.961
+    },
+    {
+     "start": 100.86,
+     "end": 101.36,
+     "word": " 100",
+     "p": 0.943
+    },
+    {
+     "start": 101.36,
+     "end": 101.7,
+     "word": "%",
+     "p": 0.88
+    },
+    {
+     "start": 101.7,
+     "end": 101.82,
+     "word": " of",
+     "p": 0.995
+    },
+    {
+     "start": 101.82,
+     "end": 101.92,
+     "word": " the",
+     "p": 0.998
+    },
+    {
+     "start": 101.92,
+     "end": 102.16,
+     "word": " time",
+     "p": 0.999
+    },
+    {
+     "start": 102.16,
+     "end": 102.32,
+     "word": " that",
+     "p": 0.96
+    },
+    {
+     "start": 102.32,
+     "end": 102.4,
+     "word": " he",
+     "p": 0.977
+    },
+    {
+     "start": 102.4,
+     "end": 102.7,
+     "word": " raises",
+     "p": 0.994
+    },
+    {
+     "start": 102.7,
+     "end": 103.12,
+     "word": " pre",
+     "p": 0.8
+    },
+    {
+     "start": 103.12,
+     "end": 103.42,
+     "word": " flop",
+     "p": 0.823
+    },
+    {
+     "start": 103.42,
+     "end": 103.56,
+     "word": " or",
+     "p": 0.987
+    },
+    {
+     "start": 103.56,
+     "end": 103.76,
+     "word": " near",
+     "p": 0.999
+    },
+    {
+     "start": 103.76,
+     "end": 104.82,
+     "word": " it",
+     "p": 0.991
+    },
+    {
+     "start": 104.82,
+     "end": 109.4,
+     "word": " and",
+     "p": 0.966
+    },
+    {
+     "start": 109.4,
+     "end": 109.62,
+     "word": " that",
+     "p": 0.997
+    },
+    {
+     "start": 109.62,
+     "end": 109.86,
+     "word": " is",
+     "p": 0.998
+    },
+    {
+     "start": 109.86,
+     "end": 110.08,
+     "word": " a",
+     "p": 0.985
+    }
+   ]
+  },
+  {
+   "start": 110.08,
+   "end": 118.18,
+   "text": "good card to bluff with got a little bit more equity with the gut shot after the",
+   "avg_logprob": -0.252,
+   "no_speech_prob": 0.697,
+   "words": [
+    {
+     "start": 110.08,
+     "end": 110.52,
+     "word": " good",
+     "p": 0.978
+    },
+    {
+     "start": 110.52,
+     "end": 110.8,
+     "word": " card",
+     "p": 0.985
+    },
+    {
+     "start": 110.8,
+     "end": 110.96,
+     "word": " to",
+     "p": 0.992
+    },
+    {
+     "start": 110.96,
+     "end": 111.14,
+     "word": " bluff",
+     "p": 0.974
+    },
+    {
+     "start": 111.14,
+     "end": 112.1,
+     "word": " with",
+     "p": 0.984
+    },
+    {
+     "start": 112.1,
+     "end": 116.14,
+     "word": " got",
+     "p": 0.826
+    },
+    {
+     "start": 116.14,
+     "end": 116.28,
+     "word": " a",
+     "p": 1.0
+    },
+    {
+     "start": 116.28,
+     "end": 116.4,
+     "word": " little",
+     "p": 1.0
+    },
+    {
+     "start": 116.4,
+     "end": 116.6,
+     "word": " bit",
+     "p": 0.999
+    },
+    {
+     "start": 116.6,
+     "end": 116.78,
+     "word": " more",
+     "p": 1.0
+    },
+    {
+     "start": 116.78,
+     "end": 117.12,
+     "word": " equity",
+     "p": 0.995
+    },
+    {
+     "start": 117.12,
+     "end": 117.32,
+     "word": " with",
+     "p": 0.986
+    },
+    {
+     "start": 117.32,
+     "end": 117.46,
+     "word": " the",
+     "p": 0.988
+    },
+    {
+     "start": 117.46,
+     "end": 117.6,
+     "word": " gut",
+     "p": 0.965
+    },
+    {
+     "start": 117.6,
+     "end": 117.86,
+     "word": " shot",
+     "p": 0.607
+    },
+    {
+     "start": 117.86,
+     "end": 118.06,
+     "word": " after",
+     "p": 0.989
+    },
+    {
+     "start": 118.06,
+     "end": 118.3,
+     "word": " the",
+     "p": 0.997
+    }
+   ]
+  },
+  {
+   "start": 123.04,
+   "end": 130.86,
+   "text": "comes you just hate to lay down King yeah he's not gonna be folding kings from",
+   "avg_logprob": -0.198,
+   "no_speech_prob": 0.766,
+   "words": [
+    {
+     "start": 123.04,
+     "end": 123.48,
+     "word": " comes",
+     "p": 0.0
+    },
+    {
+     "start": 123.48,
+     "end": 123.92,
+     "word": " you",
+     "p": 0.28
+    },
+    {
+     "start": 123.92,
+     "end": 126.4,
+     "word": " just",
+     "p": 0.965
+    },
+    {
+     "start": 126.4,
+     "end": 126.76,
+     "word": " hate",
+     "p": 0.918
+    },
+    {
+     "start": 126.76,
+     "end": 126.94,
+     "word": " to",
+     "p": 0.995
+    },
+    {
+     "start": 126.94,
+     "end": 127.12,
+     "word": " lay",
+     "p": 0.997
+    },
+    {
+     "start": 127.12,
+     "end": 127.44,
+     "word": " down",
+     "p": 0.995
+    },
+    {
+     "start": 127.44,
+     "end": 127.72,
+     "word": " King",
+     "p": 0.261
+    },
+    {
+     "start": 127.72,
+     "end": 129.54,
+     "word": " yeah",
+     "p": 0.801
+    },
+    {
+     "start": 129.54,
+     "end": 129.7,
+     "word": " he's",
+     "p": 0.898
+    },
+    {
+     "start": 129.7,
+     "end": 129.84,
+     "word": " not",
+     "p": 0.996
+    },
+    {
+     "start": 129.84,
+     "end": 129.96,
+     "word": " gonna",
+     "p": 0.758
+    },
+    {
+     "start": 129.96,
+     "end": 130.1,
+     "word": " be",
+     "p": 0.999
+    },
+    {
+     "start": 130.1,
+     "end": 130.3,
+     "word": " folding",
+     "p": 0.978
+    },
+    {
+     "start": 130.3,
+     "end": 130.68,
+     "word": " kings",
+     "p": 0.382
+    },
+    {
+     "start": 130.68,
+     "end": 130.86,
+     "word": " from",
+     "p": 0.412
+    }
+   ]
+  },
+  {
+   "start": 130.86,
+   "end": 136.5,
+   "text": "this flop on this why not because of the ace well it's blind versus blind and",
+   "avg_logprob": -0.198,
+   "no_speech_prob": 0.766,
+   "words": [
+    {
+     "start": 130.86,
+     "end": 131.02,
+     "word": " this",
+     "p": 0.86
+    },
+    {
+     "start": 131.02,
+     "end": 131.38,
+     "word": " flop",
+     "p": 0.63
+    },
+    {
+     "start": 131.38,
+     "end": 132.6,
+     "word": " on",
+     "p": 0.443
+    },
+    {
+     "start": 132.6,
+     "end": 132.84,
+     "word": " this",
+     "p": 0.989
+    },
+    {
+     "start": 132.84,
+     "end": 133.18,
+     "word": " why",
+     "p": 0.772
+    },
+    {
+     "start": 133.18,
+     "end": 133.32,
+     "word": " not",
+     "p": 0.996
+    },
+    {
+     "start": 133.32,
+     "end": 133.72,
+     "word": " because",
+     "p": 0.991
+    },
+    {
+     "start": 133.72,
+     "end": 133.88,
+     "word": " of",
+     "p": 0.987
+    },
+    {
+     "start": 133.88,
+     "end": 133.98,
+     "word": " the",
+     "p": 0.998
+    },
+    {
+     "start": 133.98,
+     "end": 134.24,
+     "word": " ace",
+     "p": 0.715
+    },
+    {
+     "start": 134.24,
+     "end": 135.08,
+     "word": " well",
+     "p": 0.961
+    },
+    {
+     "start": 135.08,
+     "end": 135.28,
+     "word": " it's",
+     "p": 0.929
+    },
+    {
+     "start": 135.28,
+     "end": 135.5,
+     "word": " blind",
+     "p": 0.99
+    },
+    {
+     "start": 135.5,
+     "end": 135.72,
+     "word": " versus",
+     "p": 0.796
+    },
+    {
+     "start": 135.72,
+     "end": 136.16,
+     "word": " blind",
+     "p": 0.999
+    },
+    {
+     "start": 136.16,
+     "end": 136.5,
+     "word": " and",
+     "p": 0.976
+    }
+   ]
+  },
+  {
+   "start": 136.5,
+   "end": 141.52,
+   "text": "you're up against the guy who's creative and tough the only reason to fold right",
+   "avg_logprob": -0.198,
+   "no_speech_prob": 0.766,
+   "words": [
+    {
+     "start": 136.5,
+     "end": 136.64,
+     "word": " you're",
+     "p": 0.943
+    },
+    {
+     "start": 136.64,
+     "end": 136.74,
+     "word": " up",
+     "p": 0.998
+    },
+    {
+     "start": 136.74,
+     "end": 136.96,
+     "word": " against",
+     "p": 1.0
+    },
+    {
+     "start": 136.96,
+     "end": 137.08,
+     "word": " the",
+     "p": 0.816
+    },
+    {
+     "start": 137.08,
+     "end": 137.24,
+     "word": " guy",
+     "p": 0.999
+    },
+    {
+     "start": 137.24,
+     "end": 137.46,
+     "word": " who's",
+     "p": 0.974
+    },
+    {
+     "start": 137.46,
+     "end": 137.84,
+     "word": " creative",
+     "p": 0.998
+    },
+    {
+     "start": 137.84,
+     "end": 138.0,
+     "word": " and",
+     "p": 0.995
+    },
+    {
+     "start": 138.0,
+     "end": 138.3,
+     "word": " tough",
+     "p": 0.997
+    },
+    {
+     "start": 138.3,
+     "end": 139.52,
+     "word": " the",
+     "p": 0.992
+    },
+    {
+     "start": 139.52,
+     "end": 139.78,
+     "word": " only",
+     "p": 1.0
+    },
+    {
+     "start": 139.78,
+     "end": 140.28,
+     "word": " reason",
+     "p": 0.999
+    },
+    {
+     "start": 140.28,
+     "end": 140.58,
+     "word": " to",
+     "p": 0.999
+    },
+    {
+     "start": 140.58,
+     "end": 140.96,
+     "word": " fold",
+     "p": 0.997
+    },
+    {
+     "start": 140.96,
+     "end": 141.52,
+     "word": " right",
+     "p": 0.998
+    }
+   ]
+  },
+  {
+   "start": 141.52,
+   "end": 148.16,
+   "text": "now is because you know a big bet is coming on the river and you're not",
+   "avg_logprob": -0.198,
+   "no_speech_prob": 0.766,
+   "words": [
+    {
+     "start": 141.52,
+     "end": 141.92,
+     "word": " now",
+     "p": 0.999
+    },
+    {
+     "start": 141.92,
+     "end": 142.38,
+     "word": " is",
+     "p": 0.998
+    },
+    {
+     "start": 142.38,
+     "end": 142.7,
+     "word": " because",
+     "p": 0.999
+    },
+    {
+     "start": 142.7,
+     "end": 143.04,
+     "word": " you",
+     "p": 0.999
+    },
+    {
+     "start": 143.04,
+     "end": 143.44,
+     "word": " know",
+     "p": 0.999
+    },
+    {
+     "start": 143.44,
+     "end": 143.6,
+     "word": " a",
+     "p": 0.99
+    },
+    {
+     "start": 143.6,
+     "end": 143.76,
+     "word": " big",
+     "p": 0.992
+    },
+    {
+     "start": 143.76,
+     "end": 143.94,
+     "word": " bet",
+     "p": 0.486
+    },
+    {
+     "start": 143.94,
+     "end": 144.06,
+     "word": " is",
+     "p": 0.997
+    },
+    {
+     "start": 144.06,
+     "end": 144.24,
+     "word": " coming",
+     "p": 0.999
+    },
+    {
+     "start": 144.24,
+     "end": 144.4,
+     "word": " on",
+     "p": 0.999
+    },
+    {
+     "start": 144.4,
+     "end": 144.5,
+     "word": " the",
+     "p": 0.998
+    },
+    {
+     "start": 144.5,
+     "end": 144.62,
+     "word": " river",
+     "p": 0.98
+    },
+    {
+     "start": 144.62,
+     "end": 144.84,
+     "word": " and",
+     "p": 0.723
+    },
+    {
+     "start": 144.84,
+     "end": 148.14,
+     "word": " you're",
+     "p": 0.998
+    },
+    {
+     "start": 148.14,
+     "end": 148.16,
+     "word": " not",
+     "p": 0.999
+    }
+   ]
+  },
+  {
+   "start": 148.16,
+   "end": 152.74,
+   "text": "going to call the river or if you don't know a big bet is coming then you have",
+   "avg_logprob": -0.282,
+   "no_speech_prob": 0.76,
+   "words": [
+    {
+     "start": 148.16,
+     "end": 148.3,
+     "word": " going",
+     "p": 0.057
+    },
+    {
+     "start": 148.3,
+     "end": 148.5,
+     "word": " to",
+     "p": 0.901
+    },
+    {
+     "start": 148.5,
+     "end": 148.66,
+     "word": " call",
+     "p": 0.926
+    },
+    {
+     "start": 148.66,
+     "end": 148.78,
+     "word": " the",
+     "p": 0.971
+    },
+    {
+     "start": 148.78,
+     "end": 149.0,
+     "word": " river",
+     "p": 0.979
+    },
+    {
+     "start": 149.0,
+     "end": 149.66,
+     "word": " or",
+     "p": 0.668
+    },
+    {
+     "start": 149.66,
+     "end": 149.98,
+     "word": " if",
+     "p": 0.947
+    },
+    {
+     "start": 149.98,
+     "end": 150.16,
+     "word": " you",
+     "p": 0.992
+    },
+    {
+     "start": 150.16,
+     "end": 150.4,
+     "word": " don't",
+     "p": 0.988
+    },
+    {
+     "start": 150.4,
+     "end": 150.58,
+     "word": " know",
+     "p": 0.996
+    },
+    {
+     "start": 150.58,
+     "end": 150.7,
+     "word": " a",
+     "p": 0.104
+    },
+    {
+     "start": 150.7,
+     "end": 150.78,
+     "word": " big",
+     "p": 0.783
+    },
+    {
+     "start": 150.78,
+     "end": 150.88,
+     "word": " bet",
+     "p": 0.095
+    },
+    {
+     "start": 150.88,
+     "end": 151.02,
+     "word": " is",
+     "p": 0.96
+    },
+    {
+     "start": 151.02,
+     "end": 151.3,
+     "word": " coming",
+     "p": 0.996
+    },
+    {
+     "start": 151.3,
+     "end": 152.02,
+     "word": " then",
+     "p": 0.88
+    },
+    {
+     "start": 152.02,
+     "end": 152.5,
+     "word": " you",
+     "p": 0.955
+    },
+    {
+     "start": 152.5,
+     "end": 152.74,
+     "word": " have",
+     "p": 0.972
+    }
+   ]
+  },
+  {
+   "start": 152.74,
+   "end": 163.52,
+   "text": "to be calling here because Joe can call wider Oh devastating card for Ian makes",
+   "avg_logprob": -0.282,
+   "no_speech_prob": 0.76,
+   "words": [
+    {
+     "start": 152.74,
+     "end": 152.86,
+     "word": " to",
+     "p": 0.997
+    },
+    {
+     "start": 152.86,
+     "end": 152.96,
+     "word": " be",
+     "p": 0.992
+    },
+    {
+     "start": 152.96,
+     "end": 153.22,
+     "word": " calling",
+     "p": 0.963
+    },
+    {
+     "start": 153.22,
+     "end": 153.52,
+     "word": " here",
+     "p": 0.965
+    },
+    {
+     "start": 153.52,
+     "end": 153.98,
+     "word": " because",
+     "p": 0.965
+    },
+    {
+     "start": 153.98,
+     "end": 154.9,
+     "word": " Joe",
+     "p": 0.776
+    },
+    {
+     "start": 154.9,
+     "end": 155.1,
+     "word": " can",
+     "p": 0.992
+    },
+    {
+     "start": 155.1,
+     "end": 155.44,
+     "word": " call",
+     "p": 0.992
+    },
+    {
+     "start": 155.44,
+     "end": 155.8,
+     "word": " wider",
+     "p": 0.907
+    },
+    {
+     "start": 155.8,
+     "end": 156.62,
+     "word": " Oh",
+     "p": 0.198
+    },
+    {
+     "start": 156.62,
+     "end": 159.4,
+     "word": " devastating",
+     "p": 0.717
+    },
+    {
+     "start": 159.4,
+     "end": 160.2,
+     "word": " card",
+     "p": 0.665
+    },
+    {
+     "start": 160.2,
+     "end": 160.46,
+     "word": " for",
+     "p": 0.656
+    },
+    {
+     "start": 160.46,
+     "end": 160.86,
+     "word": " Ian",
+     "p": 0.914
+    },
+    {
+     "start": 160.86,
+     "end": 163.52,
+     "word": " makes",
+     "p": 0.162
+    }
+   ]
+  },
+  {
+   "start": 163.52,
+   "end": 172.1,
+   "text": "it set on the river and that gives Joe Broadway just crushing so Ian had any",
+   "avg_logprob": -0.282,
+   "no_speech_prob": 0.76,
+   "words": [
+    {
+     "start": 163.52,
+     "end": 163.9,
+     "word": " it",
+     "p": 0.745
+    },
+    {
+     "start": 163.9,
+     "end": 164.48,
+     "word": " set",
+     "p": 0.389
+    },
+    {
+     "start": 164.48,
+     "end": 164.82,
+     "word": " on",
+     "p": 0.998
+    },
+    {
+     "start": 164.82,
+     "end": 165.0,
+     "word": " the",
+     "p": 0.999
+    },
+    {
+     "start": 165.0,
+     "end": 165.54,
+     "word": " river",
+     "p": 0.922
+    },
+    {
+     "start": 165.54,
+     "end": 165.82,
+     "word": " and",
+     "p": 0.424
+    },
+    {
+     "start": 165.82,
+     "end": 166.18,
+     "word": " that",
+     "p": 0.992
+    },
+    {
+     "start": 166.18,
+     "end": 166.66,
+     "word": " gives",
+     "p": 0.994
+    },
+    {
+     "start": 166.66,
+     "end": 167.18,
+     "word": " Joe",
+     "p": 0.935
+    },
+    {
+     "start": 167.18,
+     "end": 167.74,
+     "word": " Broadway",
+     "p": 0.992
+    },
+    {
+     "start": 167.74,
+     "end": 168.74,
+     "word": " just",
+     "p": 0.983
+    },
+    {
+     "start": 168.74,
+     "end": 169.78,
+     "word": " crushing",
+     "p": 0.868
+    },
+    {
+     "start": 169.78,
+     "end": 171.32,
+     "word": " so",
+     "p": 0.645
+    },
+    {
+     "start": 171.32,
+     "end": 171.64,
+     "word": " Ian",
+     "p": 0.734
+    },
+    {
+     "start": 171.64,
+     "end": 171.82,
+     "word": " had",
+     "p": 0.944
+    },
+    {
+     "start": 171.82,
+     "end": 172.1,
+     "word": " any",
+     "p": 0.997
+    }
+   ]
+  },
+  {
+   "start": 172.1,
+   "end": 174.6,
+   "text": "doubt in the back of his mind what you guys were talking about was being",
+   "avg_logprob": -0.282,
+   "no_speech_prob": 0.76,
+   "words": [
+    {
+     "start": 172.1,
+     "end": 172.46,
+     "word": " doubt",
+     "p": 0.987
+    },
+    {
+     "start": 172.46,
+     "end": 172.66,
+     "word": " in",
+     "p": 0.47
+    },
+    {
+     "start": 172.66,
+     "end": 172.66,
+     "word": " the",
+     "p": 0.912
+    },
+    {
+     "start": 172.66,
+     "end": 172.82,
+     "word": " back",
+     "p": 0.999
+    },
+    {
+     "start": 172.82,
+     "end": 172.92,
+     "word": " of",
+     "p": 0.995
+    },
+    {
+     "start": 172.92,
+     "end": 173.02,
+     "word": " his",
+     "p": 0.991
+    },
+    {
+     "start": 173.02,
+     "end": 173.24,
+     "word": " mind",
+     "p": 0.982
+    },
+    {
+     "start": 173.24,
+     "end": 173.36,
+     "word": " what",
+     "p": 0.921
+    },
+    {
+     "start": 173.36,
+     "end": 173.48,
+     "word": " you",
+     "p": 0.999
+    },
+    {
+     "start": 173.48,
+     "end": 173.66,
+     "word": " guys",
+     "p": 0.998
+    },
+    {
+     "start": 173.66,
+     "end": 173.78,
+     "word": " were",
+     "p": 0.79
+    },
+    {
+     "start": 173.78,
+     "end": 174.04,
+     "word": " talking",
+     "p": 0.998
+    },
+    {
+     "start": 174.04,
+     "end": 174.32,
+     "word": " about",
+     "p": 1.0
+    },
+    {
+     "start": 174.32,
+     "end": 174.5,
+     "word": " was",
+     "p": 0.338
+    },
+    {
+     "start": 174.5,
+     "end": 174.6,
+     "word": " being",
+     "p": 0.964
+    }
+   ]
+  },
+  {
+   "start": 174.6,
+   "end": 180.26,
+   "text": "worried about that ace. No longer. Instead it runs out perfectly for Joe. It sets a",
+   "avg_logprob": -0.316,
+   "no_speech_prob": 0.572,
+   "words": [
+    {
+     "start": 174.6,
+     "end": 174.6,
+     "word": " worried",
+     "p": 0.036
+    },
+    {
+     "start": 174.6,
+     "end": 175.14,
+     "word": " about",
+     "p": 0.985
+    },
+    {
+     "start": 175.14,
+     "end": 175.34,
+     "word": " that",
+     "p": 0.933
+    },
+    {
+     "start": 175.34,
+     "end": 175.7,
+     "word": " ace.",
+     "p": 0.784
+    },
+    {
+     "start": 176.54,
+     "end": 176.56,
+     "word": " No",
+     "p": 0.861
+    },
+    {
+     "start": 176.56,
+     "end": 176.96,
+     "word": " longer.",
+     "p": 0.983
+    },
+    {
+     "start": 177.12,
+     "end": 177.5,
+     "word": " Instead",
+     "p": 0.973
+    },
+    {
+     "start": 177.5,
+     "end": 177.7,
+     "word": " it",
+     "p": 0.451
+    },
+    {
+     "start": 177.7,
+     "end": 177.96,
+     "word": " runs",
+     "p": 0.996
+    },
+    {
+     "start": 177.96,
+     "end": 178.26,
+     "word": " out",
+     "p": 0.996
+    },
+    {
+     "start": 178.26,
+     "end": 178.96,
+     "word": " perfectly",
+     "p": 0.98
+    },
+    {
+     "start": 178.96,
+     "end": 179.38,
+     "word": " for",
+     "p": 0.856
+    },
+    {
+     "start": 179.38,
+     "end": 179.66,
+     "word": " Joe.",
+     "p": 0.895
+    },
+    {
+     "start": 179.84,
+     "end": 179.84,
+     "word": " It",
+     "p": 0.921
+    },
+    {
+     "start": 179.84,
+     "end": 180.04,
+     "word": " sets",
+     "p": 0.949
+    },
+    {
+     "start": 180.04,
+     "end": 180.26,
+     "word": " a",
+     "p": 0.992
+    }
+   ]
+  },
+  {
+   "start": 180.26,
+   "end": 193.3,
+   "text": "huge trap for Ian. Ian goes with a big lead I think and Joe is going to shove and he doesn't have to call.",
+   "avg_logprob": -0.316,
+   "no_speech_prob": 0.572,
+   "words": [
+    {
+     "start": 180.26,
+     "end": 180.62,
+     "word": " huge",
+     "p": 0.999
+    },
+    {
+     "start": 180.62,
+     "end": 181.02,
+     "word": " trap",
+     "p": 0.935
+    },
+    {
+     "start": 181.02,
+     "end": 181.26,
+     "word": " for",
+     "p": 0.99
+    },
+    {
+     "start": 181.26,
+     "end": 181.5,
+     "word": " Ian.",
+     "p": 0.942
+    },
+    {
+     "start": 184.28,
+     "end": 184.28,
+     "word": " Ian",
+     "p": 0.224
+    },
+    {
+     "start": 184.28,
+     "end": 185.38,
+     "word": " goes",
+     "p": 0.962
+    },
+    {
+     "start": 185.38,
+     "end": 185.54,
+     "word": " with",
+     "p": 0.584
+    },
+    {
+     "start": 185.54,
+     "end": 185.66,
+     "word": " a",
+     "p": 0.888
+    },
+    {
+     "start": 185.66,
+     "end": 185.88,
+     "word": " big",
+     "p": 0.997
+    },
+    {
+     "start": 185.88,
+     "end": 186.2,
+     "word": " lead",
+     "p": 0.997
+    },
+    {
+     "start": 186.2,
+     "end": 186.38,
+     "word": " I",
+     "p": 0.57
+    },
+    {
+     "start": 186.38,
+     "end": 187.06,
+     "word": " think",
+     "p": 0.998
+    },
+    {
+     "start": 187.06,
+     "end": 190.32,
+     "word": " and",
+     "p": 0.033
+    },
+    {
+     "start": 190.32,
+     "end": 190.64,
+     "word": " Joe",
+     "p": 0.952
+    },
+    {
+     "start": 190.64,
+     "end": 190.86,
+     "word": " is",
+     "p": 0.943
+    },
+    {
+     "start": 190.86,
+     "end": 191.1,
+     "word": " going",
+     "p": 0.994
+    },
+    {
+     "start": 191.1,
+     "end": 191.38,
+     "word": " to",
+     "p": 0.981
+    },
+    {
+     "start": 191.38,
+     "end": 191.74,
+     "word": " shove",
+     "p": 0.944
+    },
+    {
+     "start": 191.74,
+     "end": 192.26,
+     "word": " and",
+     "p": 0.618
+    },
+    {
+     "start": 192.26,
+     "end": 192.26,
+     "word": " he",
+     "p": 0.389
+    },
+    {
+     "start": 192.26,
+     "end": 192.44,
+     "word": " doesn't",
+     "p": 0.718
+    },
+    {
+     "start": 192.44,
+     "end": 192.74,
+     "word": " have",
+     "p": 0.96
+    },
+    {
+     "start": 192.74,
+     "end": 192.88,
+     "word": " to",
+     "p": 0.986
+    },
+    {
+     "start": 192.88,
+     "end": 193.3,
+     "word": " call.",
+     "p": 0.985
+    }
+   ]
+  },
+  {
+   "start": 194.56,
+   "end": 202.78,
+   "text": "This is a game changer. 800,000 is the bet. 2.2 million already in the center and yeah like you",
+   "avg_logprob": -0.316,
+   "no_speech_prob": 0.572,
+   "words": [
+    {
+     "start": 194.56,
+     "end": 194.82,
+     "word": " This",
+     "p": 0.942
+    },
+    {
+     "start": 194.82,
+     "end": 195.46,
+     "word": " is",
+     "p": 0.993
+    },
+    {
+     "start": 195.46,
+     "end": 195.9,
+     "word": " a",
+     "p": 0.323
+    },
+    {
+     "start": 195.9,
+     "end": 196.28,
+     "word": " game",
+     "p": 0.82
+    },
+    {
+     "start": 196.28,
+     "end": 196.86,
+     "word": " changer.",
+     "p": 0.986
+    },
+    {
+     "start": 197.12,
+     "end": 197.4,
+     "word": " 800",
+     "p": 0.582
+    },
+    {
+     "start": 197.4,
+     "end": 197.96,
+     "word": ",000",
+     "p": 0.894
+    },
+    {
+     "start": 197.96,
+     "end": 198.1,
+     "word": " is",
+     "p": 0.961
+    },
+    {
+     "start": 198.1,
+     "end": 198.28,
+     "word": " the",
+     "p": 0.986
+    },
+    {
+     "start": 198.28,
+     "end": 198.54,
+     "word": " bet.",
+     "p": 0.961
+    },
+    {
+     "start": 198.82,
+     "end": 198.88,
+     "word": " 2",
+     "p": 0.945
+    },
+    {
+     "start": 198.88,
+     "end": 199.48,
+     "word": ".2",
+     "p": 0.994
+    },
+    {
+     "start": 199.48,
+     "end": 199.74,
+     "word": " million",
+     "p": 0.974
+    },
+    {
+     "start": 199.74,
+     "end": 200.22,
+     "word": " already",
+     "p": 0.965
+    },
+    {
+     "start": 200.22,
+     "end": 200.46,
+     "word": " in",
+     "p": 0.997
+    },
+    {
+     "start": 200.46,
+     "end": 200.6,
+     "word": " the",
+     "p": 0.999
+    },
+    {
+     "start": 200.6,
+     "end": 200.88,
+     "word": " center",
+     "p": 0.971
+    },
+    {
+     "start": 200.88,
+     "end": 202.26,
+     "word": " and",
+     "p": 0.46
+    },
+    {
+     "start": 202.26,
+     "end": 202.46,
+     "word": " yeah",
+     "p": 0.853
+    },
+    {
+     "start": 202.46,
+     "end": 202.62,
+     "word": " like",
+     "p": 0.798
+    },
+    {
+     "start": 202.62,
+     "end": 202.78,
+     "word": " you",
+     "p": 0.988
+    }
+   ]
+  },
+  {
+   "start": 202.78,
+   "end": 207.24,
+   "text": "I don't see that there'd be any way all the chips. Don't get him here. Look back",
+   "avg_logprob": -0.323,
+   "no_speech_prob": 0.336,
+   "words": [
+    {
+     "start": 202.78,
+     "end": 203.18,
+     "word": " I",
+     "p": 0.278
+    },
+    {
+     "start": 203.18,
+     "end": 203.36,
+     "word": " don't",
+     "p": 0.958
+    },
+    {
+     "start": 203.36,
+     "end": 203.56,
+     "word": " see",
+     "p": 0.983
+    },
+    {
+     "start": 203.56,
+     "end": 203.74,
+     "word": " that",
+     "p": 0.24
+    },
+    {
+     "start": 203.74,
+     "end": 204.42,
+     "word": " there'd",
+     "p": 0.675
+    },
+    {
+     "start": 204.42,
+     "end": 204.46,
+     "word": " be",
+     "p": 0.987
+    },
+    {
+     "start": 204.46,
+     "end": 204.72,
+     "word": " any",
+     "p": 0.809
+    },
+    {
+     "start": 204.72,
+     "end": 204.92,
+     "word": " way",
+     "p": 0.998
+    },
+    {
+     "start": 204.92,
+     "end": 205.06,
+     "word": " all",
+     "p": 0.939
+    },
+    {
+     "start": 205.06,
+     "end": 205.18,
+     "word": " the",
+     "p": 0.999
+    },
+    {
+     "start": 205.18,
+     "end": 205.36,
+     "word": " chips.",
+     "p": 0.994
+    },
+    {
+     "start": 205.52,
+     "end": 205.6,
+     "word": " Don't",
+     "p": 0.997
+    },
+    {
+     "start": 205.6,
+     "end": 205.7,
+     "word": " get",
+     "p": 0.865
+    },
+    {
+     "start": 205.7,
+     "end": 205.82,
+     "word": " him",
+     "p": 0.373
+    },
+    {
+     "start": 205.82,
+     "end": 206.04,
+     "word": " here.",
+     "p": 0.968
+    },
+    {
+     "start": 206.08,
+     "end": 206.52,
+     "word": " Look",
+     "p": 0.478
+    },
+    {
+     "start": 206.52,
+     "end": 207.24,
+     "word": " back",
+     "p": 0.993
+    }
+   ]
+  },
+  {
+   "start": 208.08,
+   "end": 210.08,
+   "text": "Poor Ian, this is not fair",
+   "avg_logprob": -0.323,
+   "no_speech_prob": 0.336,
+   "words": [
+    {
+     "start": 208.08,
+     "end": 208.52,
+     "word": " Poor",
+     "p": 0.37
+    },
+    {
+     "start": 208.52,
+     "end": 208.94,
+     "word": " Ian,",
+     "p": 0.919
+    },
+    {
+     "start": 208.94,
+     "end": 209.18,
+     "word": " this",
+     "p": 0.991
+    },
+    {
+     "start": 209.18,
+     "end": 209.38,
+     "word": " is",
+     "p": 0.998
+    },
+    {
+     "start": 209.38,
+     "end": 209.66,
+     "word": " not",
+     "p": 0.995
+    },
+    {
+     "start": 209.66,
+     "end": 210.08,
+     "word": " fair",
+     "p": 0.996
+    }
+   ]
+  },
+  {
+   "start": 211.74,
+   "end": 215.08,
+   "text": "That is the worst card in the deck room",
+   "avg_logprob": -0.323,
+   "no_speech_prob": 0.336,
+   "words": [
+    {
+     "start": 211.74,
+     "end": 212.18,
+     "word": " That",
+     "p": 0.776
+    },
+    {
+     "start": 212.18,
+     "end": 212.36,
+     "word": " is",
+     "p": 0.999
+    },
+    {
+     "start": 212.36,
+     "end": 212.68,
+     "word": " the",
+     "p": 1.0
+    },
+    {
+     "start": 212.68,
+     "end": 213.28,
+     "word": " worst",
+     "p": 0.992
+    },
+    {
+     "start": 213.28,
+     "end": 213.78,
+     "word": " card",
+     "p": 0.968
+    },
+    {
+     "start": 213.78,
+     "end": 214.3,
+     "word": " in",
+     "p": 0.999
+    },
+    {
+     "start": 214.3,
+     "end": 214.44,
+     "word": " the",
+     "p": 0.999
+    },
+    {
+     "start": 214.44,
+     "end": 214.64,
+     "word": " deck",
+     "p": 0.982
+    },
+    {
+     "start": 214.64,
+     "end": 215.08,
+     "word": " room",
+     "p": 0.823
+    }
+   ]
+  },
+  {
+   "start": 232.9,
+   "end": 239.32,
+   "text": "Yes. Wow. Yeah. Wow. Indeed. Two biggest stacks at the table.",
+   "avg_logprob": -0.421,
+   "no_speech_prob": 0.463,
+   "words": [
+    {
+     "start": 232.9,
+     "end": 233.54,
+     "word": " Yes.",
+     "p": 0.313
+    },
+    {
+     "start": 233.9,
+     "end": 233.94,
+     "word": " Wow.",
+     "p": 0.935
+    },
+    {
+     "start": 234.36,
+     "end": 234.88,
+     "word": " Yeah.",
+     "p": 0.524
+    },
+    {
+     "start": 235.02,
+     "end": 235.2,
+     "word": " Wow.",
+     "p": 0.974
+    },
+    {
+     "start": 235.52,
+     "end": 235.56,
+     "word": " Indeed.",
+     "p": 0.956
+    },
+    {
+     "start": 236.56,
+     "end": 237.2,
+     "word": " Two",
+     "p": 0.84
+    },
+    {
+     "start": 237.2,
+     "end": 237.64,
+     "word": " biggest",
+     "p": 0.922
+    },
+    {
+     "start": 237.64,
+     "end": 238.04,
+     "word": " stacks",
+     "p": 0.945
+    },
+    {
+     "start": 238.04,
+     "end": 238.4,
+     "word": " at",
+     "p": 0.989
+    },
+    {
+     "start": 238.4,
+     "end": 238.58,
+     "word": " the",
+     "p": 0.997
+    },
+    {
+     "start": 238.58,
+     "end": 239.32,
+     "word": " table.",
+     "p": 0.993
+    }
+   ]
+  },
+  {
+   "start": 243.56,
+   "end": 246.72,
+   "text": "Wow, he's actually considering this is amazing.",
+   "avg_logprob": -0.421,
+   "no_speech_prob": 0.463,
+   "words": [
+    {
+     "start": 243.56,
+     "end": 244.2,
+     "word": " Wow,",
+     "p": 0.515
+    },
+    {
+     "start": 244.2,
+     "end": 244.74,
+     "word": " he's",
+     "p": 0.982
+    },
+    {
+     "start": 244.74,
+     "end": 245.34,
+     "word": " actually",
+     "p": 0.988
+    },
+    {
+     "start": 245.34,
+     "end": 245.82,
+     "word": " considering",
+     "p": 0.988
+    },
+    {
+     "start": 245.82,
+     "end": 246.14,
+     "word": " this",
+     "p": 0.676
+    },
+    {
+     "start": 246.14,
+     "end": 246.3,
+     "word": " is",
+     "p": 0.222
+    },
+    {
+     "start": 246.3,
+     "end": 246.72,
+     "word": " amazing.",
+     "p": 0.938
+    }
+   ]
+  },
+  {
+   "start": 247.8,
+   "end": 250.18,
+   "text": "I would have high five people and called already.",
+   "avg_logprob": -0.421,
+   "no_speech_prob": 0.463,
+   "words": [
+    {
+     "start": 247.8,
+     "end": 247.8,
+     "word": " I",
+     "p": 0.947
+    },
+    {
+     "start": 247.8,
+     "end": 247.92,
+     "word": " would",
+     "p": 0.995
+    },
+    {
+     "start": 247.92,
+     "end": 248.2,
+     "word": " have",
+     "p": 0.945
+    },
+    {
+     "start": 248.2,
+     "end": 248.62,
+     "word": " high",
+     "p": 0.973
+    },
+    {
+     "start": 248.62,
+     "end": 248.88,
+     "word": " five",
+     "p": 0.59
+    },
+    {
+     "start": 248.88,
+     "end": 249.26,
+     "word": " people",
+     "p": 0.903
+    },
+    {
+     "start": 249.26,
+     "end": 249.44,
+     "word": " and",
+     "p": 0.673
+    },
+    {
+     "start": 249.44,
+     "end": 249.64,
+     "word": " called",
+     "p": 0.972
+    },
+    {
+     "start": 249.64,
+     "end": 250.18,
+     "word": " already.",
+     "p": 0.992
+    }
+   ]
+  },
+  {
+   "start": 250.42,
+   "end": 252.78,
+   "text": "It's taken 30 seconds so far.",
+   "avg_logprob": -0.421,
+   "no_speech_prob": 0.463,
+   "words": [
+    {
+     "start": 250.42,
+     "end": 251.06,
+     "word": " It's",
+     "p": 0.817
+    },
+    {
+     "start": 251.06,
+     "end": 251.24,
+     "word": " taken",
+     "p": 0.855
+    },
+    {
+     "start": 251.24,
+     "end": 251.58,
+     "word": " 30",
+     "p": 0.687
+    },
+    {
+     "start": 251.58,
+     "end": 251.88,
+     "word": " seconds",
+     "p": 0.987
+    },
+    {
+     "start": 251.88,
+     "end": 252.14,
+     "word": " so",
+     "p": 0.927
+    },
+    {
+     "start": 252.14,
+     "end": 252.78,
+     "word": " far.",
+     "p": 0.999
+    }
+   ]
+  },
+  {
+   "start": 253.6,
+   "end": 257.14,
+   "text": "We've had to stop you on your victory lap until you didn't win. Yeah.",
+   "avg_logprob": -0.421,
+   "no_speech_prob": 0.463,
+   "words": [
+    {
+     "start": 253.6,
+     "end": 254.2,
+     "word": " We've",
+     "p": 0.496
+    },
+    {
+     "start": 254.2,
+     "end": 254.32,
+     "word": " had",
+     "p": 0.85
+    },
+    {
+     "start": 254.32,
+     "end": 254.44,
+     "word": " to",
+     "p": 0.998
+    },
+    {
+     "start": 254.44,
+     "end": 254.7,
+     "word": " stop",
+     "p": 0.998
+    },
+    {
+     "start": 254.7,
+     "end": 254.84,
+     "word": " you",
+     "p": 0.779
+    },
+    {
+     "start": 254.84,
+     "end": 254.94,
+     "word": " on",
+     "p": 0.605
+    },
+    {
+     "start": 254.94,
+     "end": 255.04,
+     "word": " your",
+     "p": 0.997
+    },
+    {
+     "start": 255.04,
+     "end": 255.3,
+     "word": " victory",
+     "p": 0.994
+    },
+    {
+     "start": 255.3,
+     "end": 255.56,
+     "word": " lap",
+     "p": 0.998
+    },
+    {
+     "start": 255.56,
+     "end": 255.76,
+     "word": " until",
+     "p": 0.65
+    },
+    {
+     "start": 255.76,
+     "end": 255.96,
+     "word": " you",
+     "p": 0.99
+    },
+    {
+     "start": 255.96,
+     "end": 256.16,
+     "word": " didn't",
+     "p": 0.987
+    },
+    {
+     "start": 256.16,
+     "end": 256.32,
+     "word": " win.",
+     "p": 0.997
+    },
+    {
+     "start": 257.14,
+     "end": 257.14,
+     "word": " Yeah.",
+     "p": 0.564
+    }
+   ]
+  },
+  {
+   "start": 261.76,
+   "end": 267.18,
+   "text": "Oh, man, just when you think it's your dream card, it's your death card, you know, I mean,",
+   "avg_logprob": -0.269,
+   "no_speech_prob": 0.384,
+   "words": [
+    {
+     "start": 261.76,
+     "end": 262.2,
+     "word": " Oh,",
+     "p": 0.531
+    },
+    {
+     "start": 262.22,
+     "end": 262.64,
+     "word": " man,",
+     "p": 0.956
+    },
+    {
+     "start": 263.06,
+     "end": 264.56,
+     "word": " just",
+     "p": 0.963
+    },
+    {
+     "start": 264.56,
+     "end": 264.72,
+     "word": " when",
+     "p": 0.959
+    },
+    {
+     "start": 264.72,
+     "end": 264.84,
+     "word": " you",
+     "p": 0.994
+    },
+    {
+     "start": 264.84,
+     "end": 265.02,
+     "word": " think",
+     "p": 0.997
+    },
+    {
+     "start": 265.02,
+     "end": 265.18,
+     "word": " it's",
+     "p": 0.995
+    },
+    {
+     "start": 265.18,
+     "end": 265.28,
+     "word": " your",
+     "p": 0.996
+    },
+    {
+     "start": 265.28,
+     "end": 265.5,
+     "word": " dream",
+     "p": 0.981
+    },
+    {
+     "start": 265.5,
+     "end": 265.86,
+     "word": " card,",
+     "p": 0.91
+    },
+    {
+     "start": 265.92,
+     "end": 266.04,
+     "word": " it's",
+     "p": 0.987
+    },
+    {
+     "start": 266.04,
+     "end": 266.14,
+     "word": " your",
+     "p": 0.996
+    },
+    {
+     "start": 266.14,
+     "end": 266.32,
+     "word": " death",
+     "p": 0.985
+    },
+    {
+     "start": 266.32,
+     "end": 266.6,
+     "word": " card,",
+     "p": 0.992
+    },
+    {
+     "start": 266.66,
+     "end": 266.78,
+     "word": " you",
+     "p": 0.967
+    },
+    {
+     "start": 266.78,
+     "end": 266.92,
+     "word": " know,",
+     "p": 0.997
+    },
+    {
+     "start": 267.0,
+     "end": 267.08,
+     "word": " I",
+     "p": 0.989
+    },
+    {
+     "start": 267.08,
+     "end": 267.18,
+     "word": " mean,",
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 267.18,
+   "end": 270.28,
+   "text": "it's such a terrible card for Ian.",
+   "avg_logprob": -0.269,
+   "no_speech_prob": 0.384,
+   "words": [
+    {
+     "start": 267.18,
+     "end": 267.54,
+     "word": " it's",
+     "p": 0.999
+    },
+    {
+     "start": 267.54,
+     "end": 268.06,
+     "word": " such",
+     "p": 0.914
+    },
+    {
+     "start": 268.06,
+     "end": 268.26,
+     "word": " a",
+     "p": 0.999
+    },
+    {
+     "start": 268.26,
+     "end": 268.58,
+     "word": " terrible",
+     "p": 0.998
+    },
+    {
+     "start": 268.58,
+     "end": 269.4,
+     "word": " card",
+     "p": 0.957
+    },
+    {
+     "start": 269.4,
+     "end": 269.98,
+     "word": " for",
+     "p": 0.963
+    },
+    {
+     "start": 269.98,
+     "end": 270.28,
+     "word": " Ian.",
+     "p": 0.568
+    }
+   ]
+  },
+  {
+   "start": 273.12,
+   "end": 275.26,
+   "text": "He's burning through those time extensions.",
+   "avg_logprob": -0.269,
+   "no_speech_prob": 0.384,
+   "words": [
+    {
+     "start": 273.12,
+     "end": 273.56,
+     "word": " He's",
+     "p": 0.916
+    },
+    {
+     "start": 273.56,
+     "end": 273.82,
+     "word": " burning",
+     "p": 0.968
+    },
+    {
+     "start": 273.82,
+     "end": 274.14,
+     "word": " through",
+     "p": 0.997
+    },
+    {
+     "start": 274.14,
+     "end": 274.46,
+     "word": " those",
+     "p": 0.995
+    },
+    {
+     "start": 274.46,
+     "end": 274.72,
+     "word": " time",
+     "p": 0.965
+    },
+    {
+     "start": 274.72,
+     "end": 275.26,
+     "word": " extensions.",
+     "p": 0.991
+    }
+   ]
+  },
+  {
+   "start": 276.14,
+   "end": 278.8,
+   "text": "Like you said, Tyler, he's really considering this.",
+   "avg_logprob": -0.269,
+   "no_speech_prob": 0.384,
+   "words": [
+    {
+     "start": 276.14,
+     "end": 276.28,
+     "word": " Like",
+     "p": 0.909
+    },
+    {
+     "start": 276.28,
+     "end": 276.44,
+     "word": " you",
+     "p": 0.993
+    },
+    {
+     "start": 276.44,
+     "end": 276.66,
+     "word": " said,",
+     "p": 0.994
+    },
+    {
+     "start": 276.82,
+     "end": 276.96,
+     "word": " Tyler,",
+     "p": 0.947
+    },
+    {
+     "start": 277.06,
+     "end": 277.16,
+     "word": " he's",
+     "p": 0.968
+    },
+    {
+     "start": 277.16,
+     "end": 277.46,
+     "word": " really",
+     "p": 0.999
+    },
+    {
+     "start": 277.46,
+     "end": 277.92,
+     "word": " considering",
+     "p": 0.989
+    },
+    {
+     "start": 277.92,
+     "end": 278.8,
+     "word": " this.",
+     "p": 0.729
+    }
+   ]
+  },
+  {
+   "start": 278.8,
+   "end": 279.92,
+   "text": "I can't believe it.",
+   "avg_logprob": -0.269,
+   "no_speech_prob": 0.384,
+   "words": [
+    {
+     "start": 278.8,
+     "end": 279.16,
+     "word": " I",
+     "p": 0.79
+    },
+    {
+     "start": 279.16,
+     "end": 279.5,
+     "word": " can't",
+     "p": 0.998
+    },
+    {
+     "start": 279.5,
+     "end": 279.66,
+     "word": " believe",
+     "p": 0.995
+    },
+    {
+     "start": 279.66,
+     "end": 279.92,
+     "word": " it.",
+     "p": 0.72
+    }
+   ]
+  },
+  {
+   "start": 280.04,
+   "end": 281.28,
+   "text": "It's his second 30 seconds.",
+   "avg_logprob": -0.269,
+   "no_speech_prob": 0.384,
+   "words": [
+    {
+     "start": 280.04,
+     "end": 280.08,
+     "word": " It's",
+     "p": 0.608
+    },
+    {
+     "start": 280.08,
+     "end": 280.3,
+     "word": " his",
+     "p": 0.85
+    },
+    {
+     "start": 280.3,
+     "end": 280.52,
+     "word": " second",
+     "p": 0.993
+    },
+    {
+     "start": 280.52,
+     "end": 280.8,
+     "word": " 30",
+     "p": 0.832
+    },
+    {
+     "start": 280.8,
+     "end": 281.28,
+     "word": " seconds.",
+     "p": 0.997
+    }
+   ]
+  },
+  {
+   "start": 282.44,
+   "end": 284.26,
+   "text": "There's no way he gets away from this, right?",
+   "avg_logprob": -0.269,
+   "no_speech_prob": 0.384,
+   "words": [
+    {
+     "start": 282.44,
+     "end": 282.88,
+     "word": " There's",
+     "p": 0.991
+    },
+    {
+     "start": 282.88,
+     "end": 283.06,
+     "word": " no",
+     "p": 0.998
+    },
+    {
+     "start": 283.06,
+     "end": 283.26,
+     "word": " way",
+     "p": 0.997
+    },
+    {
+     "start": 283.26,
+     "end": 283.38,
+     "word": " he",
+     "p": 0.986
+    },
+    {
+     "start": 283.38,
+     "end": 283.5,
+     "word": " gets",
+     "p": 0.992
+    },
+    {
+     "start": 283.5,
+     "end": 283.7,
+     "word": " away",
+     "p": 0.999
+    },
+    {
+     "start": 283.7,
+     "end": 283.88,
+     "word": " from",
+     "p": 0.973
+    },
+    {
+     "start": 283.88,
+     "end": 284.06,
+     "word": " this,",
+     "p": 0.938
+    },
+    {
+     "start": 284.06,
+     "end": 284.26,
+     "word": " right?",
+     "p": 0.998
+    }
+   ]
+  },
+  {
+   "start": 284.26,
+   "end": 286.24,
+   "text": "He has eight of those time extensions.",
+   "avg_logprob": -0.321,
+   "no_speech_prob": 0.03,
+   "words": [
+    {
+     "start": 284.26,
+     "end": 284.42,
+     "word": " He",
+     "p": 0.629
+    },
+    {
+     "start": 284.42,
+     "end": 284.56,
+     "word": " has",
+     "p": 0.987
+    },
+    {
+     "start": 284.56,
+     "end": 284.92,
+     "word": " eight",
+     "p": 0.915
+    },
+    {
+     "start": 284.92,
+     "end": 285.32,
+     "word": " of",
+     "p": 0.992
+    },
+    {
+     "start": 285.32,
+     "end": 285.58,
+     "word": " those",
+     "p": 0.998
+    },
+    {
+     "start": 285.58,
+     "end": 285.78,
+     "word": " time",
+     "p": 0.981
+    },
+    {
+     "start": 285.78,
+     "end": 286.24,
+     "word": " extensions.",
+     "p": 0.992
+    }
+   ]
+  },
+  {
+   "start": 286.84,
+   "end": 288.42,
+   "text": "Would be pretty amazing.",
+   "avg_logprob": -0.321,
+   "no_speech_prob": 0.03,
+   "words": [
+    {
+     "start": 286.84,
+     "end": 287.36,
+     "word": " Would",
+     "p": 0.883
+    },
+    {
+     "start": 287.36,
+     "end": 287.6,
+     "word": " be",
+     "p": 0.997
+    },
+    {
+     "start": 287.6,
+     "end": 287.92,
+     "word": " pretty",
+     "p": 0.995
+    },
+    {
+     "start": 287.92,
+     "end": 288.42,
+     "word": " amazing.",
+     "p": 0.997
+    }
+   ]
+  },
+  {
+   "start": 288.78,
+   "end": 289.24,
+   "text": "Look at him.",
+   "avg_logprob": -0.321,
+   "no_speech_prob": 0.03,
+   "words": [
+    {
+     "start": 288.78,
+     "end": 288.9,
+     "word": " Look",
+     "p": 0.675
+    },
+    {
+     "start": 288.9,
+     "end": 289.04,
+     "word": " at",
+     "p": 0.981
+    },
+    {
+     "start": 289.04,
+     "end": 289.24,
+     "word": " him.",
+     "p": 0.916
+    }
+   ]
+  },
+  {
+   "start": 289.98,
+   "end": 291.6,
+   "text": "He knows that he's beat somehow.",
+   "avg_logprob": -0.321,
+   "no_speech_prob": 0.03,
+   "words": [
+    {
+     "start": 289.98,
+     "end": 290.16,
+     "word": " He",
+     "p": 0.98
+    },
+    {
+     "start": 290.16,
+     "end": 290.42,
+     "word": " knows",
+     "p": 0.996
+    },
+    {
+     "start": 290.42,
+     "end": 290.8,
+     "word": " that",
+     "p": 0.425
+    },
+    {
+     "start": 290.8,
+     "end": 290.96,
+     "word": " he's",
+     "p": 0.667
+    },
+    {
+     "start": 290.96,
+     "end": 291.12,
+     "word": " beat",
+     "p": 0.782
+    },
+    {
+     "start": 291.12,
+     "end": 291.6,
+     "word": " somehow.",
+     "p": 0.936
+    }
+   ]
+  },
+  {
+   "start": 292.08,
+   "end": 292.86,
+   "text": "That's unbelievable.",
+   "avg_logprob": -0.321,
+   "no_speech_prob": 0.03,
+   "words": [
+    {
+     "start": 292.08,
+     "end": 292.3,
+     "word": " That's",
+     "p": 0.961
+    },
+    {
+     "start": 292.3,
+     "end": 292.86,
+     "word": " unbelievable.",
+     "p": 0.996
+    }
+   ]
+  },
+  {
+   "start": 296.82,
+   "end": 298.68,
+   "text": "How can he think he's beat here?",
+   "avg_logprob": -0.321,
+   "no_speech_prob": 0.03,
+   "words": [
+    {
+     "start": 296.82,
+     "end": 297.38,
+     "word": " How",
+     "p": 0.79
+    },
+    {
+     "start": 297.38,
+     "end": 297.94,
+     "word": " can",
+     "p": 0.779
+    },
+    {
+     "start": 297.94,
+     "end": 298.06,
+     "word": " he",
+     "p": 0.865
+    },
+    {
+     "start": 298.06,
+     "end": 298.18,
+     "word": " think",
+     "p": 0.981
+    },
+    {
+     "start": 298.18,
+     "end": 298.34,
+     "word": " he's",
+     "p": 0.979
+    },
+    {
+     "start": 298.34,
+     "end": 298.5,
+     "word": " beat",
+     "p": 0.956
+    },
+    {
+     "start": 298.5,
+     "end": 298.68,
+     "word": " here?",
+     "p": 0.91
+    }
+   ]
+  },
+  {
+   "start": 298.96,
+   "end": 299.66,
+   "text": "I don't know.",
+   "avg_logprob": -0.321,
+   "no_speech_prob": 0.03,
+   "words": [
+    {
+     "start": 298.96,
+     "end": 298.96,
+     "word": " I",
+     "p": 0.991
+    },
+    {
+     "start": 298.96,
+     "end": 299.46,
+     "word": " don't",
+     "p": 0.995
+    },
+    {
+     "start": 299.46,
+     "end": 299.66,
+     "word": " know.",
+     "p": 0.998
+    }
+   ]
+  },
+  {
+   "start": 300.08,
+   "end": 301.14,
+   "text": "I'm shocked.",
+   "avg_logprob": -0.321,
+   "no_speech_prob": 0.03,
+   "words": [
+    {
+     "start": 300.08,
+     "end": 300.64,
+     "word": " I'm",
+     "p": 0.758
+    },
+    {
+     "start": 300.64,
+     "end": 301.14,
+     "word": " shocked.",
+     "p": 0.866
+    }
+   ]
+  },
+  {
+   "start": 311.66,
+   "end": 318.14,
+   "text": "So third 30 seconds and he's stacking up those time chips.",
+   "avg_logprob": -0.644,
+   "no_speech_prob": 0.102,
+   "words": [
+    {
+     "start": 311.66,
+     "end": 312.7,
+     "word": " So",
+     "p": 0.221
+    },
+    {
+     "start": 312.7,
+     "end": 313.22,
+     "word": " third",
+     "p": 0.573
+    },
+    {
+     "start": 313.22,
+     "end": 313.92,
+     "word": " 30",
+     "p": 0.599
+    },
+    {
+     "start": 313.92,
+     "end": 314.44,
+     "word": " seconds",
+     "p": 0.997
+    },
+    {
+     "start": 314.44,
+     "end": 316.24,
+     "word": " and",
+     "p": 0.119
+    },
+    {
+     "start": 316.24,
+     "end": 316.42,
+     "word": " he's",
+     "p": 0.883
+    },
+    {
+     "start": 316.42,
+     "end": 316.74,
+     "word": " stacking",
+     "p": 0.995
+    },
+    {
+     "start": 316.74,
+     "end": 316.96,
+     "word": " up",
+     "p": 0.999
+    },
+    {
+     "start": 316.96,
+     "end": 317.18,
+     "word": " those",
+     "p": 0.997
+    },
+    {
+     "start": 317.18,
+     "end": 317.42,
+     "word": " time",
+     "p": 0.856
+    },
+    {
+     "start": 317.42,
+     "end": 318.14,
+     "word": " chips.",
+     "p": 0.978
+    }
+   ]
+  },
+  {
+   "start": 328.14,
+   "end": 334.06,
+   "text": "This is unreal that he's considering getting away from this.",
+   "avg_logprob": -0.388,
+   "no_speech_prob": 0.121,
+   "words": [
+    {
+     "start": 328.14,
+     "end": 328.58,
+     "word": " This",
+     "p": 0.736
+    },
+    {
+     "start": 328.58,
+     "end": 329.02,
+     "word": " is",
+     "p": 0.99
+    },
+    {
+     "start": 329.02,
+     "end": 331.3,
+     "word": " unreal",
+     "p": 0.754
+    },
+    {
+     "start": 331.3,
+     "end": 331.6,
+     "word": " that",
+     "p": 0.876
+    },
+    {
+     "start": 331.6,
+     "end": 331.74,
+     "word": " he's",
+     "p": 0.955
+    },
+    {
+     "start": 331.74,
+     "end": 332.06,
+     "word": " considering",
+     "p": 0.987
+    },
+    {
+     "start": 332.06,
+     "end": 332.28,
+     "word": " getting",
+     "p": 0.995
+    },
+    {
+     "start": 332.28,
+     "end": 332.56,
+     "word": " away",
+     "p": 0.999
+    },
+    {
+     "start": 332.56,
+     "end": 332.76,
+     "word": " from",
+     "p": 0.995
+    },
+    {
+     "start": 332.76,
+     "end": 334.06,
+     "word": " this.",
+     "p": 0.887
+    }
+   ]
+  },
+  {
+   "start": 337.56,
+   "end": 340.06,
+   "text": "And yeah, the time's wearing on him.",
+   "avg_logprob": -0.388,
+   "no_speech_prob": 0.121,
+   "words": [
+    {
+     "start": 337.56,
+     "end": 338.0,
+     "word": " And",
+     "p": 0.356
+    },
+    {
+     "start": 338.0,
+     "end": 338.44,
+     "word": " yeah,",
+     "p": 0.495
+    },
+    {
+     "start": 338.52,
+     "end": 338.6,
+     "word": " the",
+     "p": 0.964
+    },
+    {
+     "start": 338.6,
+     "end": 338.96,
+     "word": " time's",
+     "p": 0.786
+    },
+    {
+     "start": 338.96,
+     "end": 339.18,
+     "word": " wearing",
+     "p": 0.475
+    },
+    {
+     "start": 339.18,
+     "end": 339.46,
+     "word": " on",
+     "p": 0.996
+    },
+    {
+     "start": 339.46,
+     "end": 340.06,
+     "word": " him.",
+     "p": 0.868
+    }
+   ]
+  },
+  {
+   "start": 341.08,
+   "end": 346.22,
+   "text": "Maybe without the time, maybe he would get away with the time extension and he's just",
+   "avg_logprob": -0.388,
+   "no_speech_prob": 0.121,
+   "words": [
+    {
+     "start": 341.08,
+     "end": 341.28,
+     "word": " Maybe",
+     "p": 0.974
+    },
+    {
+     "start": 341.28,
+     "end": 341.58,
+     "word": " without",
+     "p": 0.917
+    },
+    {
+     "start": 341.58,
+     "end": 341.78,
+     "word": " the",
+     "p": 0.995
+    },
+    {
+     "start": 341.78,
+     "end": 341.98,
+     "word": " time,",
+     "p": 0.887
+    },
+    {
+     "start": 342.12,
+     "end": 342.36,
+     "word": " maybe",
+     "p": 0.685
+    },
+    {
+     "start": 342.36,
+     "end": 342.54,
+     "word": " he",
+     "p": 0.28
+    },
+    {
+     "start": 342.54,
+     "end": 342.74,
+     "word": " would",
+     "p": 0.887
+    },
+    {
+     "start": 342.74,
+     "end": 342.94,
+     "word": " get",
+     "p": 0.568
+    },
+    {
+     "start": 342.94,
+     "end": 343.1,
+     "word": " away",
+     "p": 0.638
+    },
+    {
+     "start": 343.1,
+     "end": 344.16,
+     "word": " with",
+     "p": 0.547
+    },
+    {
+     "start": 344.16,
+     "end": 344.32,
+     "word": " the",
+     "p": 0.175
+    },
+    {
+     "start": 344.32,
+     "end": 344.48,
+     "word": " time",
+     "p": 0.863
+    },
+    {
+     "start": 344.48,
+     "end": 345.0,
+     "word": " extension",
+     "p": 0.997
+    },
+    {
+     "start": 345.0,
+     "end": 345.9,
+     "word": " and",
+     "p": 0.211
+    },
+    {
+     "start": 345.9,
+     "end": 346.06,
+     "word": " he's",
+     "p": 0.994
+    },
+    {
+     "start": 346.06,
+     "end": 346.22,
+     "word": " just",
+     "p": 0.999
+    }
+   ]
+  },
+  {
+   "start": 346.22,
+   "end": 348.22,
+   "text": "Stacking them up",
+   "avg_logprob": -0.717,
+   "no_speech_prob": 0.095,
+   "words": [
+    {
+     "start": 346.22,
+     "end": 346.58,
+     "word": " Stacking",
+     "p": 0.558
+    },
+    {
+     "start": 346.58,
+     "end": 346.72,
+     "word": " them",
+     "p": 0.5
+    },
+    {
+     "start": 346.72,
+     "end": 348.22,
+     "word": " up",
+     "p": 0.997
+    }
+   ]
+  },
+  {
+   "start": 369.3,
+   "end": 370.7,
+   "text": "Goodness",
+   "avg_logprob": -0.717,
+   "no_speech_prob": 0.095,
+   "words": [
+    {
+     "start": 369.3,
+     "end": 370.7,
+     "word": " Goodness",
+     "p": 0.5
+    }
+   ]
+  },
+  {
+   "start": 380.16,
+   "end": 384.52,
+   "text": "five this is unreal",
+   "avg_logprob": -0.617,
+   "no_speech_prob": 0.415,
+   "words": [
+    {
+     "start": 380.16,
+     "end": 381.56,
+     "word": " five",
+     "p": 0.32
+    },
+    {
+     "start": 381.56,
+     "end": 382.96,
+     "word": " this",
+     "p": 0.304
+    },
+    {
+     "start": 382.96,
+     "end": 383.78,
+     "word": " is",
+     "p": 0.978
+    },
+    {
+     "start": 383.78,
+     "end": 384.52,
+     "word": " unreal",
+     "p": 0.991
+    }
+   ]
+  },
+  {
+   "start": 409.64,
+   "end": 418.96,
+   "text": "another one. Six time extensions. So I know how long he's waited on this one. Three minutes.",
+   "avg_logprob": -0.406,
+   "no_speech_prob": 0.339,
+   "words": [
+    {
+     "start": 409.64,
+     "end": 410.12,
+     "word": " another",
+     "p": 0.019
+    },
+    {
+     "start": 410.12,
+     "end": 410.54,
+     "word": " one.",
+     "p": 0.689
+    },
+    {
+     "start": 412.34,
+     "end": 412.82,
+     "word": " Six",
+     "p": 0.63
+    },
+    {
+     "start": 412.82,
+     "end": 414.74,
+     "word": " time",
+     "p": 0.638
+    },
+    {
+     "start": 414.74,
+     "end": 415.34,
+     "word": " extensions.",
+     "p": 0.948
+    },
+    {
+     "start": 416.36,
+     "end": 416.84,
+     "word": " So",
+     "p": 0.734
+    },
+    {
+     "start": 416.84,
+     "end": 416.9,
+     "word": " I",
+     "p": 0.355
+    },
+    {
+     "start": 416.9,
+     "end": 417.04,
+     "word": " know",
+     "p": 0.997
+    },
+    {
+     "start": 417.04,
+     "end": 417.22,
+     "word": " how",
+     "p": 0.994
+    },
+    {
+     "start": 417.22,
+     "end": 417.38,
+     "word": " long",
+     "p": 0.998
+    },
+    {
+     "start": 417.38,
+     "end": 417.54,
+     "word": " he's",
+     "p": 0.997
+    },
+    {
+     "start": 417.54,
+     "end": 417.76,
+     "word": " waited",
+     "p": 0.998
+    },
+    {
+     "start": 417.76,
+     "end": 418.02,
+     "word": " on",
+     "p": 0.997
+    },
+    {
+     "start": 418.02,
+     "end": 418.16,
+     "word": " this",
+     "p": 0.992
+    },
+    {
+     "start": 418.16,
+     "end": 418.34,
+     "word": " one.",
+     "p": 0.98
+    },
+    {
+     "start": 418.48,
+     "end": 418.58,
+     "word": " Three",
+     "p": 0.805
+    },
+    {
+     "start": 418.58,
+     "end": 418.96,
+     "word": " minutes.",
+     "p": 0.989
+    }
+   ]
+  },
+  {
+   "start": 419.48,
+   "end": 426.72,
+   "text": "Not going to be in a spot this hard again. Why is he beating himself? He folded. What",
+   "avg_logprob": -0.406,
+   "no_speech_prob": 0.339,
+   "words": [
+    {
+     "start": 419.48,
+     "end": 419.56,
+     "word": " Not",
+     "p": 0.816
+    },
+    {
+     "start": 419.56,
+     "end": 419.74,
+     "word": " going",
+     "p": 0.865
+    },
+    {
+     "start": 419.74,
+     "end": 419.84,
+     "word": " to",
+     "p": 0.998
+    },
+    {
+     "start": 419.84,
+     "end": 420.0,
+     "word": " be",
+     "p": 0.998
+    },
+    {
+     "start": 420.0,
+     "end": 420.14,
+     "word": " in",
+     "p": 0.962
+    },
+    {
+     "start": 420.14,
+     "end": 420.24,
+     "word": " a",
+     "p": 0.561
+    },
+    {
+     "start": 420.24,
+     "end": 420.62,
+     "word": " spot",
+     "p": 0.994
+    },
+    {
+     "start": 420.62,
+     "end": 420.86,
+     "word": " this",
+     "p": 0.973
+    },
+    {
+     "start": 420.86,
+     "end": 421.1,
+     "word": " hard",
+     "p": 0.985
+    },
+    {
+     "start": 421.1,
+     "end": 421.42,
+     "word": " again.",
+     "p": 0.978
+    },
+    {
+     "start": 422.72,
+     "end": 422.92,
+     "word": " Why",
+     "p": 0.475
+    },
+    {
+     "start": 422.92,
+     "end": 424.06,
+     "word": " is",
+     "p": 0.944
+    },
+    {
+     "start": 424.06,
+     "end": 424.16,
+     "word": " he",
+     "p": 0.991
+    },
+    {
+     "start": 424.16,
+     "end": 424.3,
+     "word": " beating",
+     "p": 0.995
+    },
+    {
+     "start": 424.3,
+     "end": 424.6,
+     "word": " himself?",
+     "p": 0.994
+    },
+    {
+     "start": 424.92,
+     "end": 424.92,
+     "word": " He",
+     "p": 0.629
+    },
+    {
+     "start": 424.92,
+     "end": 425.24,
+     "word": " folded.",
+     "p": 0.736
+    },
+    {
+     "start": 426.46,
+     "end": 426.72,
+     "word": " What",
+     "p": 0.314
+    }
+   ]
+  },
+  {
+   "start": 426.72,
+   "end": 427.88,
+   "text": "What is that?",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 426.72,
+     "end": 427.18,
+     "word": " What",
+     "p": 0.288
+    },
+    {
+     "start": 427.18,
+     "end": 427.36,
+     "word": " is",
+     "p": 0.84
+    },
+    {
+     "start": 427.36,
+     "end": 427.88,
+     "word": " that?",
+     "p": 0.88
+    }
+   ]
+  },
+  {
+   "start": 427.9,
+   "end": 429.48,
+   "text": "That is unbelievable.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 427.9,
+     "end": 428.16,
+     "word": " That",
+     "p": 0.64
+    },
+    {
+     "start": 428.16,
+     "end": 428.52,
+     "word": " is",
+     "p": 0.966
+    },
+    {
+     "start": 428.52,
+     "end": 429.48,
+     "word": " unbelievable.",
+     "p": 0.921
+    }
+   ]
+  },
+  {
+   "start": 431.74,
+   "end": 433.5,
+   "text": "That is so awesome.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 431.74,
+     "end": 432.22,
+     "word": " That",
+     "p": 0.389
+    },
+    {
+     "start": 432.22,
+     "end": 432.7,
+     "word": " is",
+     "p": 0.978
+    },
+    {
+     "start": 432.7,
+     "end": 432.76,
+     "word": " so",
+     "p": 0.89
+    },
+    {
+     "start": 432.76,
+     "end": 433.5,
+     "word": " awesome.",
+     "p": 0.981
+    }
+   ]
+  },
+  {
+   "start": 434.82,
+   "end": 434.9,
+   "text": "Wow.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 434.82,
+     "end": 434.9,
+     "word": " Wow.",
+     "p": 0.591
+    }
+   ]
+  },
+  {
+   "start": 435.4,
+   "end": 436.12,
+   "text": "Joe's sick.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 435.4,
+     "end": 435.76,
+     "word": " Joe's",
+     "p": 0.815
+    },
+    {
+     "start": 435.76,
+     "end": 436.12,
+     "word": " sick.",
+     "p": 0.995
+    }
+   ]
+  },
+  {
+   "start": 436.64,
+   "end": 436.86,
+   "text": "Wow.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 436.64,
+     "end": 436.86,
+     "word": " Wow.",
+     "p": 0.928
+    }
+   ]
+  },
+  {
+   "start": 437.7,
+   "end": 438.52,
+   "text": "Joe is sick in this spot.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 437.7,
+     "end": 437.7,
+     "word": " Joe",
+     "p": 0.968
+    },
+    {
+     "start": 437.7,
+     "end": 437.96,
+     "word": " is",
+     "p": 0.748
+    },
+    {
+     "start": 437.96,
+     "end": 438.18,
+     "word": " sick",
+     "p": 0.998
+    },
+    {
+     "start": 438.18,
+     "end": 438.38,
+     "word": " in",
+     "p": 0.657
+    },
+    {
+     "start": 438.38,
+     "end": 438.52,
+     "word": " this",
+     "p": 0.873
+    },
+    {
+     "start": 438.52,
+     "end": 438.52,
+     "word": " spot.",
+     "p": 0.947
+    }
+   ]
+  },
+  {
+   "start": 438.76,
+   "end": 439.98,
+   "text": "Wait till he sees what he has.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 438.76,
+     "end": 438.76,
+     "word": " Wait",
+     "p": 0.932
+    },
+    {
+     "start": 438.76,
+     "end": 438.9,
+     "word": " till",
+     "p": 0.499
+    },
+    {
+     "start": 438.9,
+     "end": 439.06,
+     "word": " he",
+     "p": 0.983
+    },
+    {
+     "start": 439.06,
+     "end": 439.26,
+     "word": " sees",
+     "p": 0.982
+    },
+    {
+     "start": 439.26,
+     "end": 439.48,
+     "word": " what",
+     "p": 0.994
+    },
+    {
+     "start": 439.48,
+     "end": 439.6,
+     "word": " he",
+     "p": 0.995
+    },
+    {
+     "start": 439.6,
+     "end": 439.98,
+     "word": " has.",
+     "p": 0.956
+    }
+   ]
+  },
+  {
+   "start": 440.6,
+   "end": 442.72,
+   "text": "Yeah, Joe's hand was perfectly camouflaged.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 440.6,
+     "end": 440.86,
+     "word": " Yeah,",
+     "p": 0.868
+    },
+    {
+     "start": 441.2,
+     "end": 441.54,
+     "word": " Joe's",
+     "p": 0.971
+    },
+    {
+     "start": 441.54,
+     "end": 441.84,
+     "word": " hand",
+     "p": 0.992
+    },
+    {
+     "start": 441.84,
+     "end": 442.08,
+     "word": " was",
+     "p": 0.995
+    },
+    {
+     "start": 442.08,
+     "end": 442.6,
+     "word": " perfectly",
+     "p": 0.981
+    },
+    {
+     "start": 442.6,
+     "end": 442.84,
+     "word": " camouflaged.",
+     "p": 0.988
+    }
+   ]
+  },
+  {
+   "start": 443.68,
+   "end": 444.82,
+   "text": "How did he figure that out?",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 443.68,
+     "end": 443.8,
+     "word": " How",
+     "p": 0.993
+    },
+    {
+     "start": 443.8,
+     "end": 443.98,
+     "word": " did",
+     "p": 0.947
+    },
+    {
+     "start": 443.98,
+     "end": 444.14,
+     "word": " he",
+     "p": 0.99
+    },
+    {
+     "start": 444.14,
+     "end": 444.4,
+     "word": " figure",
+     "p": 0.995
+    },
+    {
+     "start": 444.4,
+     "end": 444.62,
+     "word": " that",
+     "p": 0.994
+    },
+    {
+     "start": 444.62,
+     "end": 444.82,
+     "word": " out?",
+     "p": 0.995
+    }
+   ]
+  },
+  {
+   "start": 445.02,
+   "end": 446.22,
+   "text": "Tyler, take us through that.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 445.02,
+     "end": 445.18,
+     "word": " Tyler,",
+     "p": 0.977
+    },
+    {
+     "start": 445.3,
+     "end": 445.5,
+     "word": " take",
+     "p": 0.841
+    },
+    {
+     "start": 445.5,
+     "end": 445.7,
+     "word": " us",
+     "p": 0.976
+    },
+    {
+     "start": 445.7,
+     "end": 446.02,
+     "word": " through",
+     "p": 0.997
+    },
+    {
+     "start": 446.02,
+     "end": 446.22,
+     "word": " that.",
+     "p": 0.914
+    }
+   ]
+  },
+  {
+   "start": 446.34,
+   "end": 446.74,
+   "text": "I can't.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 446.34,
+     "end": 446.34,
+     "word": " I",
+     "p": 0.991
+    },
+    {
+     "start": 446.34,
+     "end": 446.74,
+     "word": " can't.",
+     "p": 0.998
+    }
+   ]
+  },
+  {
+   "start": 446.88,
+   "end": 447.32,
+   "text": "I can't.",
+   "avg_logprob": -0.235,
+   "no_speech_prob": 0.165,
+   "words": [
+    {
+     "start": 446.88,
+     "end": 447.04,
+     "word": " I",
+     "p": 0.993
+    },
+    {
+     "start": 447.04,
+     "end": 447.32,
+     "word": " can't.",
+     "p": 0.999
+    }
+   ]
+  }
+ ]
+}

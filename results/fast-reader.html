@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poker Memory: reading a hand in about 1 second</title>
+<style>:root { --bg:#0f1412; --card:#18211d; --line:#2b3832; --text:#e8efe9; --mut:#93a39a; --green:#4cc38a; --blue:#6aa7f0; --amber:#f2b84b; --red:#f06a6a; --purple:#c58af0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.45 system-ui, "Segoe UI", sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 18px; }
+h1 { font-size: 1.45rem; margin: 4px 0 2px; }
+h2 { font-size: 1.1rem; margin: 30px 0 8px; }
+.muted { color: var(--mut); }
+.small { font-size: 13px; }
+a { color: var(--blue); overflow-wrap: anywhere; }
+code { background: #0b0f0d; border-radius: 4px; padding: 0 4px; }
+.note { margin-top: 12px; padding: 12px; border-left: 3px solid var(--green); background: var(--card); border-radius: 0 8px 8px 0; }
+.note.warn { border-left-color: var(--amber); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 10px; margin-top: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.card > b { display: block; margin-bottom: 3px; color: var(--mut); font-weight: 600; font-size: 12px; }
+.big { font-size: 1.55rem; font-weight: 700; line-height: 1.15; }
+.green { color: var(--green); } .blue { color: var(--blue); } .amber { color: var(--amber); } .red { color: var(--red); }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; border-radius: 999px; padding: 0 7px; margin-left: 6px; border: 1px solid currentColor; vertical-align: 3px; }
+.hero { margin: 14px 0 0; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.shot { position: relative; }
+.shot img { display: block; width: 100%; height: auto; }
+.shot svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero figcaption { padding: 10px 12px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 4px 0 6px; }
+.legend i { display: inline-block; width: 14px; height: 14px; border: 3px solid; border-radius: 3px; margin-right: 6px; vertical-align: -2px; }
+.chart { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 6px; overflow-x: auto; }
+.chart svg { display: block; width: 100%; min-width: 720px; height: auto; }
+.chart text { font-family: system-ui, "Segoe UI", sans-serif; }
+.checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 6px 14px; margin-top: 10px; }
+.checks div { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; }
+.checks .ok { color: var(--green); font-weight: 700; margin-right: 6px; }
+.cd { display: inline-block; min-width: 26px; text-align: center; background: #f4f1ea; color: #14181a; border-radius: 4px; padding: 0 4px; font-weight: 700; }
+.cd.h { color: #c0322d; } .cd.d { color: #1f5fc0; } .cd.c { color: #1d8a3a; }
+ol.watch { margin: 8px 0 0; padding-left: 22px; }
+ol.watch li { margin: 5px 0; }
+.foot { margin-top: 26px; font-size: 13px; }
+.foot div { margin: 3px 0; }
+</style>
+</head>
+<body><main>
+<h1>Reading a real poker hand from video in about 1 second</h1>
+<div class="muted">World Poker Tour final-table clip (CC BY 3.0), 7.5 minutes · 100 tests pass · commits
+<a href="https://github.com/BenNotBen1224/poker-memory/commit/9079e0f04928d704a7657ab47e1a1209e3084e61">9079e0f</a>,
+<a href="https://github.com/BenNotBen1224/poker-memory/commit/400836e1c130b701de1331ead5b004b57ef1014e">400836e</a> and
+<a href="https://github.com/BenNotBen1224/poker-memory/commit/97ddb5cf13ea5dabd44c6d47b226bd7a87cc4dce">97ddb5c</a></div>
+
+<div class="note"><code>poker-memory read VIDEO</code> turns the clip into the whole hand: players, seats, button, blinds, each
+player's cards, the board, and every action with its amount and time. It reads the TV graphics instead of watching
+every picture. My frame-by-frame reading by eye is now only the answer key.</div>
+
+<div class="grid">
+<div class="card"><b>Time, reader already running</b><div class="big amber">0.99–1.0 s<span class="tag">goal &lt; 1 s: on the line</span></div>
+Medians of 0.994 s and 1.003 s in 2 runs. Single reads 0.99 to 1.12 s.</div>
+<div class="card"><b>Time, fresh start</b><div class="big red">2.3 s<span class="tag">✗</span></div>
+Starting Python and loading the libraries alone takes 1.0 s.</div>
+<div class="card"><b>Cost per hand</b><div class="big green">$0.0004<span class="tag">goal &lt; $0.10 ✓</span></div>
+Only if hands are read back to back. A Windows machine left waiting between clips costs $0.18 a hand.</div>
+<div class="card"><b>Correct</b><div class="big green">26 of 27</div>
+Every card, owner, seat and amount. One fold is timed 3.1 s late.</div>
+</div>
+
+<h2>What the reader looks at</h2>
+<figure class="hero">
+<div class="shot">
+<img src="real-frames/hero.jpg" alt="Frame at 07:04 with boxes over the TV graphics: two player panels, each with cards, a name and an action line, and the board strip below">
+<svg viewBox="0 0 1280 720" aria-hidden="true">
+<g fill="none" stroke-width="4">
+<rect x="163" y="412" width="81" height="64" rx="4" stroke="#4cc38a"/>
+<rect x="128" y="508" width="81" height="64" rx="4" stroke="#4cc38a"/>
+<rect x="245" y="421" width="114" height="28" rx="3" stroke="#6aa7f0"/>
+<rect x="210" y="517" width="114" height="28" rx="3" stroke="#6aa7f0"/>
+<rect x="249" y="451" width="152" height="27" rx="3" stroke="#f2b84b"/>
+<rect x="214" y="547" width="152" height="27" rx="3" stroke="#f2b84b"/>
+<rect x="185" y="612" width="192" height="69" rx="4" stroke="#c58af0"/>
+</g>
+<g stroke="#ffffff" stroke-width="3">
+<line x1="132" y1="400" x2="132" y2="506" stroke-dasharray="7 6"/>
+<line x1="132" y1="400" x2="158" y2="400"/>
+</g>
+<path d="M156 392 L168 400 L156 408 Z" fill="#ffffff"/>
+<rect x="8" y="356" width="232" height="34" rx="6" fill="rgba(0,0,0,.75)"/>
+<text x="18" y="380" fill="#ffffff" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="700">slid right = to act</text>
+</svg>
+</div>
+<figcaption>
+<div class="legend">
+<span><i style="border-color:#4cc38a"></i>Cards</span>
+<span><i style="border-color:#6aa7f0"></i>Player name</span>
+<span><i style="border-color:#f2b84b"></i>Action and amount</span>
+<span><i style="border-color:#c58af0"></i>Board</span>
+</div>
+<div>Each card sits in the same panel as its owner's name, so no detector has to guess whose cards they are. The
+suit comes from the card's colour (this deck has four colours), and a 1.9 MB text model reads the rank.
+Before the flop, panels appear in the order players act, which gives the button and the blinds.</div>
+<div class="muted small" style="margin-top:6px">Why no card-detection model: none of the ready-made ones I found was
+trained on TV graphics or four-colour decks, and the common ones carry the AGPL licence. Boxes drawn from the
+reader's own coordinates.</div>
+</figcaption>
+</figure>
+
+<h2>How it skips 95% of the video</h2>
+<div class="chart">
+<svg viewBox="0 0 900 214" role="img" aria-label="Funnel: 10,729 pictures in the clip, about 2,900 decoded, 542 looked at, 82 text reads">
+<g font-size="14" fill="#e8efe9">
+<text x="10" y="40">Pictures in the clip</text>
+<text x="10" y="90">Decoded</text>
+<text x="10" y="140">Looked at</text>
+<text x="10" y="190">Read as text</text>
+</g>
+<rect x="210" y="20" width="600" height="30" rx="4" fill="#3a4a42"/>
+<rect x="210" y="70" width="163" height="30" rx="4" fill="#6aa7f0"/>
+<rect x="210" y="120" width="30" height="30" rx="4" fill="#4cc38a"/>
+<rect x="210" y="170" width="5" height="30" rx="2" fill="#f2b84b"/>
+<g font-size="14" fill="#e8efe9">
+<text x="222" y="40" font-weight="700">10,729</text>
+<text x="383" y="90"><tspan font-weight="700">about 2,900</tspan><tspan fill="#93a39a">  97 keyframes, the stretches that changed, the last 4 s</tspan></text>
+<text x="250" y="140"><tspan font-weight="700">542</tspan><tspan fill="#93a39a">  every 6th picture in a stretch, stopping once the graphics settle</tspan></text>
+<text x="225" y="190"><tspan font-weight="700">82</tspan><tspan fill="#93a39a">  each different name, action or card rank is read once</tspan></text>
+</g>
+</svg>
+</div>
+
+<h2>Where the time goes</h2>
+<div class="chart">
+<svg viewBox="0 0 900 200" role="img" aria-label="Decoding every picture 6.6 s; fresh start 2.29 s; reader already running 0.99 to 1.00 s; goal 1 s">
+<g font-size="14" fill="#e8efe9">
+<text x="10" y="49">Decode every picture</text>
+<text x="10" y="99">Fresh start</text>
+<text x="10" y="149">Already running</text>
+</g>
+<rect x="200" y="30" width="561" height="28" rx="4" fill="#7a3d3d"/>
+<text x="300" y="49" font-size="13" fill="#ffffff">6.6 s, before reading anything</text>
+<rect x="200" y="80" width="17" height="28" fill="#93a39a"/>
+<rect x="217" y="80" width="70.6" height="28" fill="#6aa7f0"/>
+<rect x="287.6" y="80" width="107.1" height="28" fill="#4cc38a"/>
+<text x="405" y="99" font-size="13" fill="#e8efe9"><tspan font-weight="700">2.29 s</tspan><tspan fill="#93a39a">  start Python 0.20 · load libraries 0.83 · read 1.26</tspan></text>
+<rect x="200" y="130" width="84.5" height="28" rx="2" fill="#f2b84b"/>
+<line x1="284.5" y1="144" x2="285.3" y2="144" stroke="#e8efe9" stroke-width="2"/>
+<text x="400" y="149" font-size="13" fill="#e8efe9"><tspan font-weight="700">0.994 to 1.003 s</tspan><tspan fill="#93a39a">  medians of 7, 2 runs · single reads 0.985 to 1.115 s</tspan></text>
+<line x1="285" y1="18" x2="285" y2="170" stroke="#f2b84b" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="290" y="16" font-size="13" fill="#f2b84b" font-weight="700">goal 1 s</text>
+<g font-size="11" fill="#93a39a" text-anchor="middle">
+<line x1="200" y1="172" x2="795" y2="172" stroke="#2b3832"/>
+<text x="200" y="188">0</text><text x="285" y="188">1 s</text><text x="370" y="188">2 s</text><text x="455" y="188">3 s</text>
+<text x="540" y="188">4 s</text><text x="625" y="188">5 s</text><text x="710" y="188">6 s</text><text x="795" y="188">7 s</text>
+</g>
+</svg>
+</div>
+<div class="chart" style="margin-top:10px">
+<svg viewBox="0 0 900 120" role="img" aria-label="One warm read: decoding video and reading graphics 0.85 s, numbering the text 0.09 s, text model 0.02 s, building the hand 0.03 s">
+<text x="10" y="18" font-size="13" fill="#93a39a">One read with the reader already running, step by step (medians, 2 runs averaged)</text>
+<rect x="60" y="32" width="597.8" height="36" fill="#6aa7f0"/>
+<rect x="657.8" y="32" width="60.6" height="36" fill="#c58af0"/>
+<rect x="718.4" y="32" width="16.5" height="36" fill="#f2b84b"/>
+<rect x="734.9" y="32" width="18.2" height="36" fill="#4cc38a"/>
+<text x="72" y="55" font-size="14" fill="#0f1412" font-weight="700">decode the video and read the graphics: 0.85 s (86%)</text>
+<line x1="760" y1="24" x2="760" y2="80" stroke="#f2b84b" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="766" y="30" font-size="13" fill="#f2b84b" font-weight="700">1 s</text>
+<g font-size="13" fill="#e8efe9">
+<rect x="60" y="94" width="12" height="12" fill="#c58af0"/><text x="78" y="105">number the text 0.09 s</text>
+<rect x="250" y="94" width="12" height="12" fill="#f2b84b"/><text x="268" y="105">text model 0.02 s</text>
+<rect x="410" y="94" width="12" height="12" fill="#4cc38a"/><text x="428" y="105">build the hand 0.03 s</text>
+</g>
+</svg>
+</div>
+
+<h2>Checked against the hand read by eye</h2>
+<div class="muted small">Each dot is one event. Up means the reader timed it later than I did by eye. Within 3 s counts as right.</div>
+<div class="chart" style="margin-top:6px">
+<svg viewBox="0 0 900 262" role="img" aria-label="Timing offsets for 17 events: 16 within 3 seconds, the last fold 3.1 seconds late">
+<rect x="70" y="30" width="800" height="18.9" fill="rgba(240,106,106,.14)"/>
+<rect x="70" y="48.9" width="800" height="151.1" fill="rgba(76,195,138,.07)"/>
+<g stroke="#2b3832" stroke-dasharray="4 5">
+<line x1="70" y1="48.9" x2="870" y2="48.9"/><line x1="70" y1="86.7" x2="870" y2="86.7"/>
+<line x1="70" y1="124.4" x2="870" y2="124.4"/><line x1="70" y1="200" x2="870" y2="200"/>
+</g>
+<line x1="70" y1="162.2" x2="870" y2="162.2" stroke="#93a39a" stroke-opacity=".5"/>
+<g font-size="11" fill="#93a39a" text-anchor="end">
+<text x="62" y="52.9">+3 s</text><text x="62" y="90.7">+2 s</text><text x="62" y="128.4">+1 s</text>
+<text x="62" y="166.2">0</text><text x="62" y="204">−1 s</text>
+</g>
+<g fill="#4cc38a">
+<circle cx="94" cy="113.1" r="6"/><circle cx="140" cy="147.1" r="6"/><circle cx="186" cy="147.1" r="6"/>
+<circle cx="232" cy="169.8" r="6"/><circle cx="278" cy="147.1" r="6"/><circle cx="324" cy="120.7" r="6"/>
+<circle cx="370" cy="86.7" r="6"/><circle cx="416" cy="177.3" r="6"/><circle cx="462" cy="128.2" r="6"/>
+<circle cx="508" cy="181.1" r="6"/><circle cx="554" cy="64" r="6"/><circle cx="600" cy="147.1" r="6"/>
+<circle cx="646" cy="79.1" r="6"/><circle cx="692" cy="82.9" r="6"/><circle cx="738" cy="184.9" r="6"/>
+<circle cx="784" cy="139.6" r="6"/>
+</g>
+<circle cx="830" cy="45.1" r="7" fill="#f06a6a"/>
+<text x="816" y="24" font-size="12" fill="#f06a6a" text-anchor="end">Ian's fold, 3.1 s late: the TV graphics clear his panel late</text>
+<g font-size="11" fill="#e8efe9" text-anchor="middle">
+<text x="94" y="222">deal</text><text x="140" y="222">fold</text><text x="186" y="222">fold</text><text x="232" y="222">fold</text>
+<text x="278" y="222">raise</text><text x="324" y="222">call</text><text x="370" y="222">flop</text><text x="416" y="222">bet</text>
+<text x="462" y="222">call</text><text x="508" y="222">turn</text><text x="554" y="222">check</text><text x="600" y="222">bet</text>
+<text x="646" y="222">call</text><text x="692" y="222">river</text><text x="738" y="222">bet</text><text x="784" y="222">all-in</text>
+<text x="830" y="222">fold</text>
+</g>
+<g font-size="11" fill="#93a39a" text-anchor="middle">
+<text x="140" y="238">David</text><text x="186" y="238">Ping</text><text x="232" y="238">Andreas</text>
+<text x="278" y="238">Ian</text><text x="324" y="238">Joe</text><text x="416" y="238">Ian</text><text x="462" y="238">Joe</text>
+<text x="554" y="238">Ian</text><text x="600" y="238">Joe</text><text x="646" y="238">Ian</text><text x="738" y="238">Ian</text>
+<text x="784" y="238">Joe</text><text x="830" y="238">Ian</text>
+</g>
+<text x="18" y="125" font-size="11" fill="#93a39a" text-anchor="middle" transform="rotate(-90 18 125)">later than by eye</text>
+</svg>
+</div>
+<div class="checks">
+<div><span class="ok">✓</span>Stakes 30,000 / 60,000, ante 10,000</div>
+<div><span class="ok">✓</span>Button on seat 5 (Andreas), 5 players</div>
+<div><span class="ok">✓</span>Ian, the hero: <span class="cd">K♠</span> <span class="cd d">K♦</span></div>
+<div><span class="ok">✓</span>Joe: <span class="cd c">Q♣</span> <span class="cd d">10♦</span></div>
+<div><span class="ok">✓</span>David: <span class="cd">6♠</span> <span class="cd h">K♥</span></div>
+<div><span class="ok">✓</span>Ping: <span class="cd h">9♥</span> <span class="cd">Q♠</span></div>
+<div><span class="ok">✓</span>Andreas: <span class="cd h">10♥</span> <span class="cd c">6♣</span></div>
+<div><span class="ok">✓</span>Result: Joe +1,520,000, Ian −1,490,000</div>
+</div>
+
+<h2>Fixed after review: the end of the video</h2>
+<div class="muted small">The reader stopped at the last keyframe, so the last few seconds were never read. A test cuts the clip just after Joe's all-in, which then falls in that blind spot.</div>
+<div class="chart" style="margin-top:6px">
+<svg viewBox="0 0 900 196" role="img" aria-label="Clip cut at 3:38.9. Before the fix the reader stopped at the last keyframe, 3:33.6, and missed the all-in at 3:35. After the fix it reads to the end and finds the all-in 0.6 s off.">
+<g font-size="14" fill="#e8efe9">
+<text x="10" y="64">Before</text>
+<text x="10" y="124">After</text>
+</g>
+<g stroke="#93a39a" stroke-dasharray="4 5" stroke-width="1.5">
+<line x1="213.1" y1="34" x2="213.1" y2="150"/>
+<line x1="433.4" y1="34" x2="433.4" y2="150"/>
+</g>
+<line x1="652.5" y1="34" x2="652.5" y2="150" stroke="#e8efe9" stroke-width="2"/>
+<g font-size="12" fill="#93a39a" text-anchor="middle">
+<text x="213.1" y="26">keyframe</text>
+<text x="433.4" y="26">last keyframe</text>
+</g>
+<text x="652.5" y="26" font-size="12" fill="#e8efe9" text-anchor="middle">clip ends</text>
+<rect x="80" y="46" width="353.4" height="26" rx="3" fill="#6aa7f0"/>
+<rect x="433.4" y="46" width="219.1" height="26" fill="#7a3d3d"/>
+<text x="590" y="64" font-size="13" fill="#ffffff" text-anchor="middle">never read</text>
+<rect x="80" y="106" width="572.5" height="26" rx="3" fill="#6aa7f0"/>
+<rect x="433.4" y="106" width="219.1" height="26" fill="#4cc38a"/>
+<text x="590" y="124" font-size="13" fill="#0f1412" font-weight="700" text-anchor="middle">now read</text>
+<line x1="493.3" y1="40" x2="493.3" y2="78" stroke="#f2b84b" stroke-width="3"/>
+<line x1="493.3" y1="100" x2="493.3" y2="138" stroke="#f2b84b" stroke-width="3"/>
+<text x="666" y="64" font-size="13" fill="#f06a6a" font-weight="700">all-in missed</text>
+<circle cx="518.1" cy="119" r="7" fill="#f2b84b" stroke="#0f1412" stroke-width="2"/>
+<text x="666" y="124" font-size="13" fill="#4cc38a" font-weight="700">all-in found, 0.6 s off</text>
+<g font-size="11" fill="#93a39a" text-anchor="middle">
+<line x1="80" y1="152" x2="700" y2="152" stroke="#2b3832"/>
+<text x="80" y="168">3:25</text><text x="286.7" y="168">3:30</text><text x="493.3" y="168">3:35</text><text x="700" y="168">3:40</text>
+</g>
+<text x="493.3" y="188" font-size="11" fill="#f2b84b" text-anchor="middle">Joe's all-in, by eye</text>
+</svg>
+</div>
+<div class="muted small" style="margin-top:6px">The test fails on the old code and passes now. In the full video the unread part was the last 4.3 s
+(104 pictures), after the hand was over, so the full result did not change: still 26 of 27. Reading it costs about 0.01 s.</div>
+
+<h2>Cost per hand</h2>
+<div class="chart">
+<svg viewBox="0 0 900 276" role="img" aria-label="Goal 0.10 dollars; fresh start on Windows 0.0009; reader running on Windows 0.0004; reader running at the Linux price 0.0002; machine left on between 7.5-minute clips: Windows 0.18, Linux price 0.09">
+<g font-size="14" fill="#e8efe9">
+<text x="10" y="39">Goal</text>
+<text x="10" y="89">Fresh start, Windows</text>
+<text x="10" y="129">Already running, Windows</text>
+<text x="10" y="169">Already running, Linux price</text>
+<text x="10" y="209">Left on between clips, Windows</text>
+<text x="10" y="249">Left on between clips, Linux</text>
+</g>
+<rect x="230" y="20" width="560" height="28" rx="4" fill="none" stroke="#f2b84b" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="778" y="39" font-size="14" fill="#f2b84b" font-weight="700" text-anchor="end">$0.10</text>
+<rect x="230" y="70" width="5" height="28" fill="#4cc38a"/>
+<rect x="230" y="110" width="2.2" height="28" fill="#4cc38a"/>
+<rect x="230" y="150" width="1.5" height="28" fill="#4cc38a"/>
+<g font-size="14" fill="#e8efe9">
+<text x="246" y="89"><tspan font-weight="700">$0.0009</tspan><tspan fill="#93a39a">  113 times under</tspan></text>
+<text x="246" y="129"><tspan font-weight="700">$0.0004</tspan><tspan fill="#93a39a">  254 times under</tspan></text>
+<text x="246" y="169"><tspan font-weight="700">$0.0002</tspan><tspan fill="#93a39a">  526 times under</tspan></text>
+</g>
+<rect x="230" y="190" width="660" height="28" fill="#7a3d3d"/>
+<text x="246" y="209" font-size="14" fill="#ffffff"><tspan font-weight="700">$0.18</tspan>  1.8 times the goal: the waiting between clips is paid too  →</text>
+<rect x="230" y="230" width="481.6" height="28" fill="#f2b84b" fill-opacity=".35"/>
+<text x="246" y="249" font-size="14" fill="#e8efe9"><tspan font-weight="700">$0.09</tspan><tspan fill="#93a39a">  just under</tspan></text>
+</svg>
+</div>
+<div class="muted small" style="margin-top:6px">Back to back means one hand after another with no wait between, such as a pile of recordings.
+A machine kept on to wait for the next 7.5-minute clip pays for the wait too. Price: the Azure list price for this exact machine (Standard_D16as_v5, AMD EPYC 7763,
+8 cores, West US 3, pay as you go), read today from the Azure retail price API. It costs $1.424 an hour with Windows and $0.688 with Linux.
+I count the whole machine for the length of each read, although a read keeps only 10 of its 16 threads busy.</div>
+
+<h2>Watch out</h2>
+<div class="note warn">
+<ol class="watch">
+<li><b>Under 1 s only when the reader is already running</b>: a server, or one command reading many videos. A fresh
+start takes 2.3 s, and starting Python and loading its libraries take 1.0 s of that.</li>
+<li><b>No margin left.</b> Two runs gave medians of 0.994 s and 1.003 s. The old code gave 0.988 s and 1.005 s the
+same day, so reading the end costs about 0.01 s and the shared machine moves the rest. Single reads took up to 1.12 s.</li>
+<li><b>Cheap only when hands are read back to back.</b> A machine kept on to wait for the next 7.5-minute clip pays for
+the wait: $0.18 a hand with Windows, over the goal, and $0.09 at the Linux price.</li>
+<li><b>Tuned and graded on one hand.</b> The rules were tuned on this clip and checked on the same clip. A second hand
+would show whether they hold. My answer key's times are good to 1 to 3 s, and its seat numbers and button are inferred.</li>
+<li><b>A read that misses things still ends normally.</b> Gaps are printed as comment lines, but the command does not fail.</li>
+<li><b>The hero is a guess:</b> the player who acted last. Right here (Ian), not checked on other hands.</li>
+<li><b>Decoding the video is the floor.</b> It takes 0.85 s of the second. This machine has no graphics card, so the
+CPU does all the decoding.</li>
+<li><b>Only this broadcast's graphics.</b> The box positions fit World Poker Tour season 16 at 1280×720, one hand per video.</li>
+<li><b>Stacks are minimums.</b> The graphics never show stacks, so the reader knows a stack exactly only when an all-in shows it.</li>
+</ol>
+</div>
+
+<div class="foot muted">
+<div>Run it: <code>poker-memory read VIDEO</code> (install the <code>vision</code> extra first)</div>
+<div>Check it: <code>python scripts\check_fast_read.py examples\real\wpt_rolling_thunder.yaml</code></div>
+<div>Time it: <code>python scripts\bench_fast_read.py VIDEO</code></div>
+<div>Every decision, with its evidence: <code>.audit/fast-reader.tsv</code> (76 entries)</div>
+</div>
+</main></body>
+</html>

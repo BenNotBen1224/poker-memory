@@ -1,0 +1,33 @@
+
+PASS  no voice clips overlap: none
+PASS  no voice clip crosses the reveal: none
+PASS  no spoiler words in source clips: none
+PASS  no spoiler words heard before reveal: none
+PASS  no commentator names heard: none
+PASS  loudness: {'lufs': np.float64(-14.13), 'true_peak_dbtp': np.float64(-1.2), 'sample_peak_dbfs': np.float32(-2.0)}
+PASS  captions on time: all within 0.2s
+
+captions (clip, start, median offset s, ctc-only, max |offset|, text match):
+  hook        0.15     0.01    0.01   0.15  1.00  heard: This is unreal that he's considering getting away from this.
+  cowboys     5.20     0.01   0.015   0.01  1.00  heard: Couple of cowboys here for Ian.
+  atleast     8.55     0.01    0.01   0.05  1.00  heard: Joe is going to at least call.
+  farbest    11.04      0.0    0.01   0.01  1.00  heard: Ian's hand far and away the best still.
+  hate       13.86    -0.01   -0.01   0.16  1.00  heard: You just hate to lay down kings.
+  bet        19.63    0.005    0.01   0.01  1.00  heard: 800 ,000 is the bet, 2 .2 million already in the center.
+  wow        27.56      0.0    0.01   0.05  1.00  heard: Yes, wow. Yeah, wow indeed.
+  stacks     31.19   -0.005    0.02   0.01  1.00  heard: Two biggest stacks at the table.
+  tank_hf    36.15   -0.005    0.01   0.21  1.00  heard: I would have high fived people and called already.
+  tank_nw    39.51      0.0    0.01   0.03  1.00  heard: There's no way he gets away from this, right?
+  tank_30    42.85     0.01    0.02   0.17  1.00  heard: I guess I can't wait 30 minutes to find out before I make a decision.
+  tank_kd    47.43     0.01    0.01   0.05  0.76  heard: I'm just gonna keep using this until my hand's killed.
+  beating    50.65      0.0    0.01   0.22  0.78  heard: Why is he beating himself? He folded. Oh my god!
+  whatis     53.65    0.025    0.05   0.09  1.00  heard: What is that? That is unbelievable.
+  camo       63.59     0.01    0.01   0.13  0.92  heard: Yeah, Joe's hand was perfectly camouflaged. How
+  figure     66.81     0.01    0.01   0.09  1.00  heard: How did he figure that out?
+  icant      76.60    -0.02    0.01   0.06  0.86  heard: can't, I can't.
+
+large-v3, clip by clip:
+  tank_30   I(0.58) guess(0.97) I(0.64) can't(0.99) wait(1.00) 30(0.85) minutes(0.99) to(0.96) find(0.95) out(1.00) before(0.68) I(0.91) make(0.84) my(0.28) decision.(0.50)
+  beating   Why(0.53) is(0.99) he(0.99) beating(0.99) himself(1.00) up?(0.85) He(0.75) folded.(0.87) Oh,(0.80) my(1.00) God.(0.78)
+  icant     I(0.69) can't,(0.98) I(0.98) can't.(1.00)
+

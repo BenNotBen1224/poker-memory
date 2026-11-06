@@ -1,0 +1,7 @@
+
+large-v3 on decoded audio of steinman-fold-tiktok.mp4 sha256=936bfb51498aad8149405ee3f3dae970bdc3184a413dbf895cb167a110dd8bb0
+decoded final mp4 audio: 78.72s
+  beating  Why(0.54) is(0.99) he(0.99) beating(0.99) himself(1.00) up?(0.88) He(0.77) folded.(0.85) Oh,(0.84) my(1.00) God.(0.81)
+  whatis   What(0.43) is(0.98) that?(0.92) That(0.83) is(0.99) unbelievable.(0.93)
+  tank_30  I(0.55) guess(0.97) I(0.60) can't(0.99) wait(1.00) 30(0.88) minutes(0.99) to(0.96) find(0.98) out(1.00) before(0.64) I(0.91) make(0.82) my(0.37) decision.(0.58)
+

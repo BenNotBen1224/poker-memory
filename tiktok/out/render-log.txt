@@ -1,0 +1,20 @@
+
+mix: {'limiter': {'max_gr_db': 7.48, 'pct_time_gr_over_1db': np.float64(2.93), 'pct_time_gr_over_3db': np.float64(1.22), 'gr_over_4db_at_s': [15.3, 15.4, 26.1, 26.3, 26.4, 26.5, 29.8, 30.1, 37.6, 37.7, 37.9, 47.0, 47.1, 61.7, 61.8, 61.9, 62.0, 62.1, 62.2, 62.3]}, 'lufs': -14.13, 'true_peak_dbtp': np.float64(-1.2), 'ceiling_db': -2.0, 'master_gain_db': 7.28, 'sample_peak': 0.7943, 'samples': 3778560, 'end_sample': 3777774, 'cues': 91, 'seconds': 8.1}
+  frame 120/1887  6.9 fps  eta 254s
+  frame 240/1887  7.0 fps  eta 236s
+  frame 360/1887  7.1 fps  eta 217s
+  frame 480/1887  7.2 fps  eta 197s
+  frame 600/1887  7.2 fps  eta 178s
+  frame 720/1887  7.2 fps  eta 161s
+  frame 840/1887  7.3 fps  eta 144s
+  frame 960/1887  7.3 fps  eta 127s
+  frame 1080/1887  7.4 fps  eta 109s
+  frame 1200/1887  7.4 fps  eta 93s
+  frame 1320/1887  7.4 fps  eta 77s
+  frame 1440/1887  7.4 fps  eta 61s
+  frame 1560/1887  7.5 fps  eta 44s
+  frame 1680/1887  7.5 fps  eta 27s
+  frame 1800/1887  7.7 fps  eta 11s
+  frame 1887/1887  7.7 fps  eta 0s
+wrote out\steinman-fold-tiktok.mp4  (30.1 MB, 246s, seeks 32)
+
